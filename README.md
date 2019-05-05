@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Before running the project, please make sure you have the following:
 
 - Node.js LTS version which can be found [here](https://nodejs.org/en/download/). The course is upto date using this version at all times.
-- Below is the help section that can answer some of the common questions you may have.
+- Please refer to the help section below to resolve most common questions.
 
 ## Help
 
@@ -20,10 +20,9 @@ If you do not have the Node.js LTS version on your machine, you can download usi
 1. Please go [here](https://nodejs.org/en/download/) and download the LTS version of Node.js installable file for your operating system.
 
 2. Alternatively, you can use Node Version Manager (`nvm`) to install LTS version of Node.js in case
- you do not want to delete the existing Node.js version on your machine.<br>
- `NVM` allows you to use multiple Node versions on your machine and it would prevent disrupting other 
- projects you may be running with different `Node.js` versions.<br> 
- Please refer below on how to install Node using NVM.
+ you do not want to delete the existing Node version on your machine.<br>
+ `NVM` allows you to use multiple Node versions on your machine and prevent disrupting other 
+ projects you may be running with different `Node` versions.<br>
  
 ##### How do I use nvm to install Node.js ?
 Click on [this link](https://github.com/nvm-sh/nvm) and follow the instructions provided in their README.md file 
