@@ -13,7 +13,7 @@ Yes, feel free to use your own IDE for the course.
 
 ##### How do I check my Node version ?
 To check your current Node.js version, open your terminal and type the command below to see your current Node.js version.
-###`node -v`
+######`node -v`
 
 ##### How do I install Node.js LTS version on my machine ?
 If you do not have the Node.js LTS version on your machine, you can download using either of the following:
@@ -34,7 +34,7 @@ No matter what approach you use to install Node.js, npm will always come with it
 
 ##### How do I check my npm version ?
 Open your terminal and type the command below to get your npm version.
-###`npm -v`
+######`npm -v`
 
 
 ##### What version of npm comes with LTS version of Node.js ?
@@ -42,27 +42,23 @@ Click on [this click](https://nodejs.org/en/download/) and the `npm` version sho
 You must ensure that the npm version and node version should match with what is mentioned on this official page.
 
 
+## Module1: Instructions
+
+### Git branch
+In the project directory, checkout the branch below:
+######`git checkout m1_initial_setup`
+
 ### Install Dependencies
 In the project directory, run the below command to install dependencies.
-### `npm install`
+###### `npm install`
 
 
 ### Start Application
 In the project directory, run this command to start the project.
-###`npm start`
+######`npm start`
 
 
 ### Run Application In Browser
 To run the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits and you will also see any lint errors in the console.
-
-
-### Create Production Build For Deployment
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
