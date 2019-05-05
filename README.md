@@ -62,3 +62,10 @@ In the project directory, run this command to start the project.
 To run the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits and you will also see any lint errors in the console.
+
+
+## Module2: Instructions
+
+### Build Stratafly Header
+In the project directory, checkout the branch below:
+######`git checkout m2_flight_search_form_01`
