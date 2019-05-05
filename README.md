@@ -67,5 +67,6 @@ The page will reload if you make edits and you will also see any lint errors in 
 ## Module2: Instructions
 
 ### Build Stratafly Header
-In the project directory, checkout the branch below:
+In the project directory, discard any changes you made and checkout the branch below:
+######`git reset --hard`
 ######`git checkout m2_flight_search_form_01`
