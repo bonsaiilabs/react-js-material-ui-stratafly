@@ -26,10 +26,7 @@ const styles = theme => ({
     background: theme.palette.primary[700],
     paddingTop: theme.spacing.unit * 8
   },
-  form: {
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2
-  }
+  form: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2 }
 });
 
 export default withStyles(styles)(SearchForm);
