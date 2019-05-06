@@ -84,3 +84,8 @@ In the project directory, discard any changes you made and checkout the branch b
 
 ### Material Ui Grid
 Example of Material UI Grid on CodeSandbox (https://codesandbox.io/s/ppqw5yyy47) 
+
+### Official Resources   
+- Here is the documentation of withStyles API: (https://material-ui.com/customization/css-in-js/#api)
+- Material Grid API is available here: (https://material-ui.com/api/grid/)
+
