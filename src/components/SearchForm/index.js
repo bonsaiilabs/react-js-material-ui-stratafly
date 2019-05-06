@@ -6,7 +6,6 @@ import withStyles from '@material-ui/core/styles/withStyles';
 
 function Form(props) {
   const { classes, selectedRadio, onChangeRadio, onClickTraveller, totalTravellers } = props;
-
   return (
     <Grid container direction="row" className={classes.root}>
       <Grid item xs={12} className={classes.form}>
