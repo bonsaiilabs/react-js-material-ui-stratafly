@@ -44,6 +44,11 @@ You must ensure that the npm version and node version should match with what is 
 ##### How do I open Chrome Browser in Mobile View ?
 - To open Chrome in Mobile view mode using Mac, press `Command+Option+i`
 
+##### How do I run Application In Browser ?
+To run the app in the development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The page will reload if you make edits and you will also see any lint errors in the console.
+
 
 
 ## Module1: Instructions
@@ -60,9 +65,3 @@ In the project directory, run the below command to install dependencies.
 ### Start Application
 In the project directory, run this command to start the project.
 ######`npm start`
-
-
-### Run Application In Browser
-To run the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-The page will reload if you make edits and you will also see any lint errors in the console.
