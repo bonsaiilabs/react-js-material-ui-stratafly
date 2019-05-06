@@ -66,6 +66,12 @@ The page will reload if you make edits and you will also see any lint errors in 
 
 ## Module2: Instructions
 
+### Higher Order Component
+Example of Higher Order Component and CSS-in-JS on CodeSandbox (https://codesandbox.io/s/9lwyjl0m84)
+
+### CSS In JS And Material UI Styling
+Example of CSS In JS and Material Ui Styling on CodeSandbox (https://codesandbox.io/s/jz5py8ll5w)
+
 ### Build Stratafly Header
 In the project directory, discard any changes you made and checkout the branch below:
 ######`git reset --hard`
@@ -75,3 +81,6 @@ In the project directory, discard any changes you made and checkout the branch b
 In the project directory, discard any changes you made and checkout the branch below:
 ######`git reset --hard`
 ######`git checkout m2_flight_search_form_02`
+
+### Material Ui Grid
+Example of Material UI Grid on CodeSandbox (https://codesandbox.io/s/ppqw5yyy47) 
