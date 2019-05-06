@@ -36,8 +36,7 @@ const styles = theme => ({
       color: theme.palette.common.white
     }
   },
-  checked: {},
-  label: { color: theme.palette.common.white }
+  checked: {}
 });
 
 export default withStyles(styles)(TripType);
