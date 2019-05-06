@@ -85,7 +85,7 @@ In the project directory, run this command to start the project.
 ######`git reset --hard`
 ######`git checkout m2_flight_search_form_02`
 
-#### Material Ui Grid
+#### Material-UI Grid
 - Example of Material UI Grid on CodeSandbox (https://codesandbox.io/s/ppqw5yyy47) 
 
 #### Official Resources   
