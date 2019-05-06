@@ -19,7 +19,8 @@ const styles = {
 };
 
 const AppHeader = props => {
-  const { classes } = props;
+  const { classes, theme } = props;
+  console.log({ theme });
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
@@ -43,4 +44,4 @@ AppHeader.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(AppHeader);
+export default withStyles(styles, {withTheme: true})(AppHeader);
