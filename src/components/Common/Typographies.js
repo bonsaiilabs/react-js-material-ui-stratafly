@@ -9,11 +9,3 @@ export const Subtitle1White = ({ children }) => {
         </Typography>
     );
 };
-
-export const Subtitle2White = ({ children }) => {
-  return (
-    <Typography variant={'subtitle2'} color='textPrimary'>
-      {children}
-    </Typography>
-  );
-};
