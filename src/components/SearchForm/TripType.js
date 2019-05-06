@@ -4,7 +4,7 @@ import Radio from '@material-ui/core/Radio';
 import { FormControl, RadioGroup } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
-import { trip } from '../Shared/app-constants';
+import { trip } from '../../Shared/app-constants';
 
 const TripType = props => {
   const { classes, selectedRadio, onChangeRadio } = props;
