@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import TripType from './TripType';
-import { Traveller } from './Traveller';
+import Traveller from './Traveller';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 function Form(props) {

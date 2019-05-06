@@ -5,13 +5,13 @@ import TravellerIcon from '@material-ui/icons/PersonOutlined';
 import Grid from '@material-ui/core/Grid';
 import {Subtitle1White} from "../Common/Typographies";
 
-const TravellerIconAndCount = props => {
+const Traveller = props => {
   const { classes, onClickTraveller, totalTravellers } = props;
   return (
     <Grid container alignItems="center" className={classes.root} onClick={onClickTraveller}>
       <Grid item>
         <IconButton color="inherit" aria-label="Traveller">
-          <TravellerIcon className={classes.iconLeft} />
+          <TravellerIcon className={classes.iconLeft}/>
           <Subtitle1White>{totalTravellers}</Subtitle1White>
         </IconButton>
       </Grid>
@@ -24,4 +24,4 @@ const styles = theme => ({
   iconLeft: { color: theme.palette.common.white },
 });
 
-export const Traveller = withStyles(styles)(TravellerIconAndCount);
+export default withStyles(styles)(Traveller);
