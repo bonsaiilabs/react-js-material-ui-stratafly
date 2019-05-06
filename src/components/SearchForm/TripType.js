@@ -6,8 +6,10 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import { trip } from '../Shared/app-constants';
 
-const TripType = (props) => {
+const TripType = props => {
   const { classes, selectedRadio, onChangeRadio } = props;
+  let isOne = selectedRadio === 'one-way';
+  let isRound = selectedRadio === 'round-trip';
   return (
     <FormControl component="fieldset">
       <RadioGroup value={selectedRadio} onChange={onChangeRadio} row>
@@ -18,12 +20,7 @@ const TripType = (props) => {
               {trip.roundTrip}
             </Typography>
           }
-          control={
-            <Radio
-              checked={selectedRadio === 'round-trip'}
-              classes={{ root: classes.root, checked: classes.checked }}
-            />
-          }
+          control={<Radio checked={isRound} classes={{ root: classes.root, checked: classes.checked }} />}
         />
 
         <FormControlLabel
@@ -33,23 +30,21 @@ const TripType = (props) => {
               {trip.oneWay}
             </Typography>
           }
-          control={
-            <Radio checked={selectedRadio === 'one-way'} classes={{ root: classes.root, checked: classes.checked }} />
-          }
+          control={<Radio checked={isOne} classes={{ root: classes.root, checked: classes.checked }} />}
         />
       </RadioGroup>
     </FormControl>
   );
-}
+};
 
 const styles = theme => ({
   root: {
-    color: theme.palette.common.white, //overriding theme color otherwise it takes
+    color: theme.palette.common.white,
     '&$checked': {
       color: theme.palette.common.white
     }
   },
-  checked: {}, // Don't apply any styles when radio button is checked. Secondary color applied by default
+  checked: {},
   label: { color: theme.palette.common.white }
 });
 
