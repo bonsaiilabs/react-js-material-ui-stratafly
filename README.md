@@ -86,7 +86,13 @@ In the project directory, run this command to start the project.
 ######`git checkout m2_flight_search_form_02`
 
 #### Material-UI Grid
-- Example of Material UI Grid on CodeSandbox (https://codesandbox.io/s/ppqw5yyy47) 
+- Example of Material UI Grid on CodeSandbox (https://codesandbox.io/s/ppqw5yyy47)
+
+#### Radio Buttons And Material Icons
+- In the project directory, discard any changes you made and checkout the branch below:
+######`git reset --hard`
+######`git checkout m2_flight_search_form_03`
+
 
 #### Official Resources   
 - Here is the documentation of withStyles API: (https://material-ui.com/customization/css-in-js/#api)
