@@ -41,6 +41,10 @@ Open your terminal and type the command below to get your npm version.
 Click on [this click](https://nodejs.org/en/download/) and the `npm` version should be mentioned under the title _**Downloads**_. 
 You must ensure that the npm version and node version should match with what is mentioned on this official page.
 
+##### How do I open Chrome Browser in Mobile View ?
+- To open Chrome in Mobile view mode using Mac, press `Command+Option+i`
+
+
 
 ## Module1: Instructions
 
