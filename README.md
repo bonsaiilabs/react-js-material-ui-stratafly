@@ -44,51 +44,51 @@ You must ensure that the npm version and node version should match with what is 
 ##### How do I open Chrome Browser in Mobile View ?
 - To open Chrome in Mobile view mode using Mac, press `Command+Option+i`
 
-
-## Module1: Instructions
-
-### Git branch
-In the project directory, checkout the branch below:
-######`git checkout m1_initial_setup`
-
-### Install Dependencies
-In the project directory, run the below command to install dependencies.
-###### `npm install`
-
-
-### Start Application
-In the project directory, run this command to start the project.
-######`npm start`
-
-
-### Run Application In Browser
+##### How do I run Application In Browser?
 To run the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits and you will also see any lint errors in the console.
 
 
+
+## Module1: Instructions
+
+#### Git branch
+In the project directory, checkout the branch below:
+######`git checkout m1_initial_setup`
+
+#### Install Dependencies
+In the project directory, run the below command to install dependencies.
+###### `npm install`
+
+
+#### Start Application
+In the project directory, run this command to start the project.
+######`npm start`
+
+
 ## Module2: Instructions
 
-### Higher Order Component
-Example of Higher Order Component and CSS-in-JS on CodeSandbox (https://codesandbox.io/s/9lwyjl0m84)
+#### Higher Order Component
+- Example of Higher Order Component and CSS-in-JS on CodeSandbox (https://codesandbox.io/s/9lwyjl0m84)
 
-### CSS In JS And Material UI Styling
-Example of CSS In JS and Material Ui Styling on CodeSandbox (https://codesandbox.io/s/jz5py8ll5w)
+#### CSS In JS And Material UI Styling
+- Example of CSS In JS and Material Ui Styling on CodeSandbox (https://codesandbox.io/s/jz5py8ll5w)
 
-### Build Stratafly Header
-In the project directory, discard any changes you made and checkout the branch below:
+#### Build Stratafly Header
+- In the project directory, discard any changes you made and checkout the branch below:
 ######`git reset --hard`
 ######`git checkout m2_flight_search_form_01`
 
-### Setting Up Theme And Fonts
-In the project directory, discard any changes you made and checkout the branch below:
+#### Setting Up Theme And Fonts
+- In the project directory, discard any changes you made and checkout the branch below:
 ######`git reset --hard`
 ######`git checkout m2_flight_search_form_02`
 
-### Material Ui Grid
-Example of Material UI Grid on CodeSandbox (https://codesandbox.io/s/ppqw5yyy47) 
+#### Material Ui Grid
+- Example of Material UI Grid on CodeSandbox (https://codesandbox.io/s/ppqw5yyy47) 
 
-### Official Resources   
+#### Official Resources   
 - Here is the documentation of withStyles API: (https://material-ui.com/customization/css-in-js/#api)
 - Material Grid API is available here: (https://material-ui.com/api/grid/)
 
