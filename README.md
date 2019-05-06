@@ -94,6 +94,13 @@ In the project directory, run this command to start the project.
 ######`git checkout m2_flight_search_form_03`
 
 
+#### Adding Text Fields
+- In the project directory, discard any changes you made and checkout the branch below:
+######`git reset --hard`
+######`git checkout m2_flight_search_form_04`
+
+
+
 #### Official Resources   
 - Here is the documentation of withStyles API: (https://material-ui.com/customization/css-in-js/#api)
 - Material Grid API is available here: (https://material-ui.com/api/grid/)
