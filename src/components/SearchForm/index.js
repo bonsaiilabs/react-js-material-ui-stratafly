@@ -3,6 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { TripLocation } from './TripLocation';
 import { TripTypeAndTraveller } from './TripTypeAndTraveller';
+import { OneWayDate, RoundTripDates } from './TripDates';
+import DateIcon from '@material-ui/icons/EventOutlined';
 
 const SearchForm = props => {
   const {
@@ -14,7 +16,11 @@ const SearchForm = props => {
     fromLocation,
     onChangeFromLocation,
     toLocation,
-    onChangeToLocation
+    onChangeToLocation,
+    fromDate,
+    toDate,
+    onFromDateChange,
+    onToDateChange
   } = props;
   return (
     <Grid container className={classes.root}>
@@ -26,7 +32,6 @@ const SearchForm = props => {
           totalTravellers={totalTravellers}
         />
       </Grid>
-
       <Grid item xs={12} className={classes.location}>
         <TripLocation
           location={fromLocation}
@@ -35,7 +40,6 @@ const SearchForm = props => {
           placeholder={'From'}
         />
       </Grid>
-
       <Grid item xs={12} className={classes.location}>
         <TripLocation
           location={toLocation}
@@ -44,6 +48,27 @@ const SearchForm = props => {
           placeholder={'To'}
         />
       </Grid>
+      {selectedRadio === 'one-way' && (
+        <Grid item xs={12} className={classes.location}>
+          <OneWayDate
+            fromDate={fromDate}
+            onFromDateChange={onFromDateChange}
+            icon={<DateIcon className={classes.icon} />}
+          />
+        </Grid>
+      )}
+
+      {selectedRadio === 'round-trip' && (
+        <Grid item xs={12} className={classes.location}>
+          <RoundTripDates
+            fromDate={fromDate}
+            toDate={toDate}
+            onFromDateChange={onFromDateChange}
+            onToDateChange={onToDateChange}
+            icon={<DateIcon className={classes.icon} />}
+          />
+        </Grid>
+      )}
     </Grid>
   );
 };
@@ -55,7 +80,11 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit * 8
   },
   form: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2 },
-  location: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2, paddingBottom: theme.spacing.unit * 2 }
+  location: {
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2
+  }
 });
 
 export default withStyles(styles)(SearchForm);

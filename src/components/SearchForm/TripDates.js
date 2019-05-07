@@ -1,6 +1,6 @@
-import { CustomInputBase } from '../common/CustomInputBase';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import CustomInputBase from "../Common/CustomInputBase";
 
 export const RoundTripDates = ({ classes, onFromDateChange, onToDateChange, fromDate, toDate, icon }) => {
   return (
@@ -15,7 +15,7 @@ export const RoundTripDates = ({ classes, onFromDateChange, onToDateChange, from
   );
 };
 
-export const OneWayDate = ({ onFromDateChange, fromDate, icon }) => {
+export const OneWayDate = ({ fromDate, onFromDateChange, icon }) => {
   return (
     <Grid container>
       <Grid item xs={12}>

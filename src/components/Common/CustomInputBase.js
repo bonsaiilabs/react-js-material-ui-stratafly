@@ -3,7 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import InputBase from '@material-ui/core/InputBase';
 
-function CustomInputBase({ classes, onChange, value, placeholder, icon, type }) {
+const CustomInputBase = ({ classes, onChange, value, placeholder, icon, type }) => {
   let placeholderField = type === 'date' ? 'Date' : placeholder;
   return (
     <InputBase
