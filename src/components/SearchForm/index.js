@@ -1,19 +1,47 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import TripType from './TripType';
-import Traveller from './Traveller';
 import withStyles from '@material-ui/core/styles/withStyles';
+import { TripLocation } from './TripLocation';
+import { TripTypeAndTraveller } from './TripTypeAndTraveller';
 
 const SearchForm = props => {
-  const { classes, selectedRadio, onChangeRadio, onClickTraveller, totalTravellers } = props;
+  const {
+    classes,
+    selectedRadio,
+    onChangeRadio,
+    onClickTraveller,
+    totalTravellers,
+    fromLocation,
+    onChangeFromLocation,
+    toLocation,
+    onChangeToLocation
+  } = props;
   return (
-    <Grid container direction="row" className={classes.root}>
+    <Grid container className={classes.root}>
       <Grid item xs={12} className={classes.form}>
         <TripTypeAndTraveller
           selectedRadio={selectedRadio}
           onChangeRadio={onChangeRadio}
           onClickTraveller={onClickTraveller}
           totalTravellers={totalTravellers}
+        />
+      </Grid>
+
+      <Grid item xs={12} sm={12} md={6} lg={6} className={classes.location}>
+        <TripLocation
+          location={fromLocation}
+          onChangeLocation={onChangeFromLocation}
+          classes={classes}
+          placeholder={'From'}
+        />
+      </Grid>
+
+      <Grid item xs={12} sm={12} md={6} lg={6} className={classes.location}>
+        <TripLocation
+          location={toLocation}
+          onChangeLocation={onChangeToLocation}
+          classes={classes}
+          placeholder={'To'}
         />
       </Grid>
     </Grid>
@@ -26,22 +54,8 @@ const styles = theme => ({
     background: theme.palette.primary[700],
     paddingTop: theme.spacing.unit * 8
   },
-  form: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2 }
+  form: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2 },
+  location: { padding: theme.spacing.unit }
 });
 
 export default withStyles(styles)(SearchForm);
-
-const TripTypeAndTraveller = props => {
-  const { selectedRadio, onChangeRadio, onClickTraveller, totalTravellers } = props;
-  return (
-    <Grid container spacing={8}>
-      <Grid item xs={9}>
-        <TripType selectedRadio={selectedRadio} onChangeRadio={onChangeRadio} />
-      </Grid>
-
-      <Grid item xs={3}>
-        <Traveller onClickTraveller={onClickTraveller} totalTravellers={totalTravellers} />
-      </Grid>
-    </Grid>
-  );
-};
