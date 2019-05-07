@@ -27,7 +27,7 @@ const SearchForm = props => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={6} lg={6} className={classes.location}>
+      <Grid item xs={12} className={classes.location}>
         <TripLocation
           location={fromLocation}
           onChangeLocation={onChangeFromLocation}
@@ -36,7 +36,7 @@ const SearchForm = props => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={6} lg={6} className={classes.location}>
+      <Grid item xs={12} className={classes.location}>
         <TripLocation
           location={toLocation}
           onChangeLocation={onChangeToLocation}
@@ -55,7 +55,7 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit * 8
   },
   form: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2 },
-  location: { padding: theme.spacing.unit }
+  location: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2, paddingBottom: theme.spacing.unit * 2 }
 });
 
 export default withStyles(styles)(SearchForm);

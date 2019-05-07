@@ -1,4 +1,4 @@
-import Grid from './index';
+import Grid from '@material-ui/core/Grid';
 import React from 'react';
 import CustomInputBase from '../Common/CustomInputBase';
 import LocationIcon from '@material-ui/icons/LocationOnOutlined';
