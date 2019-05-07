@@ -24,7 +24,7 @@ const SearchForm = props => {
   } = props;
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={12} className={classes.form}>
+      <Grid item xs={12} className={classes.tripType}>
         <TripTypeAndTraveller
           selectedRadio={selectedRadio}
           onChangeRadio={onChangeRadio}
@@ -32,7 +32,7 @@ const SearchForm = props => {
           totalTravellers={totalTravellers}
         />
       </Grid>
-      <Grid item xs={12} className={classes.location}>
+      <Grid item xs={12} className={classes.textFields}>
         <TripLocation
           location={fromLocation}
           onChangeLocation={onChangeFromLocation}
@@ -40,7 +40,7 @@ const SearchForm = props => {
           placeholder={'From'}
         />
       </Grid>
-      <Grid item xs={12} className={classes.location}>
+      <Grid item xs={12} className={classes.textFields}>
         <TripLocation
           location={toLocation}
           onChangeLocation={onChangeToLocation}
@@ -49,7 +49,7 @@ const SearchForm = props => {
         />
       </Grid>
       {selectedRadio === 'one-way' && (
-        <Grid item xs={12} className={classes.location}>
+        <Grid item xs={12} className={classes.textFields}>
           <OneWayDate
             fromDate={fromDate}
             onFromDateChange={onFromDateChange}
@@ -59,7 +59,7 @@ const SearchForm = props => {
       )}
 
       {selectedRadio === 'round-trip' && (
-        <Grid item xs={12} className={classes.location}>
+        <Grid item xs={12} className={classes.textFields}>
           <RoundTripDates
             fromDate={fromDate}
             toDate={toDate}
@@ -79,8 +79,8 @@ const styles = theme => ({
     background: theme.palette.primary[700],
     paddingTop: theme.spacing.unit * 8
   },
-  form: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2 },
-  location: {
+  tripType: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2 },
+  textFields: {
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2
