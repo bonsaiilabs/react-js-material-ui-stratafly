@@ -4,7 +4,6 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import InputBase from '@material-ui/core/InputBase';
 
 const CustomInputBase = ({ classes, onChange, value, placeholder, icon, type }) => {
-  let placeholderField = type === 'date' ? 'Date' : placeholder;
   return (
     <InputBase
       startAdornment={
@@ -13,26 +12,26 @@ const CustomInputBase = ({ classes, onChange, value, placeholder, icon, type }) 
         </InputAdornment>
       }
       fullWidth={true}
-      placeholder={placeholderField}
+      placeholder={placeholder}
       value={value}
       type={type}
       className={classes.input}
       onChange={event => onChange(event.target.value)}
     />
   );
-}
+};
 
 const styles = theme => ({
-    input: {
-        backgroundColor: theme.palette.primary.main,
-        borderRadius: theme.shape.borderRadius * 2,
-        color: theme.palette.common.white,
-        fontSize: theme.typography.subtitle1.fontSize,
-        fontWeight: theme.typography.subtitle1.fontWeight
-    },
-    icon: {
-        paddingLeft: theme.spacing.unit
-    }
+  input: {
+    backgroundColor: theme.palette.primary.main,
+    borderRadius: theme.shape.borderRadius * 2,
+    color: theme.palette.common.white,
+    fontSize: theme.typography.subtitle1.fontSize,
+    fontWeight: theme.typography.subtitle1.fontWeight
+  },
+  icon: {
+    paddingLeft: theme.spacing.unit
+  }
 });
 
 export default withStyles(styles)(CustomInputBase);
