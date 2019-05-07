@@ -74,8 +74,15 @@ const SearchForm = props => {
 };
 
 const styles = theme => ({
-  root: { flexGrow: 1, background: theme.palette.primary[700], paddingTop: theme.spacing.unit * 8 },
-  tripType: { paddingLeft: theme.spacing.unit * 2, paddingRight: theme.spacing.unit * 2 },
+  root: {
+    flexGrow: 1,
+    background: theme.palette.primary[700],
+    paddingTop: theme.spacing.unit * 8
+  },
+  tripType: {
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2
+  },
   textFields: {
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2,
