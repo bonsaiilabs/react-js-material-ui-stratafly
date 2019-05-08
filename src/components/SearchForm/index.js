@@ -7,7 +7,7 @@ const SearchForm = props => {
   const { classes, selectedRadio, onChangeRadio, onClickTraveller, totalTravellers } = props;
   return (
     <Grid container direction="row" className={classes.root}>
-      <Grid item xs={12} className={classes.form}>
+      <Grid item xs={12} className={classes.tripType}>
         <TripTypeAndTraveller
           selectedRadio={selectedRadio}
           onChangeRadio={onChangeRadio}
@@ -25,7 +25,7 @@ const styles = theme => ({
     background: theme.palette.primary[700],
     paddingTop: theme.spacing.unit * 8
   },
-  form: {
+  tripType: {
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2
   }
