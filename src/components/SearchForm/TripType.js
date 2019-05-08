@@ -3,7 +3,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 import { FormControl, RadioGroup } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { trip } from '../../Shared/app-constants';
+import { trip } from '../../shared/app-constants';
 import { Subtitle1White } from '../Common/Typographies';
 
 const TripType = props => {
