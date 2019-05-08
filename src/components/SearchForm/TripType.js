@@ -8,21 +8,19 @@ import { Subtitle1White } from '../Common/Typographies';
 
 const TripType = props => {
   const { classes, selectedRadio, onChangeRadio } = props;
-  let isOne = selectedRadio === 'one-way';
-  let isRound = selectedRadio === 'round-trip';
+  let isOneWay = selectedRadio === 'one-way';
   return (
     <FormControl component="fieldset">
       <RadioGroup value={selectedRadio} onChange={onChangeRadio} row>
         <FormControlLabel
           value="round-trip"
           label={<Subtitle1White>{trip.roundTrip}</Subtitle1White>}
-          control={<Radio checked={isRound} classes={{ root: classes.root, checked: classes.checked }} />}
+          control={<Radio checked={!isOneWay} classes={{ root: classes.root, checked: classes.checked }} />}
         />
-
         <FormControlLabel
           value="one-way"
           label={<Subtitle1White>{trip.oneWay}</Subtitle1White>}
-          control={<Radio checked={isOne} classes={{ root: classes.root, checked: classes.checked }} />}
+          control={<Radio checked={isOneWay} classes={{ root: classes.root, checked: classes.checked }} />}
         />
       </RadioGroup>
     </FormControl>
