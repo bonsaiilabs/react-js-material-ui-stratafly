@@ -10,7 +10,7 @@ const Traveller = props => {
   return (
     <Grid container alignItems="center" className={classes.root} onClick={onClickTraveller}>
       <Grid item>
-        <IconButton color="inherit" aria-label="Traveller">
+        <IconButton aria-label="Traveller">
           <TravellerIcon className={classes.iconLeft} />
           <Subtitle1White>{totalTravellers}</Subtitle1White>
         </IconButton>
