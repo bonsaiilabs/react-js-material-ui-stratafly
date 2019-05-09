@@ -6,7 +6,7 @@ import { TripTypeAndTraveller } from './TripTypeAndTraveller';
 const SearchForm = props => {
   const { classes, selectedRadio, onChangeRadio, onClickTraveller, totalTravellers } = props;
   return (
-    <Grid container direction="row" className={classes.root}>
+    <Grid container className={classes.root}>
       <Grid item xs={12} className={classes.tripType}>
         <TripTypeAndTraveller
           selectedRadio={selectedRadio}
