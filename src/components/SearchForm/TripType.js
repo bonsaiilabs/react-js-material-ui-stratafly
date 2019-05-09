@@ -27,12 +27,11 @@ const TripType = props => {
 
 const styles = theme => ({
   root: {
-    color: theme.palette.common.white,
     '&$checked': {
-      color: theme.palette.common.white
+      color: theme.palette.text.secondary // Apply this style when checked={false}
     }
   },
-  checked: {}
+  checked: {} // Apply this style when checked={true}
 });
 
 export default withStyles(styles)(TripType);
