@@ -19,6 +19,6 @@ const Traveller = props => {
   );
 };
 
-const styles = theme => ({ iconLeft: { color: theme.palette.common.white } });
+const styles = theme => ({ iconLeft: { color: theme.palette.text.secondary } });
 
 export default withStyles(styles)(Traveller);
