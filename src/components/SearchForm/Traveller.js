@@ -8,9 +8,9 @@ import { Subtitle1White } from '../Common/Typographies';
 const Traveller = props => {
   const { classes, onClickTraveller, totalTravellers } = props;
   return (
-    <Grid container alignItems="center" className={classes.root} onClick={onClickTraveller}>
+    <Grid container alignItems="center">
       <Grid item>
-        <IconButton aria-label="Traveller">
+        <IconButton aria-label="Traveller" onClick={onClickTraveller}>
           <TravellerIcon className={classes.iconLeft} />
           <Subtitle1White>{totalTravellers}</Subtitle1White>
         </IconButton>
@@ -19,9 +19,6 @@ const Traveller = props => {
   );
 };
 
-const styles = theme => ({
-  root: { flexGrow: 1 },
-  iconLeft: { color: theme.palette.common.white }
-});
+const styles = theme => ({ iconLeft: { color: theme.palette.text.secondary } });
 
 export default withStyles(styles)(Traveller);

@@ -15,9 +15,9 @@ export const Theme = createMuiTheme({
       main: '#000000'
     },
     text: {
-      primary: 'rgba(255, 255, 255, 1)',
+      primary: 'rgba(0, 0, 0, 1)',
       primaryMediumEmphasis: 'rgba(255, 255, 255, 0.6)',
-      secondary: 'rgba(0, 0, 0, 1)',
+      secondary: 'rgba(255, 255, 255, 1)',
       secondaryMediumEmphasis: 'rgba(0, 0, 0, 0.6)'
     }
   },
