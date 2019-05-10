@@ -5,10 +5,11 @@ import Typography from "@material-ui/core/Typography";
 
 const TravellerWarning = props => {
   let { classes, warning } = props;
+  console.log(warning)
   return (
     <Grid container justify="space-around" className={classes.padding}>
       <Grid item>
-        <Typography variant="subtitle2" color="error">
+        <Typography variant="subtitle2" color='error'>
           {warning}
         </Typography>
       </Grid>
