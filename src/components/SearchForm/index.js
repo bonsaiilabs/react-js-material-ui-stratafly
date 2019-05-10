@@ -66,7 +66,7 @@ const styles = theme => ({
     paddingRight: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2
   },
-  textFieldIcon: { color: theme.palette.text.primaryMediumEmphasis }
+  textFieldIcon: { color: theme.palette.text.secondaryMediumEmphasis }
 });
 
 export default withStyles(styles)(SearchForm);
