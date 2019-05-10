@@ -7,7 +7,7 @@ const Empty = props => {
   const { classes } = props;
   return (
     <Grid container className={classes.root} justify={'center'}>
-      <Grid item xs={7} className={classes.imageContainer}>
+      <Grid item xs={8} className={classes.imageContainer}>
         <img src={NoResults} alt={'flight'} className={classes.image} />
       </Grid>
     </Grid>

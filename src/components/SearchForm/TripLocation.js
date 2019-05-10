@@ -12,7 +12,7 @@ export const TripLocation = ({ location, onChangeLocation, classes, placeholder 
           value={location}
           placeholder={placeholder}
           type="text"
-          icon={<LocationIcon className={classes.icon} />}
+          icon={<LocationIcon className={classes.textFieldIcon} />}
         />
       </Grid>
     </Grid>

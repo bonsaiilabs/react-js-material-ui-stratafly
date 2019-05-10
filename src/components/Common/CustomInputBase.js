@@ -7,7 +7,7 @@ const CustomInputBase = ({ classes, onChange, value, placeholder, icon, type }) 
   return (
     <InputBase
       startAdornment={
-        <InputAdornment position="start" className={classes.icon}>
+        <InputAdornment position="start" className={classes.textFieldIcon}>
           {icon}
         </InputAdornment>
       }
@@ -29,7 +29,7 @@ const styles = theme => ({
     fontSize: theme.typography.subtitle1.fontSize,
     fontWeight: theme.typography.subtitle1.fontWeight
   },
-  icon: {
+  textFieldIcon: {
     paddingLeft: theme.spacing.unit
   }
 });

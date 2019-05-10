@@ -1,10 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { TripLocation } from './TripLocation';
 import { TripTypeAndTraveller } from './TripTypeAndTraveller';
-import { OneWayDate, RoundTripDates } from './TripDates';
-import DateIcon from '@material-ui/icons/EventOutlined';
+import { FromAndToLocation } from './FromAndToLocation';
+import { FromAndToDate } from './FromAndToDate';
 
 const SearchForm = props => {
   const {
@@ -23,63 +22,42 @@ const SearchForm = props => {
     onToDateChange
   } = props;
   return (
-    <Grid container className={classes.root}>
-      <Grid item xs={12} className={classes.tripType}>
-        <TripTypeAndTraveller
-          selectedRadio={selectedRadio}
-          onChangeRadio={onChangeRadio}
-          onClickTraveller={onClickTraveller}
-          totalTravellers={totalTravellers}
-        />
-      </Grid>
-      <Grid item xs={12} className={classes.textFields}>
-        <TripLocation
-          location={fromLocation}
-          onChangeLocation={onChangeFromLocation}
-          classes={classes}
-          placeholder={'From'}
-        />
-      </Grid>
-      <Grid item xs={12} className={classes.textFields}>
-        <TripLocation
-          location={toLocation}
-          onChangeLocation={onChangeToLocation}
-          classes={classes}
-          placeholder={'To'}
-        />
-      </Grid>
-      {selectedRadio === 'one-way' && (
-        <Grid item xs={12} className={classes.textFields}>
-          <OneWayDate
-            fromDate={fromDate}
-            onFromDateChange={onFromDateChange}
-            icon={<DateIcon className={classes.icon} />}
-          />
-        </Grid>
-      )}
+    <Grid container className={classes.searchFormContainer}>
+      <TripTypeAndTraveller
+        selectedRadio={selectedRadio}
+        onChangeRadio={onChangeRadio}
+        onClickTraveller={onClickTraveller}
+        totalTravellers={totalTravellers}
+        classes={classes}
+      />
 
-      {selectedRadio === 'round-trip' && (
-        <Grid item xs={12} className={classes.textFields}>
-          <RoundTripDates
-            fromDate={fromDate}
-            toDate={toDate}
-            onFromDateChange={onFromDateChange}
-            onToDateChange={onToDateChange}
-            icon={<DateIcon className={classes.icon} />}
-          />
-        </Grid>
-      )}
+      <FromAndToLocation
+        fromLocation={fromLocation}
+        onChangeFromLocation={onChangeFromLocation}
+        toLocation={toLocation}
+        onChangeToLocation={onChangeToLocation}
+        classes={classes}
+      />
+
+      <FromAndToDate
+        selectedRadio={selectedRadio}
+        fromDate={fromDate}
+        onFromDateChange={onFromDateChange}
+        toDate={toDate}
+        onToDateChange={onToDateChange}
+        classes={classes}
+      />
     </Grid>
   );
 };
 
 const styles = theme => ({
-  root: {
+  searchFormContainer: {
     flexGrow: 1,
     background: theme.palette.primary[700],
     paddingTop: theme.spacing.unit * 8
   },
-  tripType: {
+  tripTypeTraveller: {
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2
   },
@@ -88,7 +66,7 @@ const styles = theme => ({
     paddingRight: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2
   },
-  icon: { color: theme.palette.text.primaryMediumEmphasis }
+  textFieldIcon: { color: theme.palette.text.primaryMediumEmphasis }
 });
 
 export default withStyles(styles)(SearchForm);
