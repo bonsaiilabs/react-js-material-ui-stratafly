@@ -12,7 +12,7 @@ class App extends Component {
       <MuiThemeProvider theme={Theme}>
         <AppHeader />
         <SearchForm
-          selectedRadio="one-way"
+          selectedRadio="round-trip"
           onChangeRadio={() => console.log('change trip type')}
           onClickTraveller={() => console.log('Clicked Traveller')}
           totalTravellers="1"
