@@ -7,9 +7,7 @@ import SearchForm from './components/SearchForm';
 import { formatDate } from './shared/util';
 import TravellerDialog from './components/SearchForm/TravellerDialog';
 import { defaultTravellers } from './shared/app-constants';
-import ResultHeader from './components/Common/ResultHeader';
-import FlightTakeOffIcon from '@material-ui/icons/FlightTakeoffOutlined';
-import SortByIcon from '@material-ui/icons/SwapVert';
+import SearchResults from './components/SearchResults';
 
 class App extends Component {
   render() {
@@ -38,11 +36,7 @@ class App extends Component {
         />
 
         {/*<Empty />*/}
-        <ResultHeader
-          icon1={<FlightTakeOffIcon color={'secondary'} />}
-          text={'Departure flights'}
-          icon2={<SortByIcon color={'secondary'} />}
-        />
+        <SearchResults />
       </MuiThemeProvider>
     );
   }

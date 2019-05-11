@@ -1,5 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import { FlightTimesAndCode } from '../Common/FlightTimesAndCode';
+import { Typography } from '@material-ui/core';
+import {AirlineToIcon} from "../../shared/app-constants";
 
 export const IconTimeAndPrice = ({ depart, arrive, fromCode, toCode, price, tripType, airline }) => {
   return (
@@ -30,14 +33,15 @@ export const AirlineIcon = ({ airline }) => {
   );
 };
 
+//tripType shoule be black body2 medium emphasis
 export const PriceTripType = ({ price, tripType }) => {
   return (
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
-        <BlackSubtitle1 text={'$' + price} />
+        <Typography variant="subtitle1"> {'$' + price} </Typography>
       </Grid>
       <Grid item xs={12}>
-        <BlackBody2MediumEmphasis text={tripType} />
+        <Typography variant="body2">{tripType}</Typography>
       </Grid>
     </Grid>
   );
