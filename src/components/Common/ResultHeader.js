@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 
 function ResultHeader({ classes, icon1, text, icon2 }) {
   return (
-    <Grid container className={classes.root} justify={'space-between'}>
+    <Grid container className={classes.root}>
       <Grid item xs={8}>
         <HeaderIconAndLabel icon={icon1} text={text} />
       </Grid>
@@ -23,6 +23,7 @@ const HeaderIconAndLabel = props => {
   return (
     <Grid container direction="row" alignItems={'center'} spacing={16}>
       <Grid item> {props.icon}</Grid>
+
       <Grid item>
         <Typography variant="subtitle1" color="secondary">
           {props.text}
