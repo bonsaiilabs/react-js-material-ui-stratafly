@@ -1,16 +1,12 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
 import withStyles from '@material-ui/core/styles/withStyles';
 import FlightTakeOffIcon from '@material-ui/icons/FlightTakeoffOutlined';
 import SortByIcon from '@material-ui/icons/SwapVert';
 import ResultHeader from '../Common/ResultHeader';
-import Divider from '@material-ui/core/Divider';
-import { FlightCard } from './FlightCard';
+import { Flights } from './Flights';
 
 const SearchResults = ({ classes, tripType, flights, onSelect, headerLabel }) => {
-  let from = flights.from,
-    to = flights.to,
-    flightsWithFares = flights.flightsWithFares || [];
+  const { from, to, flightsWithFares } = flights;
   return (
     <>
       <ResultHeader
@@ -18,14 +14,14 @@ const SearchResults = ({ classes, tripType, flights, onSelect, headerLabel }) =>
         text={headerLabel || 'Departure flights'}
         icon2={<SortByIcon color={'secondary'} />}
       />
-      <Card raised={true} className={classes.root}>
-        {flightsWithFares.map((flight, index) => (
-          <div key={index}>
-            <FlightCard flight={flight} tripType={tripType} from={from} to={to} onSelect={onSelect} classes={classes} />
-            <Divider />
-          </div>
-        ))}
-      </Card>
+      <Flights
+        flightsWithFares={flightsWithFares || []}
+        tripType={tripType}
+        from={from}
+        to={to}
+        onSelect={onSelect}
+        classes={classes}
+      />
     </>
   );
 };

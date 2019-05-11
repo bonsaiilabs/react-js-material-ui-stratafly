@@ -1,8 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { FlightTimesAndCode } from '../../Common/FlightTimesAndCode';
+import { FlightTimesAndCode } from '../../../Common/FlightTimesAndCode';
 import { Typography } from '@material-ui/core';
-import { AirlineToIcon } from '../../../shared/app-constants';
+import { AirlineToIcon } from '../../../../shared/app-constants';
 
 export const IconTimePrice = props => {
   const { depart, arrive, fromCode, toCode, price, tripType, airline, classes } = props;
@@ -13,11 +13,11 @@ export const IconTimePrice = props => {
       </Grid>
 
       <Grid item xs={6}>
-        <FlightTimesAndCode depart={depart} arrive={arrive} fromCode={fromCode} toCode={toCode} classes={classes}/>
+        <FlightTimesAndCode depart={depart} arrive={arrive} fromCode={fromCode} toCode={toCode} classes={classes} />
       </Grid>
 
       <Grid item xs={5}>
-        <PriceTripType price={price} tripType={tripType} classes={classes}/>
+        <PriceTripType price={price} tripType={tripType} classes={classes} />
       </Grid>
     </Grid>
   );
@@ -40,10 +40,14 @@ export const PriceTripType = props => {
   return (
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
-        <Typography variant="subtitle1" color="secondary"> {'$' + price} </Typography>
+        <Typography variant="subtitle1" color="secondary">
+          {'$' + price}
+        </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body2" className={classes.infoText}>{tripType}</Typography>
+        <Typography variant="body2" className={classes.infoText}>
+          {tripType}
+        </Typography>
       </Grid>
     </Grid>
   );
