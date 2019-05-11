@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { IconTimeAndPrice } from './IconTimeAndPrice';
-import { stops } from '../../shared/app-constants';
+import { IconTimePrice } from './IconTimePrice';
+import { stops } from '../../../shared/app-constants';
 import { StopDurationAirline } from './StopDurationAirline';
 
 export const FlightCard = props => {
@@ -12,7 +12,7 @@ export const FlightCard = props => {
   return (
     <Grid container spacing={8}>
       <Grid item xs={12} onClick={onSelect}>
-        <IconTimeAndPrice
+        <IconTimePrice
           depart={flight.depart}
           arrive={flight.arrive}
           fromCode={from}

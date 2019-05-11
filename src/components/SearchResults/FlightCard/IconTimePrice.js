@@ -1,10 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { FlightTimesAndCode } from '../Common/FlightTimesAndCode';
+import { FlightTimesAndCode } from '../../Common/FlightTimesAndCode';
 import { Typography } from '@material-ui/core';
-import { AirlineToIcon } from '../../shared/app-constants';
+import { AirlineToIcon } from '../../../shared/app-constants';
 
-export const IconTimeAndPrice = props => {
+export const IconTimePrice = props => {
   const { depart, arrive, fromCode, toCode, price, tripType, airline, classes } = props;
   return (
     <Grid container className={classes.iconTimePrice}>

@@ -4,8 +4,8 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import FlightTakeOffIcon from '@material-ui/icons/FlightTakeoffOutlined';
 import SortByIcon from '@material-ui/icons/SwapVert';
 import ResultHeader from '../Common/ResultHeader';
-import { FlightCard } from './FlightCard';
 import Divider from '@material-ui/core/Divider';
+import { FlightCard } from './FlightCard';
 
 const SearchResults = ({ classes, tripType, flights, onSelect, headerLabel }) => {
   let from = flights.from,
@@ -36,7 +36,7 @@ const styles = theme => ({
   },
   iconTimePrice: {
     paddingTop: theme.spacing.unit * 2,
-    paddingLeft: theme.spacing.unit * 2,
+    paddingLeft: theme.spacing.unit * 2
   },
   airlineImageContainer: { height: '100%', width: '100%' },
   airlineImage: { maxWidth: '100%', maxHeight: '100%' },
