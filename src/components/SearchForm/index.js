@@ -1,9 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { TripTypeAndTraveller } from './TripTypeAndTraveller';
 import { FromAndToLocation } from './FromAndToLocation';
-import { FromAndToDate } from './FromAndToDate';
+import {FromAndToDate} from "./FromAndToDate";
+import {TripTypeAndTraveller} from "./TripTypeAndTraveller/TripTypeAndTraveller";
 
 const SearchForm = props => {
   const {
@@ -66,7 +66,8 @@ const styles = theme => ({
     paddingRight: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2
   },
-  textFieldIcon: { color: theme.palette.text.secondaryMediumEmphasis }
+  textFieldIcon: { color: theme.palette.text.secondaryMediumEmphasis },
+  travellerIcon: { color: theme.palette.text.secondary}
 });
 
 export default withStyles(styles)(SearchForm);
