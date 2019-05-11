@@ -13,11 +13,11 @@ export const IconTimePrice = props => {
       </Grid>
 
       <Grid item xs={6}>
-        <FlightTimesAndCode depart={depart} arrive={arrive} fromCode={fromCode} toCode={toCode} />
+        <FlightTimesAndCode depart={depart} arrive={arrive} fromCode={fromCode} toCode={toCode} classes={classes}/>
       </Grid>
 
       <Grid item xs={5}>
-        <PriceTripType price={price} tripType={tripType} />
+        <PriceTripType price={price} tripType={tripType} classes={classes}/>
       </Grid>
     </Grid>
   );
@@ -35,16 +35,15 @@ export const AirlineIcon = props => {
   );
 };
 
-//tripType shoule be black body2 medium emphasis
 export const PriceTripType = props => {
-  const { price, tripType } = props;
+  const { price, tripType, classes } = props;
   return (
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
-        <Typography variant="subtitle1"> {'$' + price} </Typography>
+        <Typography variant="subtitle1" color="secondary"> {'$' + price} </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body2">{tripType}</Typography>
+        <Typography variant="body2" className={classes.infoText}>{tripType}</Typography>
       </Grid>
     </Grid>
   );

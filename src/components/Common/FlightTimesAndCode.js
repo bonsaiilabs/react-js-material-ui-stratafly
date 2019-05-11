@@ -3,31 +3,34 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 
-export const FlightTimesAndCode = ({ depart, arrive, fromCode, toCode }) => {
+export const FlightTimesAndCode = props => {
+  const { depart, arrive, fromCode, toCode, classes } = props;
   return (
     <Grid container direction="row" alignItems="center" spacing={8} justify="center">
       <Grid item>
-        <TimeAirportCode time={depart} airportCode={fromCode} />
+        <TimeAirportCode time={depart} airportCode={fromCode} classes={classes} />
       </Grid>
       <Grid item>
         <ArrowRight />
       </Grid>
       <Grid item>
-        <TimeAirportCode time={arrive} airportCode={toCode} />
+        <TimeAirportCode time={arrive} airportCode={toCode} classes={classes} />
       </Grid>
     </Grid>
   );
 };
 
-//TODO <Typography variant="body2">{airportCode}</Typography> should be mediumEmphasis
-const TimeAirportCode = ({ time, airportCode }) => {
+const TimeAirportCode = props => {
+  const { time, airportCode, classes } = props;
   return (
     <Grid container direction="column" spacing={8}>
       <Grid item>
         <Typography variant="subtitle2">{time}</Typography>
       </Grid>
       <Grid item>
-        <Typography variant="body2">{airportCode}</Typography>
+        <Typography variant="body2" className={classes.infoText}>
+          {airportCode}
+        </Typography>
       </Grid>
     </Grid>
   );
