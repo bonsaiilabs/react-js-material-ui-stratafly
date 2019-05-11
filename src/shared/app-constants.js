@@ -26,10 +26,60 @@ export const stops = {
 };
 
 export const AirlineToIcon = {
-  'United Airlines' : United,
-  'Air Canada' : AirCanada,
-  'Alaska Airlines' : AlaskaAirlines,
-  'American Airlines' : American,
-  'Delta Airlines' : Delta,
-  'Southwest Airlines' : SouthWest
+  'United Airlines': United,
+  'Air Canada': AirCanada,
+  'Alaska Airlines': AlaskaAirlines,
+  'American Airlines': American,
+  'Delta Airlines': Delta,
+  'Southwest Airlines': SouthWest
+};
+
+export const testFlights = {
+  from: 'YVR',
+  to: 'SFO',
+  date: new Date(),
+  flightsWithFares: [
+    {
+      airline: 'Air Canada',
+      airlineCode: 'AC8840',
+      arrive: '11:13',
+      class: 'economy',
+      depart: '08:40',
+      price: 300,
+      stops: 'Nonstop',
+      totalTime: '2h 33m'
+    },
+    {
+      airline: 'American Airlines',
+      airlineCode: 'AA6072',
+      arrive: '13:15',
+      class: 'economy',
+      depart: '06:44',
+      price: 400,
+      stops: '1 stop',
+      totalTime: '6h',
+      viaAirlineCode: 'LAX'
+    },
+    {
+      airline: 'American Airlines',
+      airlineCode: 'AA6072',
+      arrive: '13:15',
+      class: 'economy',
+      depart: '06:44',
+      price: 400,
+      stops: '1 stop',
+      totalTime: '6h',
+      viaAirlineCode: 'LAX'
+    },
+    {
+      airline: 'Air Canada',
+      airlineCode: 'AC8840',
+      arrive: '11:13',
+      class: 'economy',
+      depart: '08:40',
+      price: 300,
+      stops: 'Nonstop',
+      totalTime: '2h 33m'
+    }
+  ]
 };

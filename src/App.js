@@ -6,7 +6,7 @@ import SearchForm from './components/SearchForm';
 // import Empty from './components/Empty';
 import { formatDate } from './shared/util';
 import TravellerDialog from './components/SearchForm/TravellerDialog';
-import { defaultTravellers } from './shared/app-constants';
+import {defaultTravellers, testFlights} from './shared/app-constants';
 import SearchResults from './components/SearchResults';
 
 class App extends Component {
@@ -36,7 +36,7 @@ class App extends Component {
         />
 
         {/*<Empty />*/}
-        <SearchResults />
+        <SearchResults flights={testFlights} onSelect={() => console.log('flight-selected')}/>
       </MuiThemeProvider>
     );
   }
