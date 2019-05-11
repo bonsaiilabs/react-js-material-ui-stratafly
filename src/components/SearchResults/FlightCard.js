@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import {IconTimeAndPrice} from "./IconTimeAndPrice";
-import {StopDurationAirline} from "./StopDurationAirline";
+import { IconTimeAndPrice } from './IconTimeAndPrice';
+import { StopDurationAirline } from './StopDurationAirline';
 
 export const FlightCard = ({ key, flight, tripType, from, to }) => {
   let stop = flight.stops === stops.nonStop ? stops.nonStop : stops.oneStop + ' at ' + flight.viaAirlineCode + '. ';
