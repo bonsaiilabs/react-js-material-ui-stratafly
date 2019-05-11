@@ -4,7 +4,8 @@ import { FlightTimesAndCode } from '../Common/FlightTimesAndCode';
 import { Typography } from '@material-ui/core';
 import { AirlineToIcon } from '../../shared/app-constants';
 
-export const IconTimeAndPrice = ({ depart, arrive, fromCode, toCode, price, tripType, airline, classes }) => {
+export const IconTimeAndPrice = props => {
+  const { depart, arrive, fromCode, toCode, price, tripType, airline, classes } = props;
   return (
     <Grid container className={classes.iconTimePrice}>
       <Grid item xs={1}>
@@ -22,7 +23,8 @@ export const IconTimeAndPrice = ({ depart, arrive, fromCode, toCode, price, trip
   );
 };
 
-export const AirlineIcon = ({ airline, classes }) => {
+export const AirlineIcon = props => {
+  const { airline, classes } = props;
   let airlineIcon = AirlineToIcon[airline];
   return (
     <Grid container justify="center">
@@ -34,7 +36,8 @@ export const AirlineIcon = ({ airline, classes }) => {
 };
 
 //tripType shoule be black body2 medium emphasis
-export const PriceTripType = ({ price, tripType }) => {
+export const PriceTripType = props => {
+  const { price, tripType } = props;
   return (
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
