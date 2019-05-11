@@ -4,6 +4,8 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import FlightTakeOffIcon from '@material-ui/icons/FlightTakeoffOutlined';
 import SortByIcon from '@material-ui/icons/SwapVert';
 import ResultHeader from '../Common/ResultHeader';
+import {FlightCard} from "./FlightCard";
+import Divider from "@material-ui/core/Divider";
 
 const SearchResults = ({ classes, tripType, flights, onSelect, headerLabel }) => {
   let from = flights.from,
@@ -32,11 +34,11 @@ const styles = theme => ({
 });
 export default withStyles(styles)(SearchResults);
 
-// export const Flight = ({ flight, tripType, from, to, onSelect }) => {
-//   return (
-//     <div onClick={() => onSelect(flight)}>
-//       <FlightCard flight={flight} tripType={tripType} from={from} to={to} />
-//       <Divider />
-//     </div>
-//   );
-// };
+const Flight = ({ flight, tripType, from, to, onSelect }) => {
+  return (
+    <div onClick={() => onSelect(flight)}>
+      <FlightCard flight={flight} tripType={tripType} from={from} to={to} />
+      <Divider />
+    </div>
+  );
+};
