@@ -4,7 +4,8 @@ import { IconTimeAndPrice } from './IconTimeAndPrice';
 import { stops } from '../../shared/app-constants';
 import { StopDurationAirline } from './StopDurationAirline';
 
-export const FlightCard = ({ flight, tripType, from, to, onSelect, classes }) => {
+export const FlightCard = props => {
+  const { flight, tripType, from, to, onSelect, classes } = props;
   let nonStop = stops.nonStop + ' . ';
   let oneStop = stops.oneStop + ' at ' + flight.viaAirlineCode + ' .';
   let stop = flight.stops === stops.nonStop ? nonStop : oneStop;
@@ -17,12 +18,13 @@ export const FlightCard = ({ flight, tripType, from, to, onSelect, classes }) =>
           fromCode={from}
           toCode={to}
           price={flight.price}
+          tripType={tripType}
           airline={flight.airline}
           classes={classes}
         />
       </Grid>
 
-        <Grid item xs={12}>
+      <Grid item xs={12}>
         <StopDurationAirline
           stop={stop}
           duration={flight.totalTime + ' . '}

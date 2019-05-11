@@ -3,7 +3,8 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 
-function ResultHeader({ classes, icon1, text, icon2 }) {
+const ResultHeader = props => {
+  const { classes, icon1, text, icon2 } = props;
   return (
     <Grid container className={classes.root}>
       <Grid item xs={8}>
@@ -15,7 +16,7 @@ function ResultHeader({ classes, icon1, text, icon2 }) {
       </Grid>
     </Grid>
   );
-}
+};
 const styles = theme => ({ root: { flexGrow: 1, padding: theme.spacing.unit * 2 } });
 export default withStyles(styles)(ResultHeader);
 
