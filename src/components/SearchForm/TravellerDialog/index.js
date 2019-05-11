@@ -3,7 +3,7 @@ import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import Grid from '@material-ui/core/Grid';
 import { TravellerRows } from './TravellerRows';
-import { WarningOrActionButton } from './WarningOrActionButton';
+import {WarningOrActionButton} from "./WarningOrActionButton";
 
 const TravellerDialog = props => {
   let { open, onClose, onDone, personAgeCount, onAdd, onRemove, showMaxWarning, showInfantWarning, classes } = props;
@@ -32,8 +32,7 @@ const travellerStyles = theme => ({
     padding: theme.spacing.unit * 2
   },
   margin: {
-    marginTop: theme.spacing.unit,
-    marginBottom: theme.spacing.unit
+    marginTop: theme.spacing.unit * 2
   }
 });
 export default withStyles(travellerStyles)(TravellerDialog);
