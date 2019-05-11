@@ -7,16 +7,14 @@ import { WarningOrActionButton } from './WarningOrActionButton';
 
 const TravellerDialog = props => {
   let { open, onClose, onDone, personAgeCount, onAdd, onRemove, showMaxWarning, showInfantWarning, classes } = props;
-  console.log(open)
   return (
     <Dialog open={open} onClose={onClose}>
       <Grid container className={classes.root}>
-
         <Grid item xs={12}>
           <TravellerRows personAgeCount={personAgeCount} onAdd={onAdd} onRemove={onRemove} />
         </Grid>
 
-          <Grid item xs={12} className={classes.margin}>
+        <Grid item xs={12} className={classes.margin}>
           <WarningOrActionButton
             showMaxWarning={showMaxWarning}
             showInfantWarning={showInfantWarning}

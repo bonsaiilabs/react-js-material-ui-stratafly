@@ -31,7 +31,7 @@ class App extends Component {
           onAdd={() => console.log('Add travellers')}
           onRemove={() => console.log('Remove travellers')}
           showMaxWarning={false}
-          showInfantWarning={true}
+          showInfantWarning={false}
         />
 
         <Empty />
