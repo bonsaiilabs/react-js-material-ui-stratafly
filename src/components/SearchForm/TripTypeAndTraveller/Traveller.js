@@ -3,7 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import IconButton from '@material-ui/core/IconButton';
 import TravellerIcon from '@material-ui/icons/PersonOutlined';
 import Grid from '@material-ui/core/Grid';
-import { Subtitle1White } from '../Common/Typographies';
+import { Subtitle1White } from '../../Common/Typographies';
 
 const Traveller = props => {
   const { classes, onClickTraveller, totalTravellers } = props;

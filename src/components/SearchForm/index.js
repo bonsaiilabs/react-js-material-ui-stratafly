@@ -1,9 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { TripTypeAndTraveller } from './TripTypeAndTraveller';
 import { FromAndToLocation } from './FromAndToLocation';
-import { FromAndToDate } from './FromAndToDate';
+import {FromAndToDate} from "./FromAndToDate";
+import {TripTypeAndTraveller} from "./TripTypeAndTraveller/TripTypeAndTraveller";
 
 const SearchForm = props => {
   const {
