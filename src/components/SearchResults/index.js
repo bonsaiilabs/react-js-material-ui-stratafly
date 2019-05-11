@@ -37,7 +37,6 @@ const styles = theme => ({
   iconTimePrice: {
     paddingTop: theme.spacing.unit * 2,
     paddingLeft: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit
   },
   airlineImageContainer: { height: '100%', width: '100%' },
   airlineImage: { maxWidth: '100%', maxHeight: '100%' },
