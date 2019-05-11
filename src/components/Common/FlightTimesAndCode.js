@@ -1,4 +1,3 @@
-// import withStyles from '@material-ui/core/styles/withStyles';
 import ArrowRight from '@material-ui/icons/ArrowRightAlt';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
@@ -33,11 +32,3 @@ const TimeAirportCode = ({ time, airportCode }) => {
     </Grid>
   );
 };
-// const styles = theme => ({
-//   root: {
-//     flexGrow: 1,
-//     padding: theme.spacing.unit
-//   },
-//   code: { alignSelf: 'center' }
-// });
-// export default withStyles(styles)(TimeAirportCode);

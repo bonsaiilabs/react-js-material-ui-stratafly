@@ -40,6 +40,8 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit
   },
   airlineImageContainer: { height: '100%', width: '100%' },
-  airlineImage: { maxWidth: '100%', maxHeight: '100%' }
+  airlineImage: { maxWidth: '100%', maxHeight: '100%' },
+  stopDurationAirline: { padding: theme.spacing.unit },
+  infoText: { color: theme.palette.text.primaryMediumEmphasis }
 });
 export default withStyles(styles)(SearchResults);
