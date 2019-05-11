@@ -20,7 +20,10 @@ const SearchResults = ({ classes, tripType, flights, onSelect, headerLabel }) =>
       />
       <Card raised={true} className={classes.root}>
         {flightsWithFares.map((flight, index) => (
-          <Flight key={index} flight={flight} tripType={tripType} from={from} to={to} onSelect={onSelect} />
+          <div key={index}>
+            <FlightCard flight={flight} tripType={tripType} from={from} to={to} onSelect={onSelect} />
+            <Divider />
+          </div>
         ))}
       </Card>
     </>
@@ -33,12 +36,3 @@ const styles = theme => ({
   }
 });
 export default withStyles(styles)(SearchResults);
-
-const Flight = ({ flight, tripType, from, to, onSelect }) => {
-  return (
-    <div onClick={() => onSelect(flight)}>
-      <FlightCard flight={flight} tripType={tripType} from={from} to={to} />
-      <Divider />
-    </div>
-  );
-};

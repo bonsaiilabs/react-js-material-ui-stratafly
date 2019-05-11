@@ -4,11 +4,11 @@ import { IconTimeAndPrice } from './IconTimeAndPrice';
 import { StopDurationAirline } from './StopDurationAirline';
 import {stops} from "../../shared/app-constants";
 
-export const FlightCard = ({ key, flight, tripType, from, to }) => {
+export const FlightCard = ({ flight, tripType, from, to, onSelect }) => {
   let stop = flight.stops === stops.nonStop ? stops.nonStop : stops.oneStop + ' at ' + flight.viaAirlineCode + '. ';
   return (
     <Grid container direction="row" spacing={8}>
-      <Grid item xs={12}>
+      <Grid item xs={12} onClick={onSelect}>
         <IconTimeAndPrice
           depart={flight.depart}
           arrive={flight.arrive}
