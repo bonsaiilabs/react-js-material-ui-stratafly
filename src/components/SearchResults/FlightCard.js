@@ -2,10 +2,12 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { IconTimeAndPrice } from './IconTimeAndPrice';
 import { StopDurationAirline } from './StopDurationAirline';
-import {stops} from "../../shared/app-constants";
+import { stops } from '../../shared/app-constants';
 
-export const FlightCard = ({ flight, tripType, from, to, onSelect }) => {
-  let stop = flight.stops === stops.nonStop ? stops.nonStop : stops.oneStop + ' at ' + flight.viaAirlineCode + '. ';
+export const FlightCard = ({ flight, tripType, from, to, onSelect, classes }) => {
+  let nonStop =  stops.nonStop + ' . ';
+  let oneStop =  stops.oneStop + ' at ' + flight.viaAirlineCode + ' .';
+  let stop = (flight.stops === stops.nonStop) ? nonStop : oneStop;
   return (
     <Grid container direction="row" spacing={8}>
       <Grid item xs={12} onClick={onSelect}>
@@ -15,12 +17,12 @@ export const FlightCard = ({ flight, tripType, from, to, onSelect }) => {
           fromCode={from}
           toCode={to}
           price={flight.price}
-          tripType={tripType}
           airline={flight.airline}
+          classes={classes}
         />
       </Grid>
       <Grid item xs={12}>
-        <StopDurationAirline stop={stop} duration={flight.totalTime + '. '} airline={flight.airline} />
+        <StopDurationAirline stop={stop} duration={flight.totalTime + ' . '} airline={flight.airline} />
       </Grid>
     </Grid>
   );

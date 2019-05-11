@@ -21,7 +21,7 @@ const SearchResults = ({ classes, tripType, flights, onSelect, headerLabel }) =>
       <Card raised={true} className={classes.root}>
         {flightsWithFares.map((flight, index) => (
           <div key={index}>
-            <FlightCard flight={flight} tripType={tripType} from={from} to={to} onSelect={onSelect} />
+            <FlightCard flight={flight} tripType={tripType} from={from} to={to} onSelect={onSelect} classes={classes} />
             <Divider />
           </div>
         ))}
@@ -33,6 +33,13 @@ const styles = theme => ({
   root: {
     backgroundColor: theme.palette.primary.light,
     borderRadius: theme.shape.borderRadius * 2
-  }
+  },
+  iconTimePrice: {
+    paddingTop: theme.spacing.unit * 2,
+    paddingLeft: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit
+  },
+  airlineImageContainer: { height: '100%', width: '100%' },
+  airlineImage: { maxWidth: '100%', maxHeight: '100%' }
 });
 export default withStyles(styles)(SearchResults);
