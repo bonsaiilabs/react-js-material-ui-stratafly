@@ -3,10 +3,14 @@ import AppHeader from './components/AppHeader';
 import { Theme } from './Theme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import SearchForm from './components/SearchForm';
-import Empty from './components/Empty';
+// import Empty from './components/Empty';
 import { formatDate } from './shared/util';
 import TravellerDialog from './components/SearchForm/TravellerDialog';
 import { defaultTravellers } from './shared/app-constants';
+import ResultHeader from "./components/Common/ResultHeader";
+import FlightTakeOffIcon from '@material-ui/icons/FlightTakeoffOutlined';
+import SortByIcon from '@material-ui/icons/SwapVert';
+
 
 class App extends Component {
   render() {
@@ -24,7 +28,7 @@ class App extends Component {
         />
 
         <TravellerDialog
-          open={true}
+          open={false}
           onClose={() => console.log('closingDialog')}
           onDone={() => console.log('Done')}
           personAgeCount={defaultTravellers}
@@ -34,7 +38,12 @@ class App extends Component {
           showInfantWarning={false}
         />
 
-        <Empty />
+        {/*<Empty />*/}
+          <ResultHeader
+              icon1={<FlightTakeOffIcon color={'secondary'} />}
+              text={'Departure flights'}
+              icon2={<SortByIcon color={'secondary'} />}
+          />
       </MuiThemeProvider>
     );
   }
