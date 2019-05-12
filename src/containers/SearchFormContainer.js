@@ -3,15 +3,7 @@ import { defaultTravellers, maxTravellersAllowed } from '../shared/app-constants
 import SearchForm from '../components/SearchForm';
 import TravellerDialog from '../components/SearchForm/TravellerDialog';
 
-import {
-  getTotalCount,
-  addCount,
-  isInfantAlone,
-  reduceCount,
-  oneWaySearch,
-  roundTripSearch,
-  formatDate
-} from '../shared/util';
+import { getTotalCount, addCount, isInfantAlone, reduceCount, formatDate } from '../shared/util';
 
 export default class SearchFormContainer extends React.Component {
   state = {
@@ -89,25 +81,18 @@ export default class SearchFormContainer extends React.Component {
 
   onFromDateChange = date => {
     const [year, month, day] = date.split('-');
-    this.setState({ fromDate: new Date(year, month - 1, day) }, this.onChangeSearchCriteria);
+    const fromDate = new Date(year, month - 1, day);
+    this.setState({ fromDate: fromDate }, this.onChangeSearchCriteria);
   };
 
   onToDateChange = date => {
     const [year, month, day] = date.split('-');
-    this.setState({ toDate: new Date(year, month - 1, day) }, this.onChangeSearchCriteria);
+    const toDate = new Date(year, month - 1, day);
+    this.setState({ toDate: toDate }, this.onChangeSearchCriteria);
   };
 
   onChangeSearchCriteria = () => {
-    let isRoundTrip = this.state.selectedRadio === 'round-trip';
-    let flights = {},
-      fromDate = this.state.fromDate,
-      toDate = this.state.toDate;
-    let fromLocation = this.state.fromLocation,
-      toLocation = this.state.toLocation;
-    if (!fromLocation || !toLocation) return;
-    // if (isRoundTrip) flights = roundTripSearch(fromLocation, toLocation, fromDate, toDate);
-    // else flights = oneWaySearch(this.state.fromLocation, this.state.toLocation, fromDate);
-    // this.props.onSearch(flights, isRoundTrip, this.state.totalTravellers);
+    console.log('Search Criteria changed');
   };
 
   render() {

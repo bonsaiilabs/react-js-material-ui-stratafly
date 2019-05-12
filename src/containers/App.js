@@ -8,12 +8,23 @@ import { defaultTravellers, testFlights } from '../shared/app-constants';
 import SearchResults from '../components/SearchResults';
 import SearchFormContainer from './SearchFormContainer';
 
+const defaultState = {
+  from: '',
+  to: '',
+  readOnlyFlights: [],
+  departFlights: {},
+  totalTravellers: 1,
+  isRoundTrip: true
+};
+
 class App extends Component {
+  state = defaultState;
+
   render() {
     return (
       <MuiThemeProvider theme={Theme}>
         <AppHeader />
-        <SearchFormContainer />
+        <SearchFormContainer onSearch={() => console.log('Found new flights')} />
         <TravellerDialog
           open={false}
           onClose={() => console.log('closingDialog')}

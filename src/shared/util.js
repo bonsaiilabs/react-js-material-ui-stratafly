@@ -1,4 +1,5 @@
 import {flights_schedules} from "../data/flightSchedules";
+import {stops} from "./app-constants";
 
 /**
  * Return the date in "2019-11-25" format
@@ -106,5 +107,105 @@ export const getTotalCount = travellers => {
  */
 export const isInfantAlone = (infant, adult) => {
     return infant['count'] > adult['count'];
+};
+
+export const getFlightsWithUpdatedPrice = (flights, totalTravellers) => {
+    if (totalTravellers === 1 || isUndefined(totalTravellers) || isArrayEmpty(flights)) return flights;
+    return flights.map(flight => Object.assign({}, flight, { price: flight.price * totalTravellers }));
+};
+
+export const isObjectEmpty = obj => Object.entries(obj).length === 0 || typeof obj === 'undefined';
+
+export const isArrayEmpty = arr => arr.length === 0 || typeof arr === 'undefined';
+
+export const isUndefined = any => typeof any === 'undefined';
+
+export const isEmptyString = string => typeof string === 'undefined' || string.length === 0 || string === null;
+
+
+/**
+ *
+ * @param flights
+ * @param filters
+ * @returns {*}
+ */
+export const filterSearchResults = (flights, filters) => {
+    const getFlightsByClassFilter = inputFlights => {
+        const updatedFlightsByClass = inputFlights.flightsWithFares.filter(f => f.class === filters.selectedAirlineClass);
+
+        return Object.assign({}, inputFlights, {
+            flightsWithFares: updatedFlightsByClass
+        });
+    };
+
+    const getFlightsByAirlineFilter = inputFlights => {
+        const selectedFlights = new Set(
+            Object.entries(filters.selectedAirlines)
+                .filter(entry => entry[1])
+                .map(entry => entry[0])
+        );
+
+        let updatedflightsWithFares =
+            inputFlights.flightsWithFares.length < 1
+                ? inputFlights.flightsWithFares
+                : inputFlights.flightsWithFares.filter(f => selectedFlights.has(f.airline));
+
+        return Object.assign({}, inputFlights, { flightsWithFares: updatedflightsWithFares });
+    };
+
+    const getFlightsByStopFilter = inputFlights => {
+        if (filters.selectedStops === 'Any') return inputFlights;
+        else if (filters.selectedStops === '2 stops') {
+            // because 2-stops flights are not supported
+            return Object.assign({}, inputFlights, { flightsWithFares: [] });
+        } else if (filters.selectedStops === 'Non stop') {
+            const nonStopFlightsWithFares = inputFlights.flightsWithFares.filter(flight => flight.stops === stops.nonStop);
+            return Object.assign({}, inputFlights, { flightsWithFares: nonStopFlightsWithFares });
+        }
+        const oneStopFlightsWithFares = inputFlights.flightsWithFares.filter(flight => flight.stops === stops.oneStop);
+        return Object.assign({}, inputFlights, { flightsWithFares: oneStopFlightsWithFares });
+    };
+
+    const getFlightsByTimesFilter = (inputFlights, userSelectedSlots) => {
+        const isMorning = (hh, mm) => (hh >= 0 && hh <= 12) || (hh === 13 && mm === 0);
+        const isAfternoon = (hh, mm) => (hh >= 12 && hh <= 17) || (hh === 18 && mm === 0);
+        const isEvening = hh => hh >= 17 && hh <= 23;
+
+        const isFlightIncluded = departTime => {
+            if (userSelectedSlots.size === 0) return true; // Anytime
+
+            const [hh, mm] = departTime.split(':').map(n => parseInt(n));
+            return (
+                (isMorning(hh, mm) && userSelectedSlots.has('Morning')) ||
+                (isAfternoon(hh, mm) && userSelectedSlots.has('Afternoon')) ||
+                (isEvening(hh) && userSelectedSlots.has('Evening'))
+            );
+        };
+        const updatedFlights = inputFlights.flightsWithFares.filter(f => isFlightIncluded(f.depart));
+
+        return Object.assign({}, inputFlights, {
+            flightsWithFares: updatedFlights
+        });
+    };
+
+    const applyFilters = (flights, timeFilters) => {
+        const filteredByClass = getFlightsByClassFilter(flights);
+        const filteredByAirline = getFlightsByAirlineFilter(filteredByClass);
+        const filteredByStops = getFlightsByStopFilter(filteredByAirline);
+        const filteredByTimes = getFlightsByTimesFilter(filteredByStops, timeFilters);
+        return filteredByTimes;
+    };
+
+    // -- main logic -- //
+    if (flights.length < 1) return flights;
+    else if (flights.length === 1) {
+        //TODO Do not decide trip type based on length of an array. Pass isRoundTrip
+        // one-way flights
+        return [applyFilters(flights[0], filters.selectedOutboundTimes)];
+    }
+    // 2-way flights
+    const departing = applyFilters(flights[0], filters.selectedOutboundTimes);
+    const returning = applyFilters(flights[1], filters.selectedReturnTimes);
+    return [departing, returning];
 };
 
