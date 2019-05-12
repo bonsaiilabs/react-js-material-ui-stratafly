@@ -1,4 +1,8 @@
 import React from 'react';
+import { defaultTravellers, maxTravellersAllowed } from '../shared/app-constants';
+import SearchForm from '../components/SearchForm';
+import TravellerDialog from '../components/SearchForm/TravellerDialog';
+
 import {
   getTotalCount,
   addCount,
@@ -8,8 +12,6 @@ import {
   roundTripSearch,
   formatDate
 } from '../shared/util';
-import { defaultTravellers, maxTravellersAllowed } from '../shared/app-constants';
-import SearchForm from '../components/SearchForm';
 
 export default class SearchFormContainer extends React.Component {
   state = {
@@ -34,48 +36,48 @@ export default class SearchFormContainer extends React.Component {
     this.setState({ showTravellerDialog: true });
   };
 
-  // onCancelTravellerDialog = () => {
-  //     this.setState(state => ({
-  //         showTravellerDialog: false,
-  //         draftTravellers: state.lastChosenTravellers
-  //     }));
-  // };
+  onCancelTravellerDialog = () => {
+    this.setState(state => ({
+      showTravellerDialog: false,
+      draftTravellers: state.lastChosenTravellers
+    }));
+  };
 
-  // onDoneTravellerDialog = () => {
-  //     let total = getTotalCount(this.state.draftTravellers);
-  //     this.setState(
-  //         state => ({
-  //             showTravellerDialog: false,
-  //             lastChosenTravellers: state.draftTravellers,
-  //             totalTravellers: total
-  //         }),
-  //         this.onChangeSearchCriteria
-  //     );
-  // };
+  onDoneTravellerDialog = () => {
+    let total = getTotalCount(this.state.draftTravellers);
+    this.setState(
+      state => ({
+        showTravellerDialog: false,
+        lastChosenTravellers: state.draftTravellers,
+        totalTravellers: total
+      }),
+      this.onChangeSearchCriteria
+    );
+  };
 
-  // onAddTraveller = (count, type) => {
-  //     let updated = addCount(this.state.draftTravellers, type, count, maxTravellersAllowed);
-  //     let totalTravellers = getTotalCount(updated);
-  //     if (totalTravellers > maxTravellersAllowed) {
-  //         this.setState({ showMaxWarning: true, draftTravellers: updated });
-  //     } else if (isInfantAlone(updated[2], updated[0])) {
-  //         this.setState({ showInfantWarning: true, draftTravellers: updated });
-  //     } else {
-  //         this.setState({ draftTravellers: updated });
-  //     }
-  // };
+  onAddTraveller = (count, type) => {
+    let updated = addCount(this.state.draftTravellers, type, count, maxTravellersAllowed);
+    let totalTravellers = getTotalCount(updated);
+    if (totalTravellers > maxTravellersAllowed) {
+      this.setState({ showMaxWarning: true, draftTravellers: updated });
+    } else if (isInfantAlone(updated[2], updated[0])) {
+      this.setState({ showInfantWarning: true, draftTravellers: updated });
+    } else {
+      this.setState({ draftTravellers: updated });
+    }
+  };
 
-  // onRemoveTraveller = (count, type) => {
-  //     let updated = reduceCount(this.state.draftTravellers, type, count);
-  //     let totalTravellers = getTotalCount(updated);
-  //     if (totalTravellers <= maxTravellersAllowed && this.state.showMaxWarning) {
-  //         this.setState({ showMaxWarning: false, draftTravellers: updated });
-  //     } else if (!isInfantAlone(updated[2], updated[0]) && this.state.showInfantWarning) {
-  //         this.setState({ showInfantWarning: false, draftTravellers: updated });
-  //     } else {
-  //         this.setState({ draftTravellers: updated });
-  //     }
-  // };
+  onRemoveTraveller = (count, type) => {
+    let updated = reduceCount(this.state.draftTravellers, type, count);
+    let totalTravellers = getTotalCount(updated);
+    if (totalTravellers <= maxTravellersAllowed && this.state.showMaxWarning) {
+      this.setState({ showMaxWarning: false, draftTravellers: updated });
+    } else if (!isInfantAlone(updated[2], updated[0]) && this.state.showInfantWarning) {
+      this.setState({ showInfantWarning: false, draftTravellers: updated });
+    } else {
+      this.setState({ draftTravellers: updated });
+    }
+  };
 
   onChangeFromLocation = from => {
     this.setState({ fromLocation: from.toUpperCase() }, this.onChangeSearchCriteria);
@@ -125,18 +127,18 @@ export default class SearchFormContainer extends React.Component {
           onFromDateChange={this.onFromDateChange}
           onToDateChange={this.onToDateChange}
         />
-        {/*{this.state.showTravellerDialog && (*/}
-        {/*<TravellerDialog*/}
-        {/*open={this.state.showTravellerDialog}*/}
-        {/*onClose={this.onCancelTravellerDialog}*/}
-        {/*onDone={this.onDoneTravellerDialog}*/}
-        {/*personAgeCount={this.state.draftTravellers}*/}
-        {/*onAdd={this.onAddTraveller}*/}
-        {/*onRemove={this.onRemoveTraveller}*/}
-        {/*showMaxWarning={this.state.showMaxWarning}*/}
-        {/*showInfantWarning={this.state.showInfantWarning}*/}
-        {/*/>*/}
-        {/*)}*/}
+        {this.state.showTravellerDialog && (
+          <TravellerDialog
+            open={this.state.showTravellerDialog}
+            onClose={this.onCancelTravellerDialog}
+            onDone={this.onDoneTravellerDialog}
+            personAgeCount={this.state.draftTravellers}
+            onAdd={this.onAddTraveller}
+            onRemove={this.onRemoveTraveller}
+            showMaxWarning={this.state.showMaxWarning}
+            showInfantWarning={this.state.showInfantWarning}
+          />
+        )}
       </>
     );
   }
