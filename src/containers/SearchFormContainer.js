@@ -2,7 +2,16 @@ import React from 'react';
 import { defaultTravellers, maxTravellersAllowed } from '../shared/app-constants';
 import SearchForm from '../components/SearchForm';
 import TravellerDialog from '../components/SearchForm/TravellerDialog';
-import { getTotalCount, addCount, isInfantAlone, reduceCount, getDateToString, getStringToDate } from '../shared/util';
+import {
+  getTotalCount,
+  addCount,
+  isInfantAlone,
+  reduceCount,
+  getDateToString,
+  getStringToDate,
+  isEmptyString
+} from '../shared/util';
+import { oneWaySearch, roundTripSearch } from '../shared/flightSearch';
 
 export default class SearchFormContainer extends React.Component {
   state = {
@@ -37,10 +46,6 @@ export default class SearchFormContainer extends React.Component {
 
   onToDateChange = date => {
     this.setState({ toDate: getStringToDate(date) }, this.onChangeSearchCriteria);
-  };
-
-  onChangeSearchCriteria = () => {
-    console.log('Search Criteria changed');
   };
 
   onClickTraveller = () => {
@@ -88,6 +93,16 @@ export default class SearchFormContainer extends React.Component {
       }),
       this.onChangeSearchCriteria
     );
+  };
+
+  onChangeSearchCriteria = () => {
+    const { fromDate, toDate, fromLocation, toLocation, selectedRadio, totalTravellers } = this.state;
+    const isRoundTrip = selectedRadio === 'round-trip';
+    if (isEmptyString(fromLocation) || isEmptyString(toLocation)) return;
+    let flights = isRoundTrip
+      ? roundTripSearch(fromLocation, toLocation, fromDate, toDate)
+      : oneWaySearch(fromLocation, toLocation, fromDate);
+    this.props.onSearch(flights, isRoundTrip, totalTravellers);
   };
 
   render() {

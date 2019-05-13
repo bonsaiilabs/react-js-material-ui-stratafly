@@ -1,8 +1,4 @@
-/**
- * Return the date in "2019-11-25" format
- * @param date
- * @returns {string}
- */
+/* Return the date in "2019-11-25" format*/
 export const getDateToString = date => {
   let fullYear = date.getFullYear(),
     month = date.getMonth() + 1,
@@ -12,19 +8,12 @@ export const getDateToString = date => {
   return fullYear + '-' + formattedMonth + '-' + formattedDay;
 };
 
+/* Return the string in JavaScript date format*/
 export const getStringToDate = date => {
   const [year, month, day] = date.split('-');
   return new Date(year, month - 1, day);
 };
 
-/**
- *
- * @param travellers
- * @param type
- * @param count
- * @param maxAllowed
- * @returns {*}
- */
 export const addCount = (travellers, type, count, maxAllowed) => {
   let updated = { count: count + 1 };
   if (updated.count === maxAllowed) updated.disableAdd = true;
@@ -32,13 +21,6 @@ export const addCount = (travellers, type, count, maxAllowed) => {
   return travellers.map(entry => (entry.type === type ? Object.assign({}, entry, updated) : entry));
 };
 
-/**
- *
- * @param travellers
- * @param type
- * @param count
- * @returns {*}
- */
 export const reduceCount = (travellers, type, count) => {
   let updated = { count: count - 1, disableAdd: false };
   let isZeroChildOrInfant = (type === 'Child' || type === 'Infant') && updated.count === 0;
@@ -49,28 +31,12 @@ export const reduceCount = (travellers, type, count) => {
   return travellers.map(entry => (entry.type === type ? Object.assign({}, entry, updated) : entry));
 };
 
-/**
- * Calculate and return total travellers
- * @param travellers
- * @returns {*}
- */
 export const getTotalCount = travellers => {
   return travellers.reduce((accumulator, entry) => accumulator + entry.count, 0);
 };
 
-/**
- * Return true if the infant count is greater than adult count
- * @param infant
- * @param adult
- * @returns {boolean}
- */
 export const isInfantAlone = (infant, adult) => {
   return infant['count'] > adult['count'];
-};
-
-export const getFlightsWithUpdatedPrice = (flights, totalTravellers) => {
-  if (totalTravellers === 1 || isUndefined(totalTravellers) || isArrayEmpty(flights)) return flights;
-  return flights.map(flight => Object.assign({}, flight, { price: flight.price * totalTravellers }));
 };
 
 export const isObjectEmpty = obj => Object.entries(obj).length === 0 || typeof obj === 'undefined';

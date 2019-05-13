@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import AppHeader from '../components/AppHeader';
 import { Theme } from '../Theme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import TravellerDialog from '../components/SearchForm/TravellerDialog';
-import { defaultTravellers, testFlights } from '../shared/app-constants';
 import SearchResults from '../components/SearchResults';
 import Empty from '../components/Empty';
 import SearchFormContainer from './SearchFormContainer';
-import {isObjectEmpty} from "../shared/util";
+import { isArrayEmpty, isObjectEmpty } from '../shared/util';
+import { updateFlightsWithPrices } from '../shared/flightSearch';
 
 const defaultState = {
   from: '',
   to: '',
-  readOnlyFlights: [],
-  departFlights: { randomData: true },
+  departFlights: {},
+  returnFlights: {},
   totalTravellers: 1,
   isRoundTrip: true
 };
@@ -21,25 +20,23 @@ const defaultState = {
 class App extends Component {
   state = defaultState;
 
+  onSearch = (results, isRoundTrip, totalTravellers) => {
+    let from = !isArrayEmpty(results) ? results[0].from : '';
+    let to = !isArrayEmpty(results) ? results[0].to : '';
+    let departFlights = updateFlightsWithPrices(results[0] || {}, totalTravellers);
+    let returnFlights = updateFlightsWithPrices(results[1] || {}, totalTravellers);
+    this.setState({ from, to, isRoundTrip, totalTravellers, departFlights, returnFlights });
+  };
+
   render() {
     let showEmpty = isObjectEmpty(this.state.departFlights);
-
+    let { departFlights } = this.state;
     return (
       <MuiThemeProvider theme={Theme}>
         <AppHeader />
-        <SearchFormContainer onSearch={() => console.log('Found new flights')} />
-        <TravellerDialog
-          open={false}
-          onClose={() => console.log('closingDialog')}
-          onDone={() => console.log('Done')}
-          personAgeCount={defaultTravellers}
-          onAdd={() => console.log('Add travellers')}
-          onRemove={() => console.log('Remove travellers')}
-          showMaxWarning={false}
-          showInfantWarning={false}
-        />
+        <SearchFormContainer onSearch={this.onSearch} />
         {showEmpty && <Empty />}
-        {!showEmpty && <SearchResults flights={testFlights} onSelect={() => console.log('flight-selected')} />}
+        {!showEmpty && <SearchResults flights={departFlights} onSelect={() => console.log('flight-selected')} />}
       </MuiThemeProvider>
     );
   }
