@@ -2,7 +2,6 @@ import React from 'react';
 import { defaultTravellers, maxTravellersAllowed } from '../shared/app-constants';
 import SearchForm from '../components/SearchForm';
 import TravellerDialog from '../components/SearchForm/TravellerDialog';
-
 import { getTotalCount, addCount, isInfantAlone, reduceCount, formatDate } from '../shared/util';
 
 export default class SearchFormContainer extends React.Component {
@@ -24,27 +23,32 @@ export default class SearchFormContainer extends React.Component {
     this.setState({ selectedRadio: event.target.value }, this.onChangeSearchCriteria);
   };
 
+  onChangeFromLocation = from => {
+    this.setState({ fromLocation: from.toUpperCase() }, this.onChangeSearchCriteria);
+  };
+
+  onChangeToLocation = to => {
+    this.setState({ toLocation: to.toUpperCase() }, this.onChangeSearchCriteria);
+  };
+
+  onFromDateChange = date => {
+    const [year, month, day] = date.split('-');
+    const fromDate = new Date(year, month - 1, day);
+    this.setState({ fromDate: fromDate }, this.onChangeSearchCriteria);
+  };
+
+  onToDateChange = date => {
+    const [year, month, day] = date.split('-');
+    const toDate = new Date(year, month - 1, day);
+    this.setState({ toDate: toDate }, this.onChangeSearchCriteria);
+  };
+
+  onChangeSearchCriteria = () => {
+    console.log('Search Criteria changed');
+  };
+
   onClickTraveller = () => {
     this.setState({ showTravellerDialog: true });
-  };
-
-  onCancelTravellerDialog = () => {
-    this.setState(state => ({
-      showTravellerDialog: false,
-      draftTravellers: state.lastChosenTravellers
-    }));
-  };
-
-  onDoneTravellerDialog = () => {
-    let total = getTotalCount(this.state.draftTravellers);
-    this.setState(
-      state => ({
-        showTravellerDialog: false,
-        lastChosenTravellers: state.draftTravellers,
-        totalTravellers: total
-      }),
-      this.onChangeSearchCriteria
-    );
   };
 
   onAddTraveller = (count, type) => {
@@ -71,28 +75,23 @@ export default class SearchFormContainer extends React.Component {
     }
   };
 
-  onChangeFromLocation = from => {
-    this.setState({ fromLocation: from.toUpperCase() }, this.onChangeSearchCriteria);
+  onCancelTravellerDialog = () => {
+    this.setState(state => ({
+      showTravellerDialog: false,
+      draftTravellers: state.lastChosenTravellers
+    }));
   };
 
-  onChangeToLocation = to => {
-    this.setState({ toLocation: to.toUpperCase() }, this.onChangeSearchCriteria);
-  };
-
-  onFromDateChange = date => {
-    const [year, month, day] = date.split('-');
-    const fromDate = new Date(year, month - 1, day);
-    this.setState({ fromDate: fromDate }, this.onChangeSearchCriteria);
-  };
-
-  onToDateChange = date => {
-    const [year, month, day] = date.split('-');
-    const toDate = new Date(year, month - 1, day);
-    this.setState({ toDate: toDate }, this.onChangeSearchCriteria);
-  };
-
-  onChangeSearchCriteria = () => {
-    console.log('Search Criteria changed');
+  onDoneTravellerDialog = () => {
+    let total = getTotalCount(this.state.draftTravellers);
+    this.setState(
+      state => ({
+        showTravellerDialog: false,
+        lastChosenTravellers: state.draftTravellers,
+        totalTravellers: total
+      }),
+      this.onChangeSearchCriteria
+    );
   };
 
   render() {
