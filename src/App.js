@@ -3,14 +3,16 @@ import AppHeader from './components/AppHeader';
 import { Theme } from './Theme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import SearchForm from './components/SearchForm';
-// import Empty from './components/Empty';
-import { formatDate } from './shared/util';
+import Empty from './components/Empty';
+import { formatDate, isObjectEmpty } from './shared/util';
 import TravellerDialog from './components/SearchForm/TravellerDialog';
-import {defaultTravellers, testFlights} from './shared/app-constants';
+import { defaultTravellers, testFlights } from './shared/app-constants';
 import SearchResults from './components/SearchResults';
 
 class App extends Component {
+  state = { departFlights: { testData: true } };
   render() {
+    let showEmpty = isObjectEmpty(this.state.departFlights);
     return (
       <MuiThemeProvider theme={Theme}>
         <AppHeader />
@@ -35,8 +37,8 @@ class App extends Component {
           showInfantWarning={false}
         />
 
-        {/*<Empty />*/}
-        <SearchResults flights={testFlights} onSelect={() => console.log('flight-selected')}/>
+        {showEmpty && <Empty />}
+        {!showEmpty && <SearchResults flights={testFlights} onSelect={() => console.log('flight-selected')} />}
       </MuiThemeProvider>
     );
   }
