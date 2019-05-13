@@ -1,17 +1,23 @@
 import React from 'react';
-import { defaultTravellers, maxTravellersAllowed } from '../shared/app-constants';
+import { maxTravellersAllowed } from '../shared/app-constants';
 import SearchForm from '../components/SearchForm';
 import TravellerDialog from '../components/SearchForm/TravellerDialog';
 import {
-  getTotalCount,
-  addCount,
+  getTotalTravellers,
+  increaseAndUpdateTravellers,
   isInfantAlone,
-  reduceCount,
+  reduceAndUpdateTravellers,
   getDateToString,
   getStringToDate,
   isEmptyString
 } from '../shared/util';
 import { oneWaySearch, roundTripSearch } from '../shared/flightSearch';
+
+const defaultTravellers = [
+  { type: 'Adult', age: '(12 + yr)', count: 1, disableAdd: false, disableRemove: true },
+  { type: 'Child', age: '(2 - 11yr)', count: 0, disableAdd: false, disableRemove: true },
+  { type: 'Infant', age: '(0 - 2yr)', count: 0, disableAdd: false, disableRemove: true }
+];
 
 export default class SearchFormContainer extends React.Component {
   state = {
@@ -52,28 +58,23 @@ export default class SearchFormContainer extends React.Component {
     this.setState({ showTravellerDialog: true });
   };
 
-  onAddTraveller = (count, type) => {
-    let updated = addCount(this.state.draftTravellers, type, count, maxTravellersAllowed);
-    let totalTravellers = getTotalCount(updated);
-    if (totalTravellers > maxTravellersAllowed) {
-      this.setState({ showMaxWarning: true, draftTravellers: updated });
-    } else if (isInfantAlone(updated[2], updated[0])) {
-      this.setState({ showInfantWarning: true, draftTravellers: updated });
-    } else {
-      this.setState({ draftTravellers: updated });
-    }
+  onAddTraveller = (count, travellerType) => {
+    let draftTravellers = increaseAndUpdateTravellers(this.state.draftTravellers, travellerType, count, maxTravellersAllowed);
+    let totalTravellers = getTotalTravellers(draftTravellers);
+    if (totalTravellers > maxTravellersAllowed) this.setState({ showMaxWarning: true, draftTravellers });
+    else if (isInfantAlone(draftTravellers[2], draftTravellers[0]))
+      this.setState({ showInfantWarning: true, draftTravellers });
+    else this.setState({ draftTravellers });
   };
 
-  onRemoveTraveller = (count, type) => {
-    let updated = reduceCount(this.state.draftTravellers, type, count);
-    let totalTravellers = getTotalCount(updated);
-    if (totalTravellers <= maxTravellersAllowed && this.state.showMaxWarning) {
-      this.setState({ showMaxWarning: false, draftTravellers: updated });
-    } else if (!isInfantAlone(updated[2], updated[0]) && this.state.showInfantWarning) {
-      this.setState({ showInfantWarning: false, draftTravellers: updated });
-    } else {
-      this.setState({ draftTravellers: updated });
-    }
+  onRemoveTraveller = (count, travellerType) => {
+    let draftTravellers = reduceAndUpdateTravellers(this.state.draftTravellers, travellerType, count);
+    let totalTravellers = getTotalTravellers(draftTravellers);
+    if (totalTravellers <= maxTravellersAllowed && this.state.showMaxWarning)
+      this.setState({ showMaxWarning: false, draftTravellers });
+    else if (!isInfantAlone(draftTravellers[2], draftTravellers[0]) && this.state.showInfantWarning)
+      this.setState({ showInfantWarning: false, draftTravellers });
+    else this.setState({ draftTravellers });
   };
 
   onCancelTravellerDialog = () => {
@@ -84,12 +85,12 @@ export default class SearchFormContainer extends React.Component {
   };
 
   onDoneTravellerDialog = () => {
-    let total = getTotalCount(this.state.draftTravellers);
+    // let total = getTotalTravellers(this.state.draftTravellers);
     this.setState(
       state => ({
         showTravellerDialog: false,
         lastChosenTravellers: state.draftTravellers,
-        totalTravellers: total
+        totalTravellers: getTotalTravellers(state.draftTravellers)
       }),
       this.onChangeSearchCriteria
     );
