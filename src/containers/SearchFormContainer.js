@@ -2,7 +2,7 @@ import React from 'react';
 import { defaultTravellers, maxTravellersAllowed } from '../shared/app-constants';
 import SearchForm from '../components/SearchForm';
 import TravellerDialog from '../components/SearchForm/TravellerDialog';
-import { getTotalCount, addCount, isInfantAlone, reduceCount, formatDate } from '../shared/util';
+import { getTotalCount, addCount, isInfantAlone, reduceCount, getDateToString, getStringToDate } from '../shared/util';
 
 export default class SearchFormContainer extends React.Component {
   state = {
@@ -32,15 +32,11 @@ export default class SearchFormContainer extends React.Component {
   };
 
   onFromDateChange = date => {
-    const [year, month, day] = date.split('-');
-    const fromDate = new Date(year, month - 1, day);
-    this.setState({ fromDate: fromDate }, this.onChangeSearchCriteria);
+    this.setState({ fromDate: getStringToDate(date) }, this.onChangeSearchCriteria);
   };
 
   onToDateChange = date => {
-    const [year, month, day] = date.split('-');
-    const toDate = new Date(year, month - 1, day);
-    this.setState({ toDate: toDate }, this.onChangeSearchCriteria);
+    this.setState({ toDate: getStringToDate(date) }, this.onChangeSearchCriteria);
   };
 
   onChangeSearchCriteria = () => {
@@ -106,8 +102,8 @@ export default class SearchFormContainer extends React.Component {
           onChangeToLocation={this.onChangeToLocation}
           fromLocation={this.state.fromLocation}
           toLocation={this.state.toLocation}
-          fromDate={formatDate(this.state.fromDate)}
-          toDate={formatDate(this.state.toDate)}
+          fromDate={getDateToString(this.state.fromDate)}
+          toDate={getDateToString(this.state.toDate)}
           onFromDateChange={this.onFromDateChange}
           onToDateChange={this.onToDateChange}
         />
