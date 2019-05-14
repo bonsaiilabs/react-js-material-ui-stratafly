@@ -2,6 +2,7 @@ import React from 'react';
 import { maxTravellersAllowed } from '../shared/app-constants';
 import SearchForm from '../components/SearchForm';
 import TravellerDialog from '../components/SearchForm/TravellerDialog';
+import { oneWaySearch, roundTripSearch } from '../shared/flightSearch';
 import {
   getTotalTravellers,
   increaseAndUpdateTravellers,
@@ -11,7 +12,6 @@ import {
   getStringToDate,
   isEmptyString
 } from '../shared/util';
-import { oneWaySearch, roundTripSearch } from '../shared/flightSearch';
 
 const defaultTravellers = [
   { type: 'Adult', age: '(12 + yr)', count: 1, disableAdd: false, disableRemove: true },
@@ -59,7 +59,12 @@ export default class SearchFormContainer extends React.Component {
   };
 
   onAddTraveller = (count, travellerType) => {
-    let draftTravellers = increaseAndUpdateTravellers(this.state.draftTravellers, travellerType, count, maxTravellersAllowed);
+    let draftTravellers = increaseAndUpdateTravellers(
+      this.state.draftTravellers,
+      travellerType,
+      count,
+      maxTravellersAllowed
+    );
     let totalTravellers = getTotalTravellers(draftTravellers);
     if (totalTravellers > maxTravellersAllowed) this.setState({ showMaxWarning: true, draftTravellers });
     else if (isInfantAlone(draftTravellers[2], draftTravellers[0]))
