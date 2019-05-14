@@ -29,3 +29,14 @@ export const AirlineToIcon = {
   'Delta Airlines': Delta,
   'Southwest Airlines': SouthWest
 };
+
+export const airlineClassToLabel = { economy: 'Economy' };
+
+export const codeToCityName = { 'YVR': 'Vancouver', 'SFO': 'San Francisco'};
+
+export const flightInfo = {
+  legRoom: 'Above average legroom',
+  wifi: 'Wifi onBoard',
+  usb: 'In-seat power and USB outlets',
+ delayMessage:  'This flight is often delayed by 30+ minutes'
+};
