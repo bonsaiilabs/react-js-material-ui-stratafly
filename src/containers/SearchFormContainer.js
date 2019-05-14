@@ -80,12 +80,13 @@ export default class SearchFormContainer extends React.Component {
   onCancelTravellerDialog = () => {
     this.setState(state => ({
       showTravellerDialog: false,
-      draftTravellers: state.lastChosenTravellers
+      draftTravellers: state.lastChosenTravellers,
+      showMaxWarning: false,
+      showInfantWarning: false
     }));
   };
 
   onDoneTravellerDialog = () => {
-    // let total = getTotalTravellers(this.state.draftTravellers);
     this.setState(
       state => ({
         showTravellerDialog: false,
