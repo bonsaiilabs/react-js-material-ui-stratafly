@@ -10,7 +10,7 @@ import { defaultTravellers, testFlights } from './shared/app-constants';
 import SearchResults from './components/SearchResults';
 
 class App extends Component {
-  state = { departFlights: { testData: true } };
+  state = { departFlights: testFlights };
   render() {
     let showEmpty = isObjectEmpty(this.state.departFlights);
     return (
