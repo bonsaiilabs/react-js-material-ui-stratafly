@@ -25,8 +25,8 @@ export const oneWaySearch = (from, to, when) => {
     const classAndFares = Object.entries(flight.priceByClass).map(entry => ({ class: entry[0], price: entry[1] }));
     return classAndFares.map(classFare => {
       const flightWithClassFare = Object.assign({}, flight, classFare);
-      delete flightWithClassFare.priceByClass; // this is not needed anymore
-      delete flightWithClassFare.runsOn; // this is not needed anymore
+      delete flightWithClassFare.priceByClass;
+      delete flightWithClassFare.runsOn;
       return flightWithClassFare;
     });
   });
