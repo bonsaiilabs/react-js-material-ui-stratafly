@@ -6,7 +6,7 @@ import SearchResults from '../components/SearchResults';
 import Empty from '../components/Empty';
 import SearchFormContainer from './SearchFormContainer';
 import { isArrayEmpty, isObjectEmpty } from '../shared/util';
-import { updateFlightsWithPrices } from '../shared/flightSearch';
+import {filterEconomyFlights, updateFlightsWithPrices} from '../shared/flightSearch';
 
 const defaultState = {
   from: '',
@@ -21,10 +21,12 @@ class App extends Component {
   state = defaultState;
 
   onSearch = (results, isRoundTrip, totalTravellers) => {
-    let from = !isArrayEmpty(results) ? results[0].from : '';
-    let to = !isArrayEmpty(results) ? results[0].to : '';
-    let departFlights = updateFlightsWithPrices(results[0] || {}, totalTravellers);
-    let returnFlights = updateFlightsWithPrices(results[1] || {}, totalTravellers);
+    const from = !isArrayEmpty(results) ? results[0].from : '';
+    const to = !isArrayEmpty(results) ? results[0].to : '';
+    const economyDepartFlights = filterEconomyFlights(results[0] || {});
+    const economyReturnFlights = filterEconomyFlights(results[1] || {});
+    const departFlights = updateFlightsWithPrices(economyDepartFlights || {}, totalTravellers);
+    const returnFlights = updateFlightsWithPrices(economyReturnFlights || {}, totalTravellers);
     this.setState({ from, to, isRoundTrip, totalTravellers, departFlights, returnFlights });
   };
 

@@ -49,6 +49,12 @@ export const roundTripSearch = (from, to, departureDate, returnDate) => {
   return [].concat(departing, returning);
 };
 
+export const filterEconomyFlights = flightResults => {
+  let flightsWithFares = flightResults['flightsWithFares'] || [];
+  const economyFlights = flightsWithFares.filter(flight => flight.class === 'economy');
+  return (Object.assign({}, flightResults, {'flightsWithFares': economyFlights}))
+};
+
 /**
  *
  * @param results
