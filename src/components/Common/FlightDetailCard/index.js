@@ -2,7 +2,7 @@ import React from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import FlightTakeOff from '@material-ui/icons/FlightTakeoffOutlined';
 import { ReviewFlightHeader } from './ReviewFlightHeader';
-import FlightDetails from './FlightDetails';
+import ReviewFlightBody from './ReviewFlightBody';
 import { Card, Grid, withStyles } from '@material-ui/core';
 
 const FlightDetailCard = ({ classes, from, to, flight, onClose, headerName }) => {
@@ -18,7 +18,7 @@ const FlightDetailCard = ({ classes, from, to, flight, onClose, headerName }) =>
           />
         </Grid>
         <Grid item xs={12}>
-          <FlightDetails from={from} to={to} flight={flight} />
+          <ReviewFlightBody from={from} to={to} flight={flight} />
         </Grid>
       </Grid>
     </Card>
