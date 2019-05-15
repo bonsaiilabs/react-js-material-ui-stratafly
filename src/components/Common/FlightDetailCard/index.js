@@ -30,12 +30,6 @@ const styles = theme => ({
     backgroundColor: theme.palette.primary.light,
     borderRadius: theme.shape.borderRadius * 2
   },
-  header: {
-    padding: theme.spacing.unit
-  },
-  error: {
-    color: theme.palette.error.main,
-    paddingTop: theme.spacing.unit * 2
-  }
+  header: { padding: theme.spacing.unit }
 });
 export default withStyles(styles)(FlightDetailCard);
