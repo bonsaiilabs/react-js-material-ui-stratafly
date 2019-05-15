@@ -5,19 +5,25 @@ import { Typography } from '@material-ui/core';
 import { AirlineToIcon } from '../../../../shared/app-constants';
 
 export const IconTimePrice = props => {
-  const { depart, arrive, fromCode, toCode, price, tripType, airline, classes } = props;
+  const { fromCode, toCode, tripType, classes, flight } = props;
   return (
     <Grid container className={classes.iconTimePrice}>
       <Grid item xs={1}>
-        <AirlineIcon airline={airline} classes={classes} />
+        <AirlineIcon airline={flight.airline} classes={classes} />
       </Grid>
 
       <Grid item xs={6}>
-        <FlightTimesAndCode depart={depart} arrive={arrive} fromCode={fromCode} toCode={toCode} classes={classes} />
+        <FlightTimesAndCode
+          depart={flight.depart}
+          arrive={flight.arrive}
+          fromCode={fromCode}
+          toCode={toCode}
+          classes={classes}
+        />
       </Grid>
 
       <Grid item xs={5}>
-        <PriceTripType price={price} tripType={tripType} classes={classes} />
+        <PriceTripType price={flight.price} tripType={tripType} classes={classes} />
       </Grid>
     </Grid>
   );
@@ -45,7 +51,7 @@ export const PriceTripType = props => {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body2" className={classes.infoText}>
+        <Typography variant="body2" className={classes.body2MediumEmphasis}>
           {tripType}
         </Typography>
       </Grid>

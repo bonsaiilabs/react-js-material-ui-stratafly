@@ -12,16 +12,7 @@ export const FlightCard = props => {
   return (
     <Grid container spacing={8}>
       <Grid item xs={12} onClick={() => onSelect(flight)}>
-        <IconTimePrice
-          depart={flight.depart}
-          arrive={flight.arrive}
-          fromCode={from}
-          toCode={to}
-          price={flight.price}
-          tripType={tripType}
-          airline={flight.airline}
-          classes={classes}
-        />
+        <IconTimePrice fromCode={from} toCode={to} tripType={tripType} flight={flight} classes={classes} />
       </Grid>
 
       <Grid item xs={12}>
