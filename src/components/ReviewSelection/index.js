@@ -6,8 +6,8 @@ import { FlightSummaryCard } from './FlightSummaryCard';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { FlightTitle } from './FlightTitle';
 import { trip } from '../../shared/app-constants';
-import {StrataButton} from "../Common/StrataButton";
-import {FlightDetailCard} from "../Common/FlightDetailCard";
+import { StrataButton } from '../Common/StrataButton';
+import { FlightDetailCard } from '../Common/FlightDetailCard';
 
 function ReviewFlights({
   classes,

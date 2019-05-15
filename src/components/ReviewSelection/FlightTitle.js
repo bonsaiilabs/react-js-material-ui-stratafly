@@ -19,7 +19,6 @@ export const FlightTitle = ({ classes, from, to, icon }) => {
           <Grid item>
             <Typography variant="h6">{toCity}</Typography>
           </Grid>
-
         </Grid>
       </Grid>
     </Grid>
