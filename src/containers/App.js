@@ -9,6 +9,7 @@ import { isArrayEmpty, isObjectEmpty } from '../shared/util';
 import { updateFlightsWithPrices } from '../shared/flightSearch';
 import { StrataFullScreenDialog } from '../components/Common/StrataFullScreenDialog';
 import ReviewSelection from '../components/ReviewSelection';
+import ReturnFlights from '../components/ReturnFlights';
 import { trip } from '../shared/app-constants';
 
 const appScreens = {
@@ -50,9 +51,9 @@ class App extends Component {
   backToSearch = () =>
     this.setState({ controlFlow: makeActive('showSearch'), selectedDepartFlight: {}, selectedReturnFlight: {} });
 
-  // onSelectReturnFlight = flight => {
-  //   this.setState({ selectedReturnFlight: flight, controlFlow: makeActive('showReview') });
-  // };
+  onSelectReturnFlight = flight => {
+    this.setState({ selectedReturnFlight: flight, controlFlow: makeActive('showReview') });
+  };
 
   onBook = () => this.setState({ controlFlow: makeActive('showBooking') });
 
@@ -61,12 +62,13 @@ class App extends Component {
       from,
       to,
       departFlights,
+      returnFlights,
       selectedDepartFlight,
       selectedReturnFlight,
       totalTravellers,
       isRoundTrip
     } = this.state;
-    const { showReview } = this.state.controlFlow;
+    const { showReturnFlights, showReview } = this.state.controlFlow;
     const showEmpty = isObjectEmpty(departFlights);
     const totalPrice = isRoundTrip
       ? selectedDepartFlight.price + selectedReturnFlight.price
@@ -78,6 +80,7 @@ class App extends Component {
         <SearchFormContainer onSearch={this.onSearch} />
         {showEmpty && <Empty />}
         {!showEmpty && <SearchResults flights={departFlights} onSelect={this.onSelectDepartFlight} />}
+
         <StrataFullScreenDialog open={showReview} onBack={this.backToSearch} label={'Review'}>
           <ReviewSelection
             from={from}
@@ -89,6 +92,17 @@ class App extends Component {
             totalPrice={totalPrice}
             onClose={this.backToSearch}
             onBook={this.onBook}
+          />
+        </StrataFullScreenDialog>
+
+        <StrataFullScreenDialog open={showReturnFlights} onBack={this.backToSearch} label={'Return flights'}>
+          <ReturnFlights
+            from={from}
+            to={to}
+            flight={selectedDepartFlight}
+            onClose={this.backToSearch}
+            flights={returnFlights}
+            onSelectFlight={this.onSelectReturnFlight}
           />
         </StrataFullScreenDialog>
       </MuiThemeProvider>
