@@ -3,8 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import FlightIcon from '../../images/flight.svg';
 import withStyles from '@material-ui/core/styles/withStyles';
-import {airlineClassToLabel} from "../../shared/app-constants";
-import {Typography} from "@material-ui/core";
+import { airlineClassToLabel } from '../../shared/app-constants';
+import { Typography } from '@material-ui/core';
 
 function SummaryCard({ classes, totalPrice, tripType, flightClass, traveller }) {
   return (
@@ -57,11 +57,9 @@ export const PriceMetadata = ({ totalPrice, tripType, flightClass, traveller }) 
     <Grid container>
       <Grid item xs={12}>
         <Typography variant="h5">{'$' + totalPrice}</Typography>
-        {/*<BlackH5 text={'$' + totalPrice} />*/}
       </Grid>
       <Grid item xs={12}>
         <Typography variant="caption">{metadata}</Typography>
-        {/*<BlackCaption text={metadata} />*/}
       </Grid>
     </Grid>
   );

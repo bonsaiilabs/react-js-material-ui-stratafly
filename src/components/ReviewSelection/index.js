@@ -62,7 +62,7 @@ function ReviewFlights({
 const styles = theme => ({
   root: { marginTop: theme.spacing.unit * 8 },
   titleContainer: { margin: theme.spacing.unit },
-  icon: { color: theme.palette.text.secondaryMediumEmphasis },
+  icon: { color: theme.palette.text.primaryMediumEmphasis },
   departCard: { marginTop: '-10px', marginLeft: theme.spacing.unit, marginRight: theme.spacing.unit },
   returnCard: { margin: theme.spacing.unit },
   button: { marginTop: theme.spacing.unit * 3 }

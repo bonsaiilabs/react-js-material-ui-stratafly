@@ -11,7 +11,7 @@ export const FlightCard = props => {
     let stop = flight.stops === stops.nonStop ? nonStop : oneStop;
     return (
         <Grid container spacing={8}>
-            <Grid item xs={12} onClick={onSelect}>
+            <Grid item xs={12} onClick={() => onSelect(flight)}>
                 <IconTimePrice
                     depart={flight.depart}
                     arrive={flight.arrive}
