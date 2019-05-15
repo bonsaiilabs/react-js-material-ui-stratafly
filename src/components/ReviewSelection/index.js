@@ -6,7 +6,7 @@ import { FlightTitle } from './FlightTitle';
 import { trip } from '../../shared/app-constants';
 import { StrataButton } from '../Common/StrataButton';
 import FlightSummaryCard from './FlightSummaryCard';
-import FlightDetailCard from "../Common/FlightDetailCard";
+import FlightDetailCard from '../Common/FlightDetailCard';
 
 const ReviewSelection = props => {
   const { classes, from, to, departFlight, returnFlight, tripType, traveller, totalPrice, onClose, onBook } = props;

@@ -8,7 +8,7 @@ import { Detail } from './Detail';
 const ReviewFlightBody = ({ classes, from, to, flight }) => {
   let stop = flight.stops === stops.nonStop ? stops.nonStop : stops.oneStop + ' at ' + flight.viaAirlineCode + '. ';
   return (
-    <ExpansionPanel className={classes.expand}>
+    <ExpansionPanel>
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Summary from={from} to={to} flight={flight} classes={classes} stop={stop} />
       </ExpansionPanelSummary>
@@ -21,7 +21,6 @@ const ReviewFlightBody = ({ classes, from, to, flight }) => {
 };
 
 const styles = theme => ({
-  expand: { backgroundColor: theme.palette.primary.light },
   icon: { color: theme.palette.text.primaryMediumEmphasis },
   body2MediumEmphasis: { color: theme.palette.text.primaryMediumEmphasis }
 });

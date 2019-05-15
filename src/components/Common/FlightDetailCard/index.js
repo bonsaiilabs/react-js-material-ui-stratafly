@@ -27,7 +27,6 @@ const FlightDetailCard = ({ classes, from, to, flight, onClose, headerName }) =>
 
 const styles = theme => ({
   root: {
-    backgroundColor: theme.palette.primary.light,
     borderRadius: theme.shape.borderRadius * 2
   },
   header: { padding: theme.spacing.unit }
