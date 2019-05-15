@@ -5,13 +5,6 @@ const destinations = new Set(['YVR', 'SFO']);
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const getDayOfWeek = date => days[date.getDay()];
 
-/**
- * Return one-way flights
- * @param from
- * @param to
- * @param when
- * @returns {*}
- */
 export const oneWaySearch = (from, to, when) => {
   if (!(destinations.has(from) && destinations.has(to)) || from === to) {
     return [];
@@ -35,26 +28,18 @@ export const oneWaySearch = (from, to, when) => {
   return [{ from, to, date: when, flightsWithFares: flightWithFaresFlattened }];
 };
 
-/**
- * Return round-trip flights
- * @param from
- * @param to
- * @param departureDate
- * @param returnDate
- * @returns {*[]}
- */
 export const roundTripSearch = (from, to, departureDate, returnDate) => {
   const departing = oneWaySearch(from, to, departureDate);
   const returning = oneWaySearch(to, from, returnDate);
   return [].concat(departing, returning);
 };
 
-/**
- *
- * @param results
- * @param totalTravellers
- * @returns {*}
- */
+export const filterEconomyFlights = flightResults => {
+  let flightsWithFares = flightResults['flightsWithFares'] || [];
+  const economyFlights = flightsWithFares.filter(flight => flight.class === 'economy');
+  return Object.assign({}, flightResults, { flightsWithFares: economyFlights });
+};
+
 export const updateFlightsWithPrices = (results, totalTravellers) => {
   if (isObjectEmpty(results)) return {};
   let updatedFlightsWithFares = addPriceForTravellers(results.flightsWithFares, totalTravellers);
