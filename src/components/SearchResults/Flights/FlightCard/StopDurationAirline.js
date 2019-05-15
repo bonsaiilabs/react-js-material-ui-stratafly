@@ -7,17 +7,17 @@ export const StopDurationAirline = props => {
   return (
     <Grid container direction="row" className={classes.stopDurationAirline} spacing={8}>
       <Grid item>
-        <Typography variant="body2" className={classes.infoText}>
+        <Typography variant="body2" className={classes.body2MediumEmphasis}>
           {stop}
         </Typography>
       </Grid>
       <Grid item>
-        <Typography variant="body2" className={classes.infoText}>
+        <Typography variant="body2" className={classes.body2MediumEmphasis}>
           {duration}
         </Typography>
       </Grid>
       <Grid item>
-        <Typography variant="body2" className={classes.infoText}>
+        <Typography variant="body2" className={classes.body2MediumEmphasis}>
           {airline}
         </Typography>
       </Grid>

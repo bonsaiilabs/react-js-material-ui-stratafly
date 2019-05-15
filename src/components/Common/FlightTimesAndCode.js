@@ -28,7 +28,7 @@ const TimeAirportCode = props => {
         <Typography variant="subtitle2">{time}</Typography>
       </Grid>
       <Grid item>
-        <Typography variant="body2" className={classes.infoText}>
+        <Typography variant="body2" className={classes.body2MediumEmphasis}>
           {airportCode}
         </Typography>
       </Grid>
