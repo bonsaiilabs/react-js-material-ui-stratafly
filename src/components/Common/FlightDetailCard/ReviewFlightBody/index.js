@@ -3,9 +3,9 @@ import { stops } from '../../../../shared/app-constants';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, withStyles } from '@material-ui/core';
 import { Summary } from './Summary';
-import { Details } from './Details';
+import { Detail } from './Detail';
 
-const FlightDetails = ({ classes, from, to, flight }) => {
+const ReviewFlightBody = ({ classes, from, to, flight }) => {
   let stop = flight.stops === stops.nonStop ? stops.nonStop : stops.oneStop + ' at ' + flight.viaAirlineCode + '. ';
   return (
     <ExpansionPanel className={classes.expand}>
@@ -14,7 +14,7 @@ const FlightDetails = ({ classes, from, to, flight }) => {
       </ExpansionPanelSummary>
 
       <ExpansionPanelDetails>
-        <Details classes={classes} />
+        <Detail classes={classes} />
       </ExpansionPanelDetails>
     </ExpansionPanel>
   );
@@ -26,4 +26,4 @@ const styles = theme => ({
   body2MediumEmphasis: { color: theme.palette.text.primaryMediumEmphasis }
 });
 
-export default withStyles(styles)(FlightDetails);
+export default withStyles(styles)(ReviewFlightBody);

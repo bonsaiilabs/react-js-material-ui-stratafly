@@ -5,7 +5,7 @@ import Wifi from '@material-ui/icons/WifiOutlined';
 import Power from '@material-ui/icons/Power';
 import AirlineSeatRecline from '@material-ui/icons/AirlineSeatReclineExtraOutlined';
 
-export const Details = ({ classes }) => {
+export const Detail = ({ classes }) => {
   return (
     <Grid container direction="column">
       <Grid item>
