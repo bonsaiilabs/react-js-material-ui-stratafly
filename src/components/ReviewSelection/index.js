@@ -1,9 +1,8 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import { Grid, withStyles } from '@material-ui/core';
 import RoundTripIcon from '@material-ui/icons/SwapHoriz';
 import OneWayIcon from '@material-ui/icons/ArrowRightAlt';
 import { FlightSummaryCard } from './FlightSummaryCard';
-import withStyles from '@material-ui/core/styles/withStyles';
 import { FlightTitle } from './FlightTitle';
 import { trip } from '../../shared/app-constants';
 import { StrataButton } from '../Common/StrataButton';
