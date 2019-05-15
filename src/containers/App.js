@@ -101,7 +101,7 @@ class App extends Component {
             to={to}
             flight={selectedDepartFlight}
             onClose={this.backToSearch}
-            flights={returnFlights}
+            returnFlights={returnFlights}
             onSelectFlight={this.onSelectReturnFlight}
           />
         </StrataFullScreenDialog>

@@ -54,7 +54,7 @@ const styles = theme => ({
   titleContainer: { margin: theme.spacing.unit },
   icon: { color: theme.palette.text.primaryMediumEmphasis },
   departCard: { marginTop: '-10px', marginLeft: theme.spacing.unit, marginRight: theme.spacing.unit },
-  returnCard: { margin: theme.spacing.unit },
+  returnCard: { margin: theme.spacing.unit, marginTop: theme.spacing.unit * 2 },
   button: { marginTop: theme.spacing.unit * 3 }
 });
 export default withStyles(styles)(ReviewSelection);
