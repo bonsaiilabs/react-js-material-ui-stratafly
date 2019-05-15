@@ -26,10 +26,7 @@ const SearchResults = ({ classes, tripType, flights, onSelect, headerLabel }) =>
   );
 };
 const styles = theme => ({
-  card: {
-    backgroundColor: theme.palette.primary.light,
-    borderRadius: theme.shape.borderRadius * 2
-  },
+  card: { borderRadius: theme.shape.borderRadius * 2 },
   iconTimePrice: {
     paddingTop: theme.spacing.unit * 2,
     paddingLeft: theme.spacing.unit * 2
