@@ -2,11 +2,11 @@ import React from 'react';
 import { Grid, withStyles } from '@material-ui/core';
 import RoundTripIcon from '@material-ui/icons/SwapHoriz';
 import OneWayIcon from '@material-ui/icons/ArrowRightAlt';
-import { FlightSummaryCard } from './FlightSummaryCard';
 import { FlightTitle } from './FlightTitle';
 import { trip } from '../../shared/app-constants';
 import { StrataButton } from '../Common/StrataButton';
 import { FlightDetailCard } from '../Common/FlightDetailCard';
+import FlightSummaryCard from './FlightSummaryCard';
 
 function ReviewFlights({
   classes,
@@ -29,7 +29,7 @@ function ReviewFlights({
         {!isRoundTrip && <FlightTitle from={from} to={to} icon={<OneWayIcon className={classes.icon} />} />}
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid item xs={12} className={classes.summaryCard}>
         <FlightSummaryCard
           totalPrice={totalPrice}
           tripType={tripType}
@@ -60,6 +60,7 @@ function ReviewFlights({
 }
 const styles = theme => ({
   root: { marginTop: theme.spacing.unit * 8 },
+  summaryCard: { margin: theme.spacing.unit },
   titleContainer: { margin: theme.spacing.unit },
   icon: { color: theme.palette.text.primaryMediumEmphasis },
   departCard: { marginTop: '-10px', marginLeft: theme.spacing.unit, marginRight: theme.spacing.unit },

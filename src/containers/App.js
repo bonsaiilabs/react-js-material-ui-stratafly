@@ -50,9 +50,9 @@ class App extends Component {
   backToSearch = () =>
     this.setState({ controlFlow: makeActive('showSearch'), selectedDepartFlight: {}, selectedReturnFlight: {} });
 
-  onSelectReturnFlight = flight => {
-    this.setState({ selectedReturnFlight: flight, controlFlow: makeActive('showReview') });
-  };
+  // onSelectReturnFlight = flight => {
+  //   this.setState({ selectedReturnFlight: flight, controlFlow: makeActive('showReview') });
+  // };
 
   onBook = () => this.setState({ controlFlow: makeActive('showBooking') });
 
