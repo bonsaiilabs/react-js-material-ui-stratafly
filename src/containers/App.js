@@ -29,8 +29,8 @@ class App extends Component {
   };
 
   render() {
-    let showEmpty = isObjectEmpty(this.state.departFlights);
     let { departFlights } = this.state;
+    let showEmpty = isObjectEmpty(departFlights);
     return (
       <MuiThemeProvider theme={Theme}>
         <AppHeader />
