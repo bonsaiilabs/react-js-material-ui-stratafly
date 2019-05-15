@@ -8,7 +8,7 @@ import SearchFormContainer from './SearchFormContainer';
 import { isArrayEmpty, isObjectEmpty } from '../shared/util';
 import { updateFlightsWithPrices } from '../shared/flightSearch';
 import { StrataFullScreenDialog } from '../components/Common/StrataFullScreenDialog';
-import { ReviewSelection } from '../components/ReviewSelection';
+import ReviewSelection from '../components/ReviewSelection';
 import { trip } from '../shared/app-constants';
 
 const appScreens = {

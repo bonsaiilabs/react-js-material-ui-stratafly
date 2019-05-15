@@ -5,23 +5,13 @@ import OneWayIcon from '@material-ui/icons/ArrowRightAlt';
 import { FlightTitle } from './FlightTitle';
 import { trip } from '../../shared/app-constants';
 import { StrataButton } from '../Common/StrataButton';
-import { FlightDetailCard } from '../Common/FlightDetailCard';
 import FlightSummaryCard from './FlightSummaryCard';
+import FlightDetailCard from "../Common/FlightDetailCard";
 
-function ReviewFlights({
-  classes,
-  from,
-  to,
-  departFlight,
-  returnFlight,
-  tripType,
-  traveller,
-  totalPrice,
-  onClose,
-  onBook
-}) {
-  let isRoundTrip = tripType === trip.roundTrip;
-  let showReturnFlight = Object.entries(returnFlight).length > 0;
+const ReviewSelection = props => {
+  const { classes, from, to, departFlight, returnFlight, tripType, traveller, totalPrice, onClose, onBook } = props;
+  const isRoundTrip = tripType === trip.roundTrip;
+  const showReturnFlight = Object.entries(returnFlight).length > 0;
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12} className={classes.titleContainer}>
@@ -57,7 +47,7 @@ function ReviewFlights({
       </Grid>
     </Grid>
   );
-}
+};
 const styles = theme => ({
   root: { marginTop: theme.spacing.unit * 8 },
   summaryCard: { margin: theme.spacing.unit },
@@ -67,4 +57,4 @@ const styles = theme => ({
   returnCard: { margin: theme.spacing.unit },
   button: { marginTop: theme.spacing.unit * 3 }
 });
-export const ReviewSelection = withStyles(styles)(ReviewFlights);
+export default withStyles(styles)(ReviewSelection);
