@@ -2,8 +2,8 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TravellerInfo from './TravellerInfo';
-import PaymentInfo from './PaymentInfo';
 import { Typography } from '@material-ui/core';
+import PaymentInfo from './PaymentInfo';
 
 const Payment = props => {
   const {

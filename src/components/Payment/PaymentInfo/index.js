@@ -2,9 +2,10 @@ import React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import PaymentTextField from './PaymentTextField';
-import { StrataButton } from '../Common/StrataButton';
+import { StrataButton } from '../../Common/StrataButton';
+import { ExpiryCvv } from './ExpiryCvv';
 
-const  PaymentInfo = ({
+const PaymentInfo = ({
   classes,
   cardNumber,
   cardHolderName,
@@ -43,27 +44,28 @@ const  PaymentInfo = ({
           </Grid>
 
           <Grid item xs={12}>
-            <Grid container spacing={16}>
-              <Grid item xs={6}>
-                <PaymentTextField
-                  value={expiry}
-                  label="Expiry date"
-                  placeholder={'mm/yy'}
-                  fullWidth={false}
-                  onChange={onExpiryChange}
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PaymentTextField
-                  value={cvv}
-                  label="CVV"
-                  placeholder={'3 digits on card'}
-                  fullWidth={false}
-                  type="number"
-                  onChange={onCvvChange}
-                />
-              </Grid>
-            </Grid>
+            <ExpiryCvv expiry={expiry} onExpiryChange={onExpiryChange} cvv={cvv} onCvvChange={onCvvChange} />
+            {/*<Grid container spacing={16}>*/}
+            {/*<Grid item xs={6}>*/}
+            {/*<PaymentTextField*/}
+            {/*value={expiry}*/}
+            {/*label="Expiry date"*/}
+            {/*placeholder={'mm/yy'}*/}
+            {/*fullWidth={false}*/}
+            {/*onChange={onExpiryChange}*/}
+            {/*/>*/}
+            {/*</Grid>*/}
+            {/*<Grid item xs={6}>*/}
+            {/*<PaymentTextField*/}
+            {/*value={cvv}*/}
+            {/*label="CVV"*/}
+            {/*placeholder={'3 digits on card'}*/}
+            {/*fullWidth={false}*/}
+            {/*type="number"*/}
+            {/*onChange={onCvvChange}*/}
+            {/*/>*/}
+            {/*</Grid>*/}
+            {/*</Grid>*/}
           </Grid>
 
           <Grid item xs={12} className={classes.buttonMargin}>
@@ -77,7 +79,7 @@ const  PaymentInfo = ({
       </Grid>
     </Grid>
   );
-}
+};
 
 const styles = theme => ({
   spacing: {
