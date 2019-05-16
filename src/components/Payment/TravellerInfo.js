@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField';
 
-function NameEmail({ classes, fullName, email, onFullNameChange, onEmailChange }) {
+const TravellerInfo = ({ classes, fullName, email, onFullNameChange, onEmailChange }) => {
   return (
     <Grid container>
       <Grid item xs={12} className={classes.spacing}>
@@ -39,7 +39,7 @@ function NameEmail({ classes, fullName, email, onFullNameChange, onEmailChange }
       </Grid>
     </Grid>
   );
-}
+};
 
 const styles = theme => ({
   spacing: {
@@ -50,4 +50,4 @@ const styles = theme => ({
   inputLabel: { color: theme.palette.text.primaryMediumEmphasis, shrink: true }
 });
 
-export const TravellerInfo = withStyles(styles)(NameEmail);
+export default withStyles(styles)(TravellerInfo);

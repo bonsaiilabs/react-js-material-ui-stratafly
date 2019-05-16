@@ -1,10 +1,10 @@
 import React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
-import { PaymentTextField } from './PaymentTextField';
+import PaymentTextField from './PaymentTextField';
 import { StrataButton } from '../Common/StrataButton';
 
-function PaymentForm({
+const  PaymentInfo = ({
   classes,
   cardNumber,
   cardHolderName,
@@ -16,7 +16,7 @@ function PaymentForm({
   onCvvChange,
   onMakePayment,
   disabled
-}) {
+}) => {
   return (
     <Grid container>
       <Grid item xs={12} className={classes.spacing}>
@@ -89,4 +89,4 @@ const styles = theme => ({
   }
 });
 
-export const PaymentInfo = withStyles(styles)(PaymentForm);
+export default withStyles(styles)(PaymentInfo);
