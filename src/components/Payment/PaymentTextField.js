@@ -1,19 +1,6 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import withStyles from '@material-ui/core/styles/withStyles';
-// import {BlackCaption} from "../shared/Typography";
-
-const styles = theme => ({
-  margin: {
-    // marginBottom: theme.spacing.unit * 2
-  },
-  textField: {
-    flexBasis: 200
-  },
-  input: {
-    color: theme.palette.common.black
-  }
-});
 
 function PaymentField({ classes, value, label, placeholder, onChange, fullWidth, type }) {
   return (
@@ -26,10 +13,14 @@ function PaymentField({ classes, value, label, placeholder, onChange, fullWidth,
       fullWidth={fullWidth}
       value={value}
       type={type}
-      InputProps={{ className: classes.input }}
       onChange={event => onChange(event.target.value)}
+      InputLabelProps={{ className: classes.inputLabel }}
     />
   );
 }
+const styles = theme => ({
+  textField: { flexBasis: 200 },
+  inputLabel: { color: theme.palette.text.primaryMediumEmphasis, shrink: true }
+});
 
 export const PaymentTextField = withStyles(styles)(PaymentField);
