@@ -10,6 +10,7 @@ import { filterEconomyFlights } from '../shared/flightSearch';
 import { updateFlightsWithPrices } from '../shared/flightSearch';
 import { StrataFullScreenDialog } from '../components/Common/StrataFullScreenDialog';
 import ReviewSelection from '../components/ReviewSelection';
+import Confirmation from '../components/Confirmation';
 import ReturnFlights from '../components/ReturnFlights';
 import { trip } from '../shared/app-constants';
 import { PaymentContainer } from './PaymentContainer';
@@ -66,6 +67,8 @@ class App extends Component {
 
   onMakePayment = () => this.setState({ controlFlow: makeActive('showConfirm') });
 
+  onBookAnotherFlight = () => this.setState(defaultState);
+
   render() {
     const {
       from,
@@ -77,7 +80,7 @@ class App extends Component {
       totalTravellers,
       isRoundTrip
     } = this.state;
-    const { showReturnFlights, showReview, showBooking } = this.state.controlFlow;
+    const { showReturnFlights, showReview, showBooking, showConfirm } = this.state.controlFlow;
     const showEmpty = isObjectEmpty(departFlights);
     const totalPrice = isRoundTrip
       ? selectedDepartFlight.price + selectedReturnFlight.price
@@ -85,10 +88,14 @@ class App extends Component {
 
     return (
       <MuiThemeProvider theme={Theme}>
-        <AppHeader />
-        <SearchFormContainer onSearch={this.onSearch} />
-        {showEmpty && <Empty />}
-        {!showEmpty && <SearchResults flights={departFlights} onSelect={this.onSelectDepartFlight} />}
+        {!showConfirm && (
+          <>
+            <AppHeader />
+            <SearchFormContainer onSearch={this.onSearch} />
+            {showEmpty && <Empty />}
+            {!showEmpty && <SearchResults flights={departFlights} onSelect={this.onSelectDepartFlight} />}
+          </>
+        )}
 
         <StrataFullScreenDialog open={showReview} onBack={this.backToSearch} label={'Review'}>
           <ReviewSelection
@@ -118,6 +125,13 @@ class App extends Component {
         <StrataFullScreenDialog open={showBooking} onBack={this.backToReview} label={'Payment'}>
           <PaymentContainer onMakePayment={this.onMakePayment} />
         </StrataFullScreenDialog>
+
+        {showConfirm && (
+          <>
+            <AppHeader />
+            <Confirmation onClick={this.onBookAnotherFlight} />
+          </>
+        )}
       </MuiThemeProvider>
     );
   }
