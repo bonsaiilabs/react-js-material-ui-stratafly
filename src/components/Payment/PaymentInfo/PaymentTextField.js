@@ -7,7 +7,6 @@ const PaymentTextField = ({ classes, value, label, placeholder, onChange, fullWi
     <TextField
       label={label}
       placeholder={placeholder}
-      className={classes.textField}
       margin="normal"
       variant="outlined"
       fullWidth={fullWidth}
@@ -19,7 +18,6 @@ const PaymentTextField = ({ classes, value, label, placeholder, onChange, fullWi
   );
 };
 const styles = theme => ({
-  textField: { flexBasis: 200 },
   inputLabel: { color: theme.palette.text.primaryMediumEmphasis, shrink: true }
 });
 
