@@ -80,6 +80,7 @@ class App extends Component {
       totalTravellers,
       isRoundTrip
     } = this.state;
+
     const { showReturnFlights, showReview, showBooking, showConfirm } = this.state.controlFlow;
     const showEmpty = isObjectEmpty(departFlights);
     const totalPrice = isRoundTrip
