@@ -5,8 +5,8 @@ import React from 'react';
 
 export const Summary = ({ from, to, flight, classes, stop }) => {
   return (
-    <Grid container direction="column" alignItems="flex-start">
-      <Grid item>
+    <Grid container>
+      <Grid item xs={12}>
         <FlightTimesAndCode
           depart={flight.depart}
           arrive={flight.arrive}
@@ -16,7 +16,7 @@ export const Summary = ({ from, to, flight, classes, stop }) => {
         />
       </Grid>
 
-      <Grid item>
+      <Grid item xs={12} className={classes.stopDurationAirline}>
         <StopDurationAirline stop={stop} duration={flight.totalTime + '.'} airline={flight.airline} classes={classes} />
       </Grid>
     </Grid>

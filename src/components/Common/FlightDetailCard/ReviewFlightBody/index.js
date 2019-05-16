@@ -22,7 +22,8 @@ const ReviewFlightBody = ({ classes, from, to, flight }) => {
 
 const styles = theme => ({
   icon: { color: theme.palette.text.primaryMediumEmphasis },
-  body2MediumEmphasis: { color: theme.palette.text.primaryMediumEmphasis }
+  body2MediumEmphasis: { color: theme.palette.text.primaryMediumEmphasis },
+  stopDurationAirline: { paddingTop: theme.spacing.unit }
 });
 
 export default withStyles(styles)(ReviewFlightBody);
