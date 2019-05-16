@@ -36,6 +36,7 @@ const styles = theme => ({
   airlineImageContainer: { height: '100%', width: '100%' },
   airlineImage: { maxWidth: '100%', maxHeight: '100%' },
   stopDurationAirline: { padding: theme.spacing.unit },
-  infoText: { color: theme.palette.text.primaryMediumEmphasis }
+  body2MediumEmphasis: { color: theme.palette.text.primaryMediumEmphasis },
+  flightTimesAndCode: { paddingLeft: theme.spacing.unit * 2 }
 });
 export default withStyles(styles)(SearchResults);

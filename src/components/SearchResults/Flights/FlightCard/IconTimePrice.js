@@ -45,7 +45,7 @@ export const PriceTripType = props => {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body2" className={classes.infoText}>
+        <Typography variant="body2" className={classes.body2MediumEmphasis}>
           {tripType}
         </Typography>
       </Grid>
