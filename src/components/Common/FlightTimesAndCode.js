@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core';
 export const FlightTimesAndCode = props => {
   const { depart, arrive, fromCode, toCode, classes } = props;
   return (
-    <Grid container direction="row" alignItems="center" spacing={8} justify="center">
+    <Grid container alignItems="center" spacing={8} className={classes.flightTimesAndCode}>
       <Grid item>
         <TimeAirportCode time={depart} airportCode={fromCode} classes={classes} />
       </Grid>
