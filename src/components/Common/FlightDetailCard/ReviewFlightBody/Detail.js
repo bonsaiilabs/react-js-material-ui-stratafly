@@ -9,13 +9,13 @@ export const Detail = ({ classes }) => {
   return (
     <Grid container direction="column">
       <Grid item>
-        <InFlightRow icon={<AirlineSeatRecline className={classes.icon} />} text={flightInfo.legRoom} />
+        <InFlightRow icon={<AirlineSeatRecline className={classes.icon} />} text={flightInfo.legRoom} classes={classes}/>
       </Grid>
       <Grid item>
-        <InFlightRow icon={<Wifi className={classes.icon} />} text={flightInfo.wifi} />
+        <InFlightRow icon={<Wifi className={classes.icon} />} text={flightInfo.wifi} classes={classes}/>
       </Grid>
       <Grid item>
-        <InFlightRow icon={<Power className={classes.icon} />} text={flightInfo.usb} />
+        <InFlightRow icon={<Power className={classes.icon} />} text={flightInfo.usb} classes={classes}/>
       </Grid>
       <Grid item>
         <Typography variant="body2" color="error">
@@ -26,14 +26,14 @@ export const Detail = ({ classes }) => {
   );
 };
 
-const InFlightRow = ({ icon, text }) => {
+const InFlightRow = ({ icon, text, classes }) => {
   return (
     <Grid container alignItems="center">
       <Grid item xs={4}>
         {icon}
       </Grid>
       <Grid item xs={8}>
-        <Typography variant="body2">{text}</Typography>
+        <Typography variant="body2" className={classes.body2MediumEmphasis}>{text}</Typography>
       </Grid>
     </Grid>
   );
