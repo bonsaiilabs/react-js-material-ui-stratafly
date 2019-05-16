@@ -12,11 +12,13 @@ import { StrataFullScreenDialog } from '../components/Common/StrataFullScreenDia
 import ReviewSelection from '../components/ReviewSelection';
 import ReturnFlights from '../components/ReturnFlights';
 import { trip } from '../shared/app-constants';
+import { PaymentContainer } from './PaymentContainer';
 
 const appScreens = {
   showSearch: false,
   showReview: false,
-  showReturnFlights: false
+  showReturnFlights: false,
+  showBooking: false
 };
 const makeActive = screen => Object.assign({}, appScreens, { [screen]: true });
 
@@ -60,6 +62,10 @@ class App extends Component {
 
   onBook = () => this.setState({ controlFlow: makeActive('showBooking') });
 
+  backToReview = () => this.setState({ controlFlow: makeActive('showReview') });
+
+  onMakePayment = () => this.setState({ controlFlow: makeActive('showConfirm') });
+
   render() {
     const {
       from,
@@ -71,7 +77,7 @@ class App extends Component {
       totalTravellers,
       isRoundTrip
     } = this.state;
-    const { showReturnFlights, showReview } = this.state.controlFlow;
+    const { showReturnFlights, showReview, showBooking } = this.state.controlFlow;
     const showEmpty = isObjectEmpty(departFlights);
     const totalPrice = isRoundTrip
       ? selectedDepartFlight.price + selectedReturnFlight.price
@@ -107,6 +113,10 @@ class App extends Component {
             returnFlights={returnFlights}
             onSelectFlight={this.onSelectReturnFlight}
           />
+        </StrataFullScreenDialog>
+
+        <StrataFullScreenDialog open={showBooking} onBack={this.backToReview} label={'Payment'}>
+          <PaymentContainer onMakePayment={this.onMakePayment} />
         </StrataFullScreenDialog>
       </MuiThemeProvider>
     );
