@@ -16,9 +16,8 @@ function NameEmail({ classes, fullName, email, onFullNameChange, onEmailChange }
               fullWidth
               margin="normal"
               variant="filled"
-              className={classes.field}
-              InputLabelProps={{ shrink: true }}
-              InputProps={{ className: classes.input }}
+              className={classes.textField}
+              InputLabelProps={{ className: classes.inputLabel }}
               onChange={event => onFullNameChange(event.target.value)}
             />
           </Grid>
@@ -31,9 +30,8 @@ function NameEmail({ classes, fullName, email, onFullNameChange, onEmailChange }
               fullWidth
               margin="normal"
               variant="filled"
-              className={classes.field}
-              InputLabelProps={{ shrink: true }}
-              InputProps={{ className: classes.input }}
+              className={classes.textField}
+              InputLabelProps={{ className: classes.inputLabel }}
               onChange={event => onEmailChange(event.target.value)}
             />
           </Grid>
@@ -48,14 +46,8 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2
   },
-  field: {
-    marginBottom: theme.spacing.unit,
-    color: '#000000',
-  },
-  input: {
-    color: '#000000',
-    border: '1px solid green'
-  }
+  textField: { marginBottom: theme.spacing.unit },
+  inputLabel: { color: theme.palette.text.primaryMediumEmphasis, shrink: true }
 });
 
 export const TravellerInfo = withStyles(styles)(NameEmail);
