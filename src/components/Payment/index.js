@@ -5,23 +5,24 @@ import TravellerInfo from './TravellerInfo';
 import PaymentInfo from './PaymentInfo';
 import { Typography } from '@material-ui/core';
 
-function PaymentForm({
-  classes,
-  fullName,
-  email,
-  cardNumber,
-  cardHolderName,
-  expiry,
-  cvv,
-  onFullNameChange,
-  onEmailChange,
-  onCardNumberChange,
-  onCardHolderNameChange,
-  onExpiryChange,
-  onCvvChange,
-  onMakePayment,
-  disabled
-}) {
+const Payment = props => {
+  const {
+    classes,
+    fullName,
+    email,
+    cardNumber,
+    cardHolderName,
+    expiry,
+    cvv,
+    onFullNameChange,
+    onEmailChange,
+    onCardNumberChange,
+    onCardHolderNameChange,
+    onExpiryChange,
+    onCvvChange,
+    onMakePayment,
+    disabled
+  } = props;
   return (
     <Grid container alignItems="center" justify="center" className={classes.root}>
       <Grid item>
@@ -33,9 +34,10 @@ function PaymentForm({
         />
       </Grid>
 
-      <Grid item className={classes.payment}>
-        <Typography variant="subtitle2">{'Payment options'}</Typography>
-        {/*<BlackSubtitle2MediumEmphasis text={'Payment options'} />*/}
+      <Grid item>
+        <Typography variant="subtitle2" className={classes.payment}>
+          {'Payment options'}
+        </Typography>
       </Grid>
 
       <Grid item>
@@ -54,11 +56,11 @@ function PaymentForm({
       </Grid>
     </Grid>
   );
-}
+};
 
 const styles = theme => ({
   root: { marginTop: theme.spacing.unit * 7 },
-  payment: { marginTop: theme.spacing.unit * 2 }
+  payment: { marginTop: theme.spacing.unit * 2, color: theme.palette.text.primaryMediumEmphasis }
 });
 
-export const Payment = withStyles(styles)(PaymentForm);
+export default withStyles(styles)(Payment);
