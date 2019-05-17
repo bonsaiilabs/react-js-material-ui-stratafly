@@ -8,13 +8,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h5>Learn Material Design with React</h5>
+          <h5 style={{ color: '#000000' }}>Learn Material Design with React</h5>
           <a
             className="App-link"
             href="https://bonsaiilabs.thinkific.com"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#FFFFFF' }}
+            style={{ color: '#000000' }}
           >
             bonsaiiLabs
           </a>
