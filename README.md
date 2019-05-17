@@ -103,7 +103,7 @@ git checkout module2_02_theme
 ### Material-UI Grid
 - Example of Material UI Grid on CodeSandbox (https://codesandbox.io/s/ppqw5yyy47)
 
-### Radio Buttons And Material Icons
+### Build Trip Type and Traveller Components
 - In the project directory, discard any changes you made and checkout the branch below:
 ```
 git reset --hard
@@ -111,14 +111,14 @@ git checkout module2_03_triptype_traveller
 ```
 
 
-### Adding Text Fields
+### Add Location and Date Fields to Search Form
 - In the project directory, discard any changes you made and checkout the branch below:
 ```
 git reset --hard
 git checkout module2_04_location_dates
 ```
 
-### Add Component For No Results Found
+### Component For No Results Found
 - In the project directory, discard any changes you made and checkout the branch below:
 ```
 git reset --hard
