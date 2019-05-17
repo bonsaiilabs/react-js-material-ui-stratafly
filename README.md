@@ -90,14 +90,14 @@ npm start
 - In the project directory, discard any changes you made and checkout the branch below:
 ```
 git reset --hard
-git checkout m2_flight_search_form_01
+git checkout module2_01_header
 ```
 
 #### Setting Up Theme And Fonts
 - In the project directory, discard any changes you made and checkout the branch below:
 ```
 git reset --hard
-git checkout m2_flight_search_form_02
+git checkout module2_02_theme
 
 ```
 #### Material-UI Grid
@@ -107,7 +107,7 @@ git checkout m2_flight_search_form_02
 - In the project directory, discard any changes you made and checkout the branch below:
 ```
 git reset --hard
-git checkout m2_flight_search_form_03
+git checkout module2_03_triptype_traveller
 ```
 
 
@@ -115,14 +115,14 @@ git checkout m2_flight_search_form_03
 - In the project directory, discard any changes you made and checkout the branch below:
 ```
 git reset --hard
-git checkout m2_flight_search_form_04
+git checkout module2_04_location_dates
 ```
 
 #### Add Component For No Results Found
 - In the project directory, discard any changes you made and checkout the branch below:
 ```
 git reset --hard
-git checkout m2_flight_search_form_05
+git checkout module2_05_empty
 ```
 
 
