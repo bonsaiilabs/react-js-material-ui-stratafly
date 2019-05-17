@@ -57,21 +57,21 @@ The page will reload if you make edits and you will also see any lint errors in 
 
 # Module1: Instructions
 
-#### Git branch
+### Git branch
 In the project directory, checkout the branch below:
 ```
 git checkout m1_initial_setup
 ```
 
 
-#### Install Dependencies
+### Install Dependencies
 In the project directory, run the below command to install dependencies.
 ```
 npm install
 ```
 
 
-#### Start Application
+### Start Application
 In the project directory, run this command to start the project.
 ```
 npm start
