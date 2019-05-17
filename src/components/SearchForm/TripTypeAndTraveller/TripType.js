@@ -3,7 +3,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 import { RadioGroup } from '@material-ui/core';
 import { trip } from '../../../shared/app-constants';
-import { Subtitle1White } from '../../Common/Typographies';
+import Typography from '@material-ui/core/Typography';
 
 export const TripType = props => {
   const { selectedRadio, onChangeRadio } = props;
@@ -12,12 +12,20 @@ export const TripType = props => {
     <RadioGroup value={selectedRadio} onChange={onChangeRadio} row>
       <FormControlLabel
         value="round-trip"
-        label={<Subtitle1White>{trip.roundTrip}</Subtitle1White>}
+        label={
+          <Typography variant={'subtitle1'} color="textSecondary">
+            {trip.roundTrip}
+          </Typography>
+        }
         control={<Radio checked={!isOneWay} color="default" />}
       />
       <FormControlLabel
         value="one-way"
-        label={<Subtitle1White>{trip.oneWay}</Subtitle1White>}
+        label={
+          <Typography variant={'subtitle1'} color="textSecondary">
+            {trip.oneWay}
+          </Typography>
+        }
         control={<Radio checked={isOneWay} color="default" />}
       />
     </RadioGroup>
