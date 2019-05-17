@@ -16,7 +16,7 @@ class App extends Component {
             rel="noopener noreferrer"
             style={{ color: '#FFFFFF' }}
           >
-            Learn With BonsaiiLabs
+            bonsaiiLabs
           </a>
         </header>
       </div>
