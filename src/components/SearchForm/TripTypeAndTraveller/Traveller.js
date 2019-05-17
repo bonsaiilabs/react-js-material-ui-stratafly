@@ -2,7 +2,7 @@ import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import TravellerIcon from '@material-ui/icons/PersonOutlined';
 import Grid from '@material-ui/core/Grid';
-import { Subtitle1White } from '../../Common/Typographies';
+import { Typography } from '@material-ui/core';
 
 export const Traveller = props => {
   const { classes, onClickTraveller, totalTravellers } = props;
@@ -11,7 +11,9 @@ export const Traveller = props => {
       <Grid item>
         <IconButton aria-label="Traveller" onClick={onClickTraveller}>
           <TravellerIcon className={classes.travellerIcon} />
-          <Subtitle1White>{totalTravellers}</Subtitle1White>
+          <Typography variant={'subtitle1'} color="textSecondary">
+            {totalTravellers}
+          </Typography>
         </IconButton>
       </Grid>
     </Grid>
