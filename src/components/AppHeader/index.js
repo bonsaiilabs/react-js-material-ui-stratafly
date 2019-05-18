@@ -9,12 +9,8 @@ import AccountCircle from '@material-ui/icons/AccountCircleOutlined';
 
 const styles = {
   root: { flexGrow: 1 },
-  appBar: { border: '0px solid #f30067' },
-  toolBar: { border: '0px solid #7bc67b' },
-  grow: { flexGrow: 1, border: '0px solid yellow' },
-  menuButton: { marginLeft: -12, marginRight: 20, border: '0px solid yellow' },
-  userAccount: { border: '0px solid yellow' },
-  headerIcons: { border: '0px solid pink' }
+  grow: { flexGrow: 1 },
+  menuButton: { marginLeft: -12, marginRight: 20 }
 };
 
 const AppHeader = props => {
@@ -22,16 +18,16 @@ const AppHeader = props => {
   console.log({ theme });
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar className={classes.toolBar}>
+      <AppBar position="fixed">
+        <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon className={classes.headerIcons} />
+            <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Stratafly
           </Typography>
-          <IconButton color="inherit" className={classes.userAccount}>
-            <AccountCircle className={classes.headerIcons} />
+          <IconButton color="inherit">
+            <AccountCircle />
           </IconButton>
         </Toolbar>
       </AppBar>
