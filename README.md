@@ -45,15 +45,41 @@ npm -v
 Click on [this click](https://nodejs.org/en/download/) and the `npm` version should be mentioned under the title _**Downloads**_. 
 You must ensure that the npm version and node version should match with what is mentioned on this official page.
 
+### - Which browser are we using for this course ?
+We shall be using the latest version of Chrome as of today. Be sure to install/update Chrome on your computer.
+
 ### - How do I open Chrome Browser in Mobile View ?
 - To open Chrome in Mobile view mode using Mac, press ```Command+Option+i```
 
 ### - How do I run Application In Browser?
-To run the app in the development mode.
+To run the app in the development mode,
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We are using Chrome Developer console in this course.
+
+
+
+### - How do I view changes in UI when I edit the code happen ?
+Here are few ways to do so:
+
+1) Run the app in Chrome developer console by using the below URL.
+Open [http://localhost:3000](http://localhost:3000) 
 The page will reload if you make edits and you will also see any lint errors in the console.
 
+2) You can open Stratafly on your phone Chrome browser by using the IP Address from your console. 
+For example after you run `npm start`, you will see the following on your terminal.
+```$xslt
+You can now view stratafly in the browser.
 
+  Local:            http://localhost:3000/
+  On Your Network:  http://192.161.3.10:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+```
+
+Open Chrome on your phone and hit this URL:
+[http://192.161.3.10:3000](http://192.161.3.10:3000)
+ 
 
 # Module1: Instructions
 
