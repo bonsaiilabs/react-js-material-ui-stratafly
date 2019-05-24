@@ -1,5 +1,4 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { FromAndToLocation } from './FromAndToLocation';
 import { FromAndToDate } from './FromAndToDate';
@@ -22,7 +21,7 @@ const SearchForm = props => {
     onToDateChange
   } = props;
   return (
-    <Grid container className={classes.searchFormContainer}>
+    <div className={classes.searchFormContainer}>
       <TripTypeAndTraveller
         selectedRadio={selectedRadio}
         onChangeRadio={onChangeRadio}
@@ -47,7 +46,7 @@ const SearchForm = props => {
         onToDateChange={onToDateChange}
         classes={classes}
       />
-    </Grid>
+    </div>
   );
 };
 
