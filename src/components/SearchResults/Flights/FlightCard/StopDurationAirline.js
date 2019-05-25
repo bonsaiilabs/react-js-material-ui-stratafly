@@ -4,7 +4,7 @@ import { Typography, Grid } from '@material-ui/core';
 export const StopDurationAirline = props => {
   const { classes, stop, duration, airline } = props;
   return (
-    <Grid container direction="row" className={classes.stopDurationAirline} spacing={8}>
+    <Grid container direction="row" className={classes.stopDurationAirline} spacing={1}>
       <Grid item>
         <Typography variant="body2" className={classes.body2MediumEmphasis}>
           {stop}

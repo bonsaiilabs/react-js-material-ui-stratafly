@@ -2,7 +2,7 @@ import React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import FlightDetailCard from '../../components/Common/FlightDetailCard';
-import SearchResults from '../../components/SearchResults';
+import { SearchResults } from '../../components/SearchResults';
 
 const ReturnFlights = ({ classes, from, to, flight, onClose, tripType, returnFlights, onSelectFlight }) => {
   return (
@@ -11,7 +11,12 @@ const ReturnFlights = ({ classes, from, to, flight, onClose, tripType, returnFli
         <FlightDetailCard from={from} to={to} flight={flight} onClose={onClose} headerName={'Departure flight'} />
       </Grid>
       <Grid item>
-        <SearchResults tripType={tripType} flights={returnFlights} onSelect={onSelectFlight} headerLabel={'Return flights'} />
+        <SearchResults
+          tripType={tripType}
+          flights={returnFlights}
+          onSelect={onSelectFlight}
+          headerLabel={'Return flights'}
+        />
       </Grid>
     </Grid>
   );

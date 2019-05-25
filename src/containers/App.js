@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AppHeader from '../components/AppHeader';
 import { Theme } from '../Theme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import SearchResults from '../components/SearchResults';
+import { SearchResults } from '../components/SearchResults';
 import Empty from '../components/Empty';
 import SearchFormContainer from './SearchFormContainer';
 import { isArrayEmpty, isObjectEmpty } from '../shared/util';

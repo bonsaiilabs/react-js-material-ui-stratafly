@@ -10,7 +10,7 @@ export const FlightCard = props => {
   let oneStop = stops.oneStop + ' at ' + flight.viaAirlineCode + ' .';
   let stop = flight.stops === stops.nonStop ? nonStop : oneStop;
   return (
-    <Grid container spacing={8} onClick={() => onSelect(flight)}>
+    <Grid container onClick={() => onSelect(flight)}>
       <Grid item xs={12}>
         <IconTimePrice fromCode={from} toCode={to} tripType={tripType} flight={flight} classes={classes} />
       </Grid>

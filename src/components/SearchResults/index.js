@@ -1,11 +1,11 @@
 import React from 'react';
-import withStyles from '@material-ui/core/styles/withStyles';
 import FlightTakeOffIcon from '@material-ui/icons/FlightTakeoffOutlined';
 import SortByIcon from '@material-ui/icons/SwapVert';
-import ResultHeader from '../Common/ResultHeader';
+import { ResultHeader } from '../Common/ResultHeader';
 import { Flights } from './Flights';
+import { makeStyles } from '@material-ui/core/styles';
 
-const SearchResults = ({ classes, tripType, flights, onSelect, headerLabel }) => {
+export const SearchResults = ({ classes = useStyles(), tripType, flights, onSelect, headerLabel }) => {
   const { from, to, flightsWithFares } = flights;
   return (
     <>
@@ -25,16 +25,27 @@ const SearchResults = ({ classes, tripType, flights, onSelect, headerLabel }) =>
     </>
   );
 };
-const styles = theme => ({
-  card: { borderRadius: theme.shape.borderRadius * 2 },
+
+const useStyles = makeStyles(theme => ({
+  card: {
+    borderRadius: theme.shape.borderRadius * 2
+  },
   iconTimePrice: {
-    paddingTop: theme.spacing.unit * 2,
-    paddingLeft: theme.spacing.unit * 2
+    paddingTop: theme.spacing(2),
+    paddingLeft: theme.spacing(2)
   },
   airlineImageContainer: { height: '100%', width: '100%' },
-  airlineImage: { maxWidth: '100%', maxHeight: '100%' },
-  stopDurationAirline: { padding: theme.spacing.unit },
-  body2MediumEmphasis: { color: theme.palette.text.primaryMediumEmphasis },
-  flightTimesAndCode: { paddingLeft: theme.spacing.unit * 2 }
-});
-export default withStyles(styles)(SearchResults);
+  airlineImage: {
+    maxWidth: '100%',
+    maxHeight: '100%'
+  },
+  stopDurationAirline: {
+    padding: theme.spacing(1)
+  },
+  body2MediumEmphasis: {
+    color: theme.palette.text.primaryMediumEmphasis
+  },
+  flightTimesAndCode: {
+    paddingLeft: theme.spacing(2)
+  }
+}));
