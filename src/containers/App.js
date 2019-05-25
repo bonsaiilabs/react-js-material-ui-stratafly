@@ -9,11 +9,11 @@ import { filterEconomyFlights } from '../shared/flightSearch';
 import { updateFlightsWithPrices } from '../shared/flightSearch';
 import { StrataFullScreenDialog } from '../components/Common/StrataFullScreenDialog';
 import { ReviewSelection } from '../components/ReviewSelection';
-import ReturnFlights from '../components/ReturnFlights';
+import { ReturnFlights } from '../components/ReturnFlights';
 import { trip } from '../shared/app-constants';
 import { PaymentContainer } from './PaymentContainer';
-import {Empty} from "../components/Empty";
-import {Confirmation} from "../components/Confirmation";
+import { Empty } from '../components/Empty';
+import { Confirmation } from '../components/Confirmation';
 
 const appScreens = {
   showSearch: false,

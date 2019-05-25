@@ -1,10 +1,19 @@
 import React from 'react';
-import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import { SearchResults } from '../../components/SearchResults';
-import {FlightDetailCard} from "../Common/FlightDetailCard";
+import { FlightDetailCard } from '../Common/FlightDetailCard';
+import { makeStyles } from '@material-ui/core';
 
-const ReturnFlights = ({ classes, from, to, flight, onClose, tripType, returnFlights, onSelectFlight }) => {
+export const ReturnFlights = ({
+  classes = useStyles(),
+  from,
+  to,
+  flight,
+  onClose,
+  tripType,
+  returnFlights,
+  onSelectFlight
+}) => {
   return (
     <Grid container className={classes.root}>
       <Grid item className={classes.margin}>
@@ -22,9 +31,12 @@ const ReturnFlights = ({ classes, from, to, flight, onClose, tripType, returnFli
   );
 };
 
-const styles = theme => ({
-  root: { marginTop: theme.spacing.unit * 8 },
-  margin: { marginLeft: theme.spacing.unit, marginRight: theme.spacing.unit }
-});
-
-export default withStyles(styles)(ReturnFlights);
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginTop: theme.spacing(8)
+  },
+  margin: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
+  }
+}));
