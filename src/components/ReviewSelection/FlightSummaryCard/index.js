@@ -1,12 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import withStyles from '@material-ui/core/styles/withStyles';
 import FlightIcon from '../../../images/flight.svg';
 import { SummaryMetadata } from './SummaryMetadata';
+import { makeStyles } from '@material-ui/core';
 
-const FlightSummaryCard = props => {
-  const { classes, totalPrice, tripType, flightClass, traveller } = props;
+export const FlightSummaryCard = props => {
+  const { classes = useStyles(), totalPrice, tripType, flightClass, traveller } = props;
   return (
     <Card className={classes.root}>
       <Grid container>
@@ -30,17 +30,17 @@ const FlightSummaryCard = props => {
   );
 };
 
-const summaryStyles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     borderRadius: theme.shape.borderRadius * 2,
     backgroundColor: theme.palette.primary[200]
   },
-  padding: { padding: theme.spacing.unit },
+  padding: {
+    padding: theme.spacing(1)
+  },
   imgContainer: { height: '80px' },
   image: {
     maxWidth: '100%',
     maxHeight: '100%'
   }
-});
-
-export default withStyles(summaryStyles)(FlightSummaryCard);
+}));
