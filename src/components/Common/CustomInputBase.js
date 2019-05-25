@@ -1,9 +1,9 @@
 import React from 'react';
-import withStyles from '@material-ui/core/styles/withStyles';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import InputBase from '@material-ui/core/InputBase';
+import { makeStyles } from '@material-ui/core';
 
-const CustomInputBase = ({ classes, onChange, value, placeholder, icon, type }) => {
+export const CustomInputBase = ({ classes = useStyles(), onChange, value, placeholder, icon, type }) => {
   return (
     <InputBase
       startAdornment={
@@ -21,7 +21,7 @@ const CustomInputBase = ({ classes, onChange, value, placeholder, icon, type }) 
   );
 };
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   input: {
     backgroundColor: theme.palette.primary.main,
     borderRadius: theme.shape.borderRadius * 2,
@@ -30,8 +30,6 @@ const styles = theme => ({
     fontWeight: theme.typography.subtitle1.fontWeight
   },
   textFieldIcon: {
-    paddingLeft: theme.spacing.unit
+    paddingLeft: theme.spacing(1)
   }
-});
-
-export default withStyles(styles)(CustomInputBase);
+}));
