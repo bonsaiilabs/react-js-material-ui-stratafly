@@ -27,6 +27,6 @@ export const StrataFullScreenDialog = ({ classes, label, open, onBack, children 
   );
 };
 
-function Transition(props) {
-  return <Slide direction="left" {...props}/>;
-}
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="left" ref={ref} {...props} />;
+});
