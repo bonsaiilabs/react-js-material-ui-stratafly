@@ -3,7 +3,6 @@ import AppHeader from '../components/AppHeader';
 import { Theme } from '../Theme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { SearchResults } from '../components/SearchResults';
-import Empty from '../components/Empty';
 import SearchFormContainer from './SearchFormContainer';
 import { isArrayEmpty, isObjectEmpty } from '../shared/util';
 import { filterEconomyFlights } from '../shared/flightSearch';
@@ -14,6 +13,7 @@ import Confirmation from '../components/Confirmation';
 import ReturnFlights from '../components/ReturnFlights';
 import { trip } from '../shared/app-constants';
 import { PaymentContainer } from './PaymentContainer';
+import {Empty} from "../components/Empty";
 
 const appScreens = {
   showSearch: false,

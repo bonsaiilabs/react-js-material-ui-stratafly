@@ -1,10 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import NoResults from '../../images/noresults.svg';
-import withStyles from '@material-ui/core/styles/withStyles';
+import { makeStyles } from '@material-ui/core';
 
-const Empty = props => {
-  const { classes } = props;
+export const Empty = props => {
+  const { classes = useStyles() } = props;
   return (
     <Grid container className={classes.root} justify={'center'}>
       <Grid item xs={8} className={classes.imageContainer}>
@@ -14,19 +14,17 @@ const Empty = props => {
   );
 };
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: theme.spacing.unit * 2
+    marginTop: theme.spacing(2)
   },
   imageContainer: {
     height: '100%',
     width: '100%'
   },
   image: {
-    paddingTop: theme.spacing.unit * 6,
+    paddingTop: theme.spacing(6),
     maxWidth: '100%',
     maxHeight: '100%'
   }
-});
-
-export default withStyles(styles)(Empty);
+}));
