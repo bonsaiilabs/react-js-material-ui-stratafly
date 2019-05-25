@@ -1,13 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import withStyles from '@material-ui/core/styles/withStyles';
 import Button from '@material-ui/core/Button';
-import { Typography } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import BookingConfirmationIcon from '../../images/bookingcomplete.svg';
 
-const Confirmation = ({ classes, onClick }) => {
+export const Confirmation = ({ classes = useStyles(), onClick }) => {
   return (
-    <Grid container direction="column" alignItems="center" justify="center" spacing={24} className={classes.root}>
+    <Grid container direction="column" alignItems="center" justify="center" className={classes.root}>
       <Grid item className={classes.thanks}>
         <Typography variant="h5">{'Your flight is booked!'}</Typography>
       </Grid>
@@ -35,10 +34,18 @@ const Confirmation = ({ classes, onClick }) => {
   );
 };
 
-const styles = theme => ({
-  root: { flexGrow: 1, padding: theme.spacing.unit * 3 },
-  thanks: { marginTop: theme.spacing.unit * 8 },
-  button: { marginTop: theme.spacing.unit * 3 },
-  text: { color: theme.palette.text.primaryMediumEmphasis }
-});
-export default withStyles(styles)(Confirmation);
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    padding: theme.spacing(3)
+  },
+  thanks: {
+    marginTop: theme.spacing(8)
+  },
+  button: {
+    marginTop: theme.spacing(5)
+  },
+  text: {
+    color: theme.palette.text.primaryMediumEmphasis
+  }
+}));
