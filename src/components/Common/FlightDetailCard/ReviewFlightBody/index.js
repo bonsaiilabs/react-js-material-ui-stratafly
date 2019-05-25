@@ -1,11 +1,11 @@
 import React from 'react';
 import { stops } from '../../../../shared/app-constants';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, withStyles } from '@material-ui/core';
+import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, makeStyles } from '@material-ui/core';
 import { Summary } from './Summary';
 import { Detail } from './Detail';
 
-const ReviewFlightBody = ({ classes, from, to, flight }) => {
+export const ReviewFlightBody = ({ classes = useStyles(), from, to, flight }) => {
   let stop = flight.stops === stops.nonStop ? stops.nonStop : stops.oneStop + ' at ' + flight.viaAirlineCode + '. ';
   return (
     <ExpansionPanel>
@@ -20,10 +20,14 @@ const ReviewFlightBody = ({ classes, from, to, flight }) => {
   );
 };
 
-const styles = theme => ({
-  icon: { color: theme.palette.text.primaryMediumEmphasis },
-  body2MediumEmphasis: { color: theme.palette.text.primaryMediumEmphasis },
-  stopDurationAirline: { paddingTop: theme.spacing.unit }
-});
-
-export default withStyles(styles)(ReviewFlightBody);
+const useStyles = makeStyles(theme => ({
+  icon: {
+    color: theme.palette.text.primaryMediumEmphasis
+  },
+  body2MediumEmphasis: {
+    color: theme.palette.text.primaryMediumEmphasis
+  },
+  stopDurationAirline: {
+    paddingTop: theme.spacing(1)
+  }
+}));

@@ -2,7 +2,7 @@ import React from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import FlightTakeOff from '@material-ui/icons/FlightTakeoffOutlined';
 import { ReviewFlightHeader } from './ReviewFlightHeader';
-import ReviewFlightBody from './ReviewFlightBody';
+import { ReviewFlightBody } from './ReviewFlightBody';
 import { Card, Grid, makeStyles } from '@material-ui/core';
 
 export const FlightDetailCard = ({ classes = useStyles(), from, to, flight, onClose, headerName }) => {
