@@ -1,9 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core';
 
-const TravellerInfo = ({ classes, fullName, email, onFullNameChange, onEmailChange }) => {
+export const TravellerInfo = ({ classes = useStyles(), fullName, email, onFullNameChange, onEmailChange }) => {
   return (
     <Grid container>
       <Grid item xs={12} className={classes.spacing}>
@@ -41,13 +41,16 @@ const TravellerInfo = ({ classes, fullName, email, onFullNameChange, onEmailChan
   );
 };
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   spacing: {
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2)
   },
-  textField: { marginBottom: theme.spacing.unit },
-  inputLabel: { color: theme.palette.text.primaryMediumEmphasis, shrink: true }
-});
-
-export default withStyles(styles)(TravellerInfo);
+  textField: {
+    marginBottom: theme.spacing(1)
+  },
+  inputLabel: {
+    color: theme.palette.text.primaryMediumEmphasis,
+    shrink: true
+  }
+}));
