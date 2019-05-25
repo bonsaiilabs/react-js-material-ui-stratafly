@@ -3,9 +3,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import FlightTakeOff from '@material-ui/icons/FlightTakeoffOutlined';
 import { ReviewFlightHeader } from './ReviewFlightHeader';
 import ReviewFlightBody from './ReviewFlightBody';
-import { Card, Grid, withStyles } from '@material-ui/core';
+import { Card, Grid, makeStyles } from '@material-ui/core';
 
-const FlightDetailCard = ({ classes, from, to, flight, onClose, headerName }) => {
+export const FlightDetailCard = ({ classes = useStyles(), from, to, flight, onClose, headerName }) => {
   return (
     <Card className={classes.root}>
       <Grid container>
@@ -25,8 +25,7 @@ const FlightDetailCard = ({ classes, from, to, flight, onClose, headerName }) =>
   );
 };
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: { borderRadius: theme.shape.borderRadius * 2 },
-  header: { padding: theme.spacing.unit }
-});
-export default withStyles(styles)(FlightDetailCard);
+  header: { padding: theme.spacing(1) }
+}));

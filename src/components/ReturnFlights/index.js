@@ -1,8 +1,8 @@
 import React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
-import FlightDetailCard from '../../components/Common/FlightDetailCard';
 import { SearchResults } from '../../components/SearchResults';
+import {FlightDetailCard} from "../Common/FlightDetailCard";
 
 const ReturnFlights = ({ classes, from, to, flight, onClose, tripType, returnFlights, onSelectFlight }) => {
   return (
