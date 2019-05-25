@@ -6,8 +6,8 @@ import Grid from '@material-ui/core/Grid';
 
 export const FlightCard = props => {
   const { flight, tripType, from, to, onSelect, classes } = props;
-  let nonStop = stops.nonStop + ' . ';
-  let oneStop = stops.oneStop + ' at ' + flight.viaAirlineCode + ' .';
+  let nonStop = stops.nonStop;
+  let oneStop = stops.oneStop + ' at ' + flight.viaAirlineCode;
   let stop = flight.stops === stops.nonStop ? nonStop : oneStop;
   return (
     <Grid container onClick={() => onSelect(flight)}>
@@ -18,7 +18,7 @@ export const FlightCard = props => {
       <Grid item xs={12}>
         <StopDurationAirline
           stop={stop}
-          duration={flight.totalTime + ' . '}
+          duration={flight.totalTime}
           airline={flight.airline}
           classes={classes}
         />

@@ -17,7 +17,7 @@ export const Summary = ({ from, to, flight, classes, stop }) => {
       </Grid>
 
       <Grid item xs={12} className={classes.stopDurationAirline}>
-        <StopDurationAirline stop={stop} duration={flight.totalTime + '.'} airline={flight.airline} classes={classes} />
+        <StopDurationAirline stop={stop} duration={flight.totalTime} airline={flight.airline} classes={classes} />
       </Grid>
     </Grid>
   );

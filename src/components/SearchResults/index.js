@@ -40,7 +40,9 @@ const useStyles = makeStyles(theme => ({
     maxHeight: '100%'
   },
   stopDurationAirline: {
-    padding: theme.spacing(1)
+    padding: theme.spacing(3),
+    paddingBottom: theme.spacing(1),
+    paddingLeft: theme.spacing(2)
   },
   body2MediumEmphasis: {
     color: theme.palette.text.primaryMediumEmphasis
