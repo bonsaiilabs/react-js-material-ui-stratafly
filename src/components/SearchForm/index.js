@@ -1,9 +1,8 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { FromAndToLocation } from './FromAndToLocation';
-import {FromAndToDate} from "./FromAndToDate";
-import {TripTypeAndTraveller} from "./TripTypeAndTraveller/TripTypeAndTraveller";
+import { FromAndToDate } from './FromAndToDate';
+import { TripTypeAndTraveller } from './TripTypeAndTraveller';
 
 const SearchForm = props => {
   const {
@@ -22,7 +21,7 @@ const SearchForm = props => {
     onToDateChange
   } = props;
   return (
-    <Grid container className={classes.searchFormContainer}>
+    <div className={classes.searchFormContainer}>
       <TripTypeAndTraveller
         selectedRadio={selectedRadio}
         onChangeRadio={onChangeRadio}
@@ -47,7 +46,7 @@ const SearchForm = props => {
         onToDateChange={onToDateChange}
         classes={classes}
       />
-    </Grid>
+    </div>
   );
 };
 
@@ -67,7 +66,7 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2
   },
   textFieldIcon: { color: theme.palette.text.secondaryMediumEmphasis },
-  travellerIcon: { color: theme.palette.text.secondary}
+  travellerIcon: { color: theme.palette.text.secondary }
 });
 
 export default withStyles(styles)(SearchForm);

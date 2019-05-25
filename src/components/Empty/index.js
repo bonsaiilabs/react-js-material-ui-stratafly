@@ -16,7 +16,6 @@ const Empty = props => {
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
     marginTop: theme.spacing.unit * 2
   },
   imageContainer: {

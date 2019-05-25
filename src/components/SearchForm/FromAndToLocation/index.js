@@ -5,7 +5,7 @@ import { TripLocation } from './TripLocation';
 export const FromAndToLocation = props => {
   const { fromLocation, onChangeFromLocation, toLocation, onChangeToLocation, classes } = props;
   return (
-    <>
+    <Grid container>
       <Grid item xs={12} className={classes.textFields}>
         <TripLocation
           location={fromLocation}
@@ -22,6 +22,6 @@ export const FromAndToLocation = props => {
           placeholder={'To'}
         />
       </Grid>
-    </>
+    </Grid>
   );
 };
