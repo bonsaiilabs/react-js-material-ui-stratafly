@@ -1,6 +1,6 @@
 import React from 'react';
-import Payment from '../components/Payment';
 import { isEmptyString } from '../shared/util';
+import {Payment} from "../components/Payment";
 
 export class PaymentContainer extends React.Component {
   state = {

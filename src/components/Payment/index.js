@@ -1,13 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import withStyles from '@material-ui/core/styles/withStyles';
 import TravellerInfo from './TravellerInfo';
-import { Typography } from '@material-ui/core';
-import PaymentInfo from './PaymentInfo';
+import { makeStyles, Typography } from '@material-ui/core';
+import {PaymentInfo} from "./PaymentInfo";
 
-const Payment = props => {
+export const Payment = props => {
   const {
-    classes,
+    classes = useStyles(),
     fullName,
     email,
     cardNumber,
@@ -58,9 +57,12 @@ const Payment = props => {
   );
 };
 
-const styles = theme => ({
-  root: { marginTop: theme.spacing.unit * 7 },
-  payment: { marginTop: theme.spacing.unit * 2, color: theme.palette.text.primaryMediumEmphasis }
-});
-
-export default withStyles(styles)(Payment);
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginTop: theme.spacing(7)
+  },
+  payment: {
+    marginTop: theme.spacing(2),
+    color: theme.palette.text.primaryMediumEmphasis
+  }
+}));

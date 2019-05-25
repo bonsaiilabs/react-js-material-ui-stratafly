@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 
 export const ExpiryCvv = ({ expiry, onExpiryChange, cvv, onCvvChange }) => {
   return (
-    <Grid container spacing={16}>
+    <Grid container spacing={2}>
       <Grid item xs={6}>
         <PaymentTextField
           value={expiry}

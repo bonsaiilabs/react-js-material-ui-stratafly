@@ -1,13 +1,13 @@
 import React from 'react';
-import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import { ExpiryCvv } from './ExpiryCvv';
 import { CardNumberName } from './CardNumberName';
 import { MakePaymentButton } from './MakePaymentButton';
+import { makeStyles } from '@material-ui/core';
 
-const PaymentInfo = props => {
+export const PaymentInfo = props => {
   const {
-    classes,
+    classes = useStyles(),
     cardNumber,
     cardHolderName,
     expiry,
@@ -43,12 +43,10 @@ const PaymentInfo = props => {
   );
 };
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   spacing: {
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2)
   },
-  buttonMargin: { marginTop: theme.spacing.unit * 2 }
-});
-
-export default withStyles(styles)(PaymentInfo);
+  buttonMargin: { marginTop: theme.spacing(2) }
+}));
