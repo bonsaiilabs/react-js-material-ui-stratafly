@@ -4,7 +4,7 @@ import CustomInputBase from '../../Common/CustomInputBase';
 
 export const RoundTripDates = ({ classes, onFromDateChange, onToDateChange, fromDate, toDate, icon }) => {
   return (
-    <Grid container spacing={8}>
+    <Grid container spacing={1}>
       <Grid item xs={6}>
         <CustomInputBase onChange={onFromDateChange} value={fromDate} type={'date'} icon={icon} />
       </Grid>

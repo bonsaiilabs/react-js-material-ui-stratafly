@@ -1,12 +1,22 @@
-import withStyles from '@material-ui/core/styles/withStyles';
+import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import Grid from '@material-ui/core/Grid';
 import { TravellerRows } from './TravellerRows';
-import {WarningOrActionButton} from "./WarningOrActionButton";
+import { WarningOrActionButton } from './WarningOrActionButton';
 
-const TravellerDialog = props => {
-  let { open, onClose, onDone, personAgeCount, onAdd, onRemove, showMaxWarning, showInfantWarning, classes } = props;
+export const TravellerDialog = props => {
+  let {
+    open,
+    onClose,
+    onDone,
+    personAgeCount,
+    onAdd,
+    onRemove,
+    showMaxWarning,
+    showInfantWarning,
+    classes = useStyles()
+  } = props;
   return (
     <Dialog open={open} onClose={onClose}>
       <Grid container className={classes.root}>
@@ -27,12 +37,11 @@ const TravellerDialog = props => {
   );
 };
 
-const travellerStyles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing.unit * 2
+    padding: theme.spacing(2)
   },
   margin: {
-    marginTop: theme.spacing.unit * 2
+    marginTop: theme.spacing(2)
   }
-});
-export default withStyles(travellerStyles)(TravellerDialog);
+}));

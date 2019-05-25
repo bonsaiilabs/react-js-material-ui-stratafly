@@ -1,12 +1,12 @@
 import React from 'react';
-import withStyles from '@material-ui/core/styles/withStyles';
 import { FromAndToLocation } from './FromAndToLocation';
 import { FromAndToDate } from './FromAndToDate';
 import { TripTypeAndTraveller } from './TripTypeAndTraveller';
+import { makeStyles } from '@material-ui/core/styles';
 
-const SearchForm = props => {
+export const SearchForm = props => {
   const {
-    classes,
+    classes = useStyles(),
     selectedRadio,
     onChangeRadio,
     onClickTraveller,
@@ -50,23 +50,22 @@ const SearchForm = props => {
   );
 };
 
-const styles = theme => ({
+
+const useStyles = makeStyles(theme => ({
   searchFormContainer: {
     flexGrow: 1,
     background: theme.palette.primary[700],
-    paddingTop: theme.spacing.unit * 8
+    paddingTop: theme.spacing(8)
   },
   tripTypeTraveller: {
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2)
   },
   textFields: {
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    paddingBottom: theme.spacing(2)
   },
   textFieldIcon: { color: theme.palette.text.secondaryMediumEmphasis },
   travellerIcon: { color: theme.palette.text.secondary }
-});
-
-export default withStyles(styles)(SearchForm);
+}));

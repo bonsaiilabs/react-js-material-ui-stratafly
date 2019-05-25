@@ -6,7 +6,7 @@ import  TravellerWithAge  from './TravellerWithAge';
 export const TravellerRows = props => {
   let { personAgeCount, onAdd, onRemove } = props;
   return (
-    <Grid container spacing={16}>
+    <Grid container spacing={2}>
       {personAgeCount.map((item, index) => {
         return (
           <Grid item xs={12} key={index}>

@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 export const Traveller = props => {
   const { classes, onClickTraveller, totalTravellers } = props;
   return (
-    <Grid container alignItems="center">
+    <Grid container>
       <Grid item>
         <IconButton aria-label="Traveller" onClick={onClickTraveller}>
           <TravellerIcon className={classes.travellerIcon} />

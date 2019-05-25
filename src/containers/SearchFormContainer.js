@@ -1,7 +1,7 @@
 import React from 'react';
 import { maxTravellersAllowed } from '../shared/app-constants';
-import SearchForm from '../components/SearchForm';
-import TravellerDialog from '../components/SearchForm/TravellerDialog';
+import { SearchForm } from '../components/SearchForm';
+import { TravellerDialog } from '../components/SearchForm/TravellerDialog';
 import { oneWaySearch, roundTripSearch } from '../shared/flightSearch';
 import {
   getTotalTravellers,
