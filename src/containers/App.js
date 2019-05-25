@@ -9,7 +9,7 @@ import { isArrayEmpty, isObjectEmpty } from '../shared/util';
 import { filterEconomyFlights } from '../shared/flightSearch';
 import { updateFlightsWithPrices } from '../shared/flightSearch';
 import { StrataFullScreenDialog } from '../components/Common/StrataFullScreenDialog';
-import ReviewSelection from '../components/ReviewSelection';
+import { ReviewSelection } from '../components/ReviewSelection';
 import Confirmation from '../components/Confirmation';
 import ReturnFlights from '../components/ReturnFlights';
 import { trip } from '../shared/app-constants';

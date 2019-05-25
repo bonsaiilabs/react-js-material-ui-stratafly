@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, withStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import RoundTripIcon from '@material-ui/icons/SwapHoriz';
 import OneWayIcon from '@material-ui/icons/ArrowRightAlt';
 import { FlightTitle } from './FlightTitle';
@@ -8,10 +8,22 @@ import { StrataButton } from '../Common/StrataButton';
 import FlightSummaryCard from './FlightSummaryCard';
 import FlightDetailCard from '../Common/FlightDetailCard';
 
-const ReviewSelection = props => {
-  const { classes, from, to, departFlight, returnFlight, tripType, traveller, totalPrice, onClose, onBook } = props;
+export const ReviewSelection = props => {
+  const {
+    classes = useStyles(),
+    from,
+    to,
+    departFlight,
+    returnFlight,
+    tripType,
+    traveller,
+    totalPrice,
+    onClose,
+    onBook
+  } = props;
   const isRoundTrip = tripType === trip.roundTrip;
   const showReturnFlight = Object.entries(returnFlight).length > 0;
+
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12} className={classes.titleContainer}>
@@ -48,13 +60,30 @@ const ReviewSelection = props => {
     </Grid>
   );
 };
-const styles = theme => ({
-  root: { marginTop: theme.spacing.unit * 8 },
-  summaryCard: { margin: theme.spacing.unit },
-  titleContainer: { margin: theme.spacing.unit },
-  icon: { color: theme.palette.text.primaryMediumEmphasis },
-  departCard: { marginTop: '-10px', marginLeft: theme.spacing.unit, marginRight: theme.spacing.unit },
-  returnCard: { margin: theme.spacing.unit, marginTop: theme.spacing.unit * 2 },
-  button: { marginTop: theme.spacing.unit * 3 }
-});
-export default withStyles(styles)(ReviewSelection);
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginTop: theme.spacing(1)
+  },
+  summaryCard: {
+    margin: theme.spacing(1)
+  },
+  titleContainer: {
+    margin: theme.spacing(1)
+  },
+  icon: {
+    color: theme.palette.text.primaryMediumEmphasis
+  },
+  departCard: {
+    marginTop: '-10px',
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
+  },
+  returnCard: {
+    margin: theme.spacing(1),
+    marginTop: theme.spacing(2)
+  },
+  button: {
+    marginTop: theme.spacing(3)
+  }
+}));
