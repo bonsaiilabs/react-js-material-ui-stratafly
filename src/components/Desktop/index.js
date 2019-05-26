@@ -1,5 +1,5 @@
 import React from 'react';
-import desktop from './desktop.svg';
+import desktop from '../../images/desktop.svg';
 import './styles.css';
 
 export const Desktop = () => {
