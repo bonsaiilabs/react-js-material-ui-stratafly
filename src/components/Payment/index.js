@@ -5,7 +5,6 @@ import { PaymentInfo } from './PaymentInfo';
 
 export const Payment = props => {
   const {
-    classes = useStyles(),
     fullName,
     email,
     cardNumber,
@@ -21,6 +20,8 @@ export const Payment = props => {
     onMakePayment,
     disabled
   } = props;
+  const classes = useStyles();
+
   return (
     <Grid container alignItems="center" justify="center" className={classes.root}>
       <Grid item>

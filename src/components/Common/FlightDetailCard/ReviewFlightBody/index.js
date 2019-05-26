@@ -5,8 +5,9 @@ import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, makeStyle
 import { Summary } from './Summary';
 import { Detail } from './Detail';
 
-export const ReviewFlightBody = ({ classes = useStyles(), from, to, flight }) => {
+export const ReviewFlightBody = ({ from, to, flight }) => {
   let stop = flight.stops === stops.nonStop ? stops.nonStop : stops.oneStop + ' at ' + flight.viaAirlineCode + '. ';
+  const classes = useStyles();
   return (
     <ExpansionPanel>
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>

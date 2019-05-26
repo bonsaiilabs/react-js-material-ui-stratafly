@@ -5,8 +5,9 @@ import { ResultHeader } from '../Common/ResultHeader';
 import { Flights } from './Flights';
 import { makeStyles } from '@material-ui/core/styles';
 
-export const SearchResults = ({ classes = useStyles(), tripType, flights, onSelect, headerLabel }) => {
+export const SearchResults = ({ tripType, flights, onSelect, headerLabel }) => {
   const { from, to, flightsWithFares } = flights;
+  const classes = useStyles();
   return (
     <>
       <ResultHeader

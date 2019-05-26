@@ -5,17 +5,8 @@ import { TravellerRows } from './TravellerRows';
 import { WarningOrActionButton } from './WarningOrActionButton';
 
 export const TravellerDialog = props => {
-  let {
-    open,
-    onClose,
-    onDone,
-    personAgeCount,
-    onAdd,
-    onRemove,
-    showMaxWarning,
-    showInfantWarning,
-    classes = useStyles()
-  } = props;
+  let { open, onClose, onDone, personAgeCount, onAdd, onRemove, showMaxWarning, showInfantWarning } = props;
+  const classes = useStyles();
   return (
     <Dialog open={open} onClose={onClose}>
       <Grid container className={classes.root}>

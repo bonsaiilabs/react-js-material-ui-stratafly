@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles, TextField, Grid } from '@material-ui/core';
 
-export const TravellerInfo = ({ classes = useStyles(), fullName, email, onFullNameChange, onEmailChange }) => {
+export const TravellerInfo = ({ fullName, email, onFullNameChange, onEmailChange }) => {
+  const classes = useStyles();
   return (
     <Grid container>
       <Grid item xs={12} className={classes.spacing}>

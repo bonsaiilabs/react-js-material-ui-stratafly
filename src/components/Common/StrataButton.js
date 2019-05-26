@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles, Fab } from '@material-ui/core';
 
-export const StrataButton = ({ classes = useStyles(), label, onClick, disabled }) => {
+export const StrataButton = ({ label, onClick, disabled }) => {
+  const classes = useStyles();
   return (
     <Fab
       variant="extended"

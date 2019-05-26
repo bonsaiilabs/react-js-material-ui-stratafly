@@ -4,7 +4,8 @@ import { SummaryMetadata } from './SummaryMetadata';
 import { makeStyles, Grid, Card } from '@material-ui/core';
 
 export const FlightSummaryCard = props => {
-  const { classes = useStyles(), totalPrice, tripType, flightClass, traveller } = props;
+  const { totalPrice, tripType, flightClass, traveller } = props;
+  const classes = useStyles();
   return (
     <Card className={classes.root}>
       <Grid container>

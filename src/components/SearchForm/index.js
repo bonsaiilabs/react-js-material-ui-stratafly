@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const SearchForm = props => {
   const {
-    classes = useStyles(),
     selectedRadio,
     onChangeRadio,
     onClickTraveller,
@@ -20,6 +19,7 @@ export const SearchForm = props => {
     onFromDateChange,
     onToDateChange
   } = props;
+  const classes = useStyles();
   return (
     <div className={classes.searchFormContainer}>
       <TripTypeAndTraveller
@@ -49,7 +49,6 @@ export const SearchForm = props => {
     </div>
   );
 };
-
 
 const useStyles = makeStyles(theme => ({
   searchFormContainer: {

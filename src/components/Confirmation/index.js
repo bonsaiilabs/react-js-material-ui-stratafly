@@ -2,7 +2,8 @@ import React from 'react';
 import { makeStyles, Typography, Grid, Button } from '@material-ui/core';
 import BookingConfirmationIcon from '../../images/bookingcomplete.svg';
 
-export const Confirmation = ({ classes = useStyles(), onClick }) => {
+export const Confirmation = ({ onClick }) => {
+  const classes = useStyles();
   return (
     <Grid container direction="column" alignItems="center" justify="center" className={classes.root}>
       <Grid item className={classes.thanks}>

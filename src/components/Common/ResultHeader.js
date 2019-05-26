@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const ResultHeader = props => {
-  const { classes = useStyles(), icon1, text, icon2 } = props;
+  const { icon1, text, icon2 } = props;
+  const classes = useStyles();
   return (
     <Grid container className={classes.root}>
       <Grid item xs={8}>

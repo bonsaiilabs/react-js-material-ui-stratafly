@@ -2,7 +2,8 @@ import React from 'react';
 import { makeStyles, Grid, Typography } from '@material-ui/core';
 
 export const TravellerWithAge = props => {
-  const { type, age, classes = useStyles() } = props;
+  const { type, age } = props;
+  const classes = useStyles();
   return (
     <Grid container alignItems="center">
       <Grid item xs={12}>

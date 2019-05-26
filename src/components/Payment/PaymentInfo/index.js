@@ -6,7 +6,6 @@ import { makeStyles, Grid } from '@material-ui/core';
 
 export const PaymentInfo = props => {
   const {
-    classes = useStyles(),
     cardNumber,
     cardHolderName,
     expiry,
@@ -18,6 +17,7 @@ export const PaymentInfo = props => {
     onMakePayment,
     disabled
   } = props;
+  const classes = useStyles();
   return (
     <Grid container>
       <Grid item xs={12} className={classes.spacing}>

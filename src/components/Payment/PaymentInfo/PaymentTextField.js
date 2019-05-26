@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles, TextField } from '@material-ui/core';
 
-export const PaymentTextField = ({ classes = useStyles(), value, label, placeholder, onChange, fullWidth, type }) => {
+export const PaymentTextField = ({ value, label, placeholder, onChange, fullWidth, type }) => {
+  const classes = useStyles();
   return (
     <TextField
       label={label}

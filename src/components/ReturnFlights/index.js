@@ -3,16 +3,8 @@ import { SearchResults } from '../../components/SearchResults';
 import { FlightDetailCard } from '../Common/FlightDetailCard';
 import { makeStyles, Grid } from '@material-ui/core';
 
-export const ReturnFlights = ({
-  classes = useStyles(),
-  from,
-  to,
-  flight,
-  onClose,
-  tripType,
-  returnFlights,
-  onSelectFlight
-}) => {
+export const ReturnFlights = ({ from, to, flight, onClose, tripType, returnFlights, onSelectFlight }) => {
+  const classes = useStyles();
   return (
     <Grid container className={classes.root}>
       <Grid item className={classes.margin}>

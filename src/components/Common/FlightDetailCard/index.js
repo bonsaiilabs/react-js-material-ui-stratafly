@@ -5,7 +5,8 @@ import { ReviewFlightHeader } from './ReviewFlightHeader';
 import { ReviewFlightBody } from './ReviewFlightBody';
 import { Card, Grid, makeStyles } from '@material-ui/core';
 
-export const FlightDetailCard = ({ classes = useStyles(), from, to, flight, onClose, headerName }) => {
+export const FlightDetailCard = ({ from, to, flight, onClose, headerName }) => {
+  const classes = useStyles();
   return (
     <Card className={classes.root}>
       <Grid container>

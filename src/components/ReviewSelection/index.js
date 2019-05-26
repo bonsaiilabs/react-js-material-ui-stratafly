@@ -5,22 +5,12 @@ import OneWayIcon from '@material-ui/icons/ArrowRightAlt';
 import { FlightTitle } from './FlightTitle';
 import { trip } from '../../shared/app-constants';
 import { StrataButton } from '../Common/StrataButton';
-import {FlightSummaryCard} from "./FlightSummaryCard";
-import {FlightDetailCard} from "../Common/FlightDetailCard";
+import { FlightSummaryCard } from './FlightSummaryCard';
+import { FlightDetailCard } from '../Common/FlightDetailCard';
 
 export const ReviewSelection = props => {
-  const {
-    classes = useStyles(),
-    from,
-    to,
-    departFlight,
-    returnFlight,
-    tripType,
-    traveller,
-    totalPrice,
-    onClose,
-    onBook
-  } = props;
+  const { from, to, departFlight, returnFlight, tripType, traveller, totalPrice, onClose, onBook } = props;
+  const classes = useStyles();
   const isRoundTrip = tripType === trip.roundTrip;
   const showReturnFlight = Object.entries(returnFlight).length > 0;
 
