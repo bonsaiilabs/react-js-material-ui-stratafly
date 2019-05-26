@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppHeader from '../components/AppHeader';
+import { AppHeader } from '../components/AppHeader';
 import { Theme } from '../Theme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { SearchResults } from '../components/SearchResults';
@@ -14,7 +14,7 @@ import { trip } from '../shared/app-constants';
 import { PaymentContainer } from './PaymentContainer';
 import { Empty } from '../components/Empty';
 import { Confirmation } from '../components/Confirmation';
-import {Desktop} from "../components/Desktop";
+import { Desktop } from '../components/Desktop';
 
 const appScreens = {
   showSearch: false,
