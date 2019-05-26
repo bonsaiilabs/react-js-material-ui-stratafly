@@ -1,8 +1,6 @@
 import React from 'react';
-import IconButton from '@material-ui/core/IconButton';
+import { IconButton, Grid, Typography } from '@material-ui/core';
 import TravellerIcon from '@material-ui/icons/PersonOutlined';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 
 export const Traveller = props => {
   const { classes, onClickTraveller, totalTravellers } = props;

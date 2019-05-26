@@ -1,7 +1,6 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import NoResults from '../../images/noresults.svg';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
 
 export const Empty = props => {
   const { classes = useStyles() } = props;

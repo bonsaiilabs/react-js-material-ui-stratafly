@@ -1,9 +1,7 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 import FlightIcon from '../../../images/flight.svg';
 import { SummaryMetadata } from './SummaryMetadata';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Grid, Card } from '@material-ui/core';
 
 export const FlightSummaryCard = props => {
   const { classes = useStyles(), totalPrice, tripType, flightClass, traveller } = props;

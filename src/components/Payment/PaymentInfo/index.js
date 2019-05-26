@@ -1,9 +1,8 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import { ExpiryCvv } from './ExpiryCvv';
 import { CardNumberName } from './CardNumberName';
 import { MakePaymentButton } from './MakePaymentButton';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
 
 export const PaymentInfo = props => {
   const {

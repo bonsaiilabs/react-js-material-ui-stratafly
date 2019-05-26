@@ -1,7 +1,6 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import { FlightTimesAndCode } from '../../../Common/FlightTimesAndCode';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import { AirlineToIcon } from '../../../../shared/app-constants';
 
 export const IconTimePrice = props => {

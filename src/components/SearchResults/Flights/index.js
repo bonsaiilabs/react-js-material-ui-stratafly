@@ -1,6 +1,5 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import Divider from '@material-ui/core/Divider';
+import { Card, Divider } from '@material-ui/core';
 import { FlightCard } from './FlightCard';
 
 export const Flights = props => {

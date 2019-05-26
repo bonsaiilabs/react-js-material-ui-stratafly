@@ -1,7 +1,5 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, TextField, Grid } from '@material-ui/core';
 
 export const TravellerInfo = ({ classes = useStyles(), fullName, email, onFullNameChange, onEmailChange }) => {
   return (

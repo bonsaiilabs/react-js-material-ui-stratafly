@@ -1,8 +1,7 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import { SearchResults } from '../../components/SearchResults';
 import { FlightDetailCard } from '../Common/FlightDetailCard';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
 
 export const ReturnFlights = ({
   classes = useStyles(),

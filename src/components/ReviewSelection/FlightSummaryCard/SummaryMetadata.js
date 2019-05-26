@@ -1,6 +1,5 @@
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import { airlineClassToLabel } from '../../../shared/app-constants';
 
 export const SummaryMetadata = ({ totalPrice, tripType, flightClass, traveller }) => {

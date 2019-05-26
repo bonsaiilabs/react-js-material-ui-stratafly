@@ -1,7 +1,6 @@
-import Grid from '@material-ui/core/Grid';
 import React from 'react';
 import { codeToCityName } from '../../shared/app-constants';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 
 export const FlightTitle = ({ classes, from, to, icon }) => {
   const fromCity = codeToCityName[from];

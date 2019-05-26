@@ -1,9 +1,7 @@
 import React from 'react';
-import IconButton from '@material-ui/core/IconButton';
 import AddTraveller from '@material-ui/icons/AddCircleOutline';
 import RemoveTraveller from '@material-ui/icons/RemoveCircleOutline';
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
+import { Typography, IconButton, Grid } from '@material-ui/core';
 
 export const AddRemoveTraveller = props => {
   const { type, count, onAdd, onRemove, disableRemove, disableAdd } = props;

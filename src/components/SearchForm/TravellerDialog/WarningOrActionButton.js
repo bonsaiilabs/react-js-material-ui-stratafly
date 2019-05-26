@@ -1,8 +1,6 @@
 import React from 'react';
 import { infantAloneWarning, maxTravellersWarning } from '../../../shared/app-constants';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { Grid, Typography, Button } from '@material-ui/core';
 
 export const WarningOrActionButton = props => {
   const { showMaxWarning, showInfantWarning, onCancel, onDone } = props;

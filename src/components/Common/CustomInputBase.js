@@ -1,6 +1,5 @@
 import React from 'react';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import InputBase from '@material-ui/core/InputBase';
+import { InputBase, InputAdornment } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core';
 
 export const CustomInputBase = ({ classes = useStyles(), onChange, value, placeholder, icon, type }) => {

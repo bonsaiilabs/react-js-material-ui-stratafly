@@ -1,9 +1,6 @@
 import React from 'react';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio';
-import { RadioGroup } from '@material-ui/core';
+import { RadioGroup, Radio, Typography, FormControlLabel } from '@material-ui/core';
 import { trip } from '../../../shared/app-constants';
-import Typography from '@material-ui/core/Typography';
 
 export const TripType = props => {
   const { selectedRadio, onChangeRadio } = props;

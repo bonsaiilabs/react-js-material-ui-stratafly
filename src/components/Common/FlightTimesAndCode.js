@@ -1,7 +1,6 @@
 import ArrowRight from '@material-ui/icons/ArrowRightAlt';
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 
 export const FlightTimesAndCode = props => {
   const { depart, arrive, fromCode, toCode, classes } = props;

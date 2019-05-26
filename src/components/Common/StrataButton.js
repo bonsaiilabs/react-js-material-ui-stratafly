@@ -1,6 +1,5 @@
 import React from 'react';
-import Fab from '@material-ui/core/Fab';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Fab } from '@material-ui/core';
 
 export const StrataButton = ({ classes = useStyles(), label, onClick, disabled }) => {
   return (
