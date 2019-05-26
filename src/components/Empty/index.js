@@ -2,8 +2,8 @@ import React from 'react';
 import NoResults from '../../images/noresults.svg';
 import { makeStyles, Grid } from '@material-ui/core';
 
-export const Empty = props => {
-  const { classes = useStyles() } = props;
+export const Empty = () => {
+  const classes = useStyles();
   return (
     <Grid container className={classes.root} justify={'center'}>
       <Grid item xs={8} className={classes.imageContainer}>
