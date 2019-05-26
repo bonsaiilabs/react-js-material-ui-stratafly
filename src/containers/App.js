@@ -14,6 +14,7 @@ import { trip } from '../shared/app-constants';
 import { PaymentContainer } from './PaymentContainer';
 import { Empty } from '../components/Empty';
 import { Confirmation } from '../components/Confirmation';
+import {Desktop} from "../components/Desktop";
 
 const appScreens = {
   showSearch: false,
@@ -70,6 +71,7 @@ class App extends Component {
   onBookAnotherFlight = () => this.setState(defaultState);
 
   render() {
+    if (window.screen.width >= 1024 && window.screen.height >= 768) return <Desktop />;
     const {
       from,
       to,
