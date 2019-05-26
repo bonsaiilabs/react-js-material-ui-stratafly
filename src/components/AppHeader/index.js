@@ -11,13 +11,13 @@ export const AppHeader = () => {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+          <IconButton className={classes.menuButton}  aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
+          <Typography variant="h6" className={classes.grow}>
             Stratafly
           </Typography>
-          <IconButton color="inherit">
+          <IconButton>
             <AccountCircle />
           </IconButton>
         </Toolbar>
@@ -31,6 +31,6 @@ const useStyles = makeStyles({
   grow: { flexGrow: 1 },
   menuButton: {
     marginLeft: -12,
-    marginRight: 200
+    marginRight: 20
   }
 });
