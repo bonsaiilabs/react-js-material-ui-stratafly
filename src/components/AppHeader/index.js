@@ -31,6 +31,6 @@ const useStyles = makeStyles({
   grow: { flexGrow: 1 },
   menuButton: {
     marginLeft: -12,
-    marginRight: 200
+    marginRight: 20
   }
 });
