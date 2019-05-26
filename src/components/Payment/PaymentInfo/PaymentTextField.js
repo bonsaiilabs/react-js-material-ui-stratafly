@@ -1,8 +1,7 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import withStyles from '@material-ui/core/styles/withStyles';
+import { makeStyles, TextField } from '@material-ui/core';
 
-const PaymentTextField = ({ classes, value, label, placeholder, onChange, fullWidth, type }) => {
+export const PaymentTextField = ({ classes = useStyles(), value, label, placeholder, onChange, fullWidth, type }) => {
   return (
     <TextField
       label={label}
@@ -17,8 +16,9 @@ const PaymentTextField = ({ classes, value, label, placeholder, onChange, fullWi
     />
   );
 };
-const styles = theme => ({
-  inputLabel: { color: theme.palette.text.primaryMediumEmphasis, shrink: true }
-});
-
-export default withStyles(styles)(PaymentTextField);
+const useStyles = makeStyles(theme => ({
+  inputLabel: {
+    color: theme.palette.text.primaryMediumEmphasis,
+    shrink: true
+  }
+}));

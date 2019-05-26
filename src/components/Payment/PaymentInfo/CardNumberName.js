@@ -1,5 +1,5 @@
 import React from 'react';
-import PaymentTextField from './PaymentTextField';
+import { PaymentTextField } from './PaymentTextField';
 import Grid from '@material-ui/core/Grid';
 
 export const CardNumberName = ({ cardNumber, onCardNumberChange, cardHolderName, onCardHolderNameChange }) => {

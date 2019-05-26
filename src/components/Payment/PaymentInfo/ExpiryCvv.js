@@ -1,6 +1,6 @@
 import React from 'react';
-import PaymentTextField from './PaymentTextField';
 import Grid from '@material-ui/core/Grid';
+import {PaymentTextField} from "./PaymentTextField";
 
 export const ExpiryCvv = ({ expiry, onExpiryChange, cvv, onCvvChange }) => {
   return (
