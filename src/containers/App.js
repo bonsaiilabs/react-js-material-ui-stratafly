@@ -4,7 +4,7 @@ import { Theme } from '../Theme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { Desktop } from '../components/Desktop';
 import { SearchForm } from '../components/SearchForm';
-import {formatDate} from "../shared/util";
+import { formatDate } from '../shared/util';
 
 class App extends Component {
   render() {
