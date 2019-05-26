@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { AddRemoveTraveller } from './AddRemoveTraveller';
-import  TravellerWithAge  from './TravellerWithAge';
+import { TravellerWithAge } from './TravellerWithAge';
 
 export const TravellerRows = props => {
   let { personAgeCount, onAdd, onRemove } = props;

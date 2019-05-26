@@ -1,10 +1,8 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
+import { makeStyles, Grid, Typography } from '@material-ui/core';
 
 export const TravellerWithAge = props => {
-  const { type, age, classes } = props;
+  const { type, age, classes = useStyles() } = props;
   return (
     <Grid container alignItems="center">
       <Grid item xs={12}>
@@ -21,6 +19,8 @@ export const TravellerWithAge = props => {
   );
 };
 
-const styles = theme => ({ age: { color: theme.palette.text.primaryMediumEmphasis } });
-
-export default withStyles(styles)(TravellerWithAge);
+const useStyles = makeStyles(theme => ({
+  age: {
+    color: theme.palette.text.primaryMediumEmphasis
+  }
+}));
