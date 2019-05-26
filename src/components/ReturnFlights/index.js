@@ -16,7 +16,7 @@ export const ReturnFlights = ({
   return (
     <Grid container className={classes.root}>
       <Grid item className={classes.margin}>
-        <FlightDetailCard from={from} to={to} flight={flight} onClose={onClose} headerName={'Departure flight'} />
+        <FlightDetailCard from={from} to={to} flight={flight} onClose={'onClose'} headerName={'Departure flight'} />
       </Grid>
       <Grid item>
         <SearchResults
@@ -35,7 +35,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(8)
   },
   margin: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    margin: theme.spacing(1)
   }
 }));
