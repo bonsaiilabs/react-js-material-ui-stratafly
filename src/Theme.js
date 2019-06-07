@@ -22,7 +22,6 @@ export const Theme = createMuiTheme({
     }
   },
   typography: {
-    useNextVariants: true,
     subtitle1: { fontWeight: 500 }
   }
 });
