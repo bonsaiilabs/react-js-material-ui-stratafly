@@ -43,8 +43,8 @@ export const AirlineIcon = props => {
 export const Price = props => {
   const { price } = props;
   return (
-    <Grid container direction="column" alignItems="center">
-      <Grid item xs={12}>
+    <Grid container justify="center">
+      <Grid item>
         <Typography variant="subtitle1" color="secondary">
           {'$' + price}
         </Typography>
