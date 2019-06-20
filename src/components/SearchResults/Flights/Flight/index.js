@@ -4,7 +4,7 @@ import { StopDurationAirline } from './StopDurationAirline';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
-export const FlightCard = props => {
+export const Flight = props => {
   const { flight, tripType, from, to, onSelect, classes } = props;
   let nonStop = stops.nonStop;
   let oneStop = stops.oneStop + ' at ' + flight.viaAirlineCode;
