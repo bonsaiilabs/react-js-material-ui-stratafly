@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import { FlightTimesAndCode } from '../../FlightTimesAndCode';
-import { StopDurationAirline } from '../../../SearchResults/Flights/FlightCard/StopDurationAirline';
+import { StopDurationAirline } from '../../../SearchResults/Flights/Flight/StopDurationAirline';
 import React from 'react';
 
 export const Summary = ({ from, to, flight, classes, stop }) => {
