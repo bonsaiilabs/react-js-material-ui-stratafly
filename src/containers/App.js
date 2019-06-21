@@ -29,7 +29,10 @@ class App extends Component {
         />
 
         {showEmpty && <Empty />}
-        {!showEmpty && <SearchResults flights={testFlights} onSelect={() => console.log('flight-selected')} />}
+        {!showEmpty &&
+        <SearchResults flights={this.state.departFlights}
+                       onSelect={() => console.log('flight-selected')}
+        />}
       </MuiThemeProvider>
     );
   }
