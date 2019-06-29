@@ -1,33 +1,12 @@
 import React from 'react';
-import { maxTravellersAllowed } from '../shared/app-constants';
 import { SearchForm } from '../components/SearchForm';
-import { TravellerDialog } from '../components/SearchForm/TravellerDialog';
 import { oneWaySearch, roundTripSearch } from '../shared/flightSearch';
-import {
-  getTotalTravellers,
-  increaseAndUpdateTravellers,
-  isInfantAlone,
-  reduceAndUpdateTravellers,
-  getDateToString,
-  getStringToDate,
-  isEmptyString
-} from '../shared/util';
-
-const defaultTravellers = [
-  { type: 'Adult', age: '(12 + yr)', count: 1, disableAdd: false, disableRemove: true },
-  { type: 'Child', age: '(2 - 11yr)', count: 0, disableAdd: false, disableRemove: true },
-  { type: 'Infant', age: '(0 - 2yr)', count: 0, disableAdd: false, disableRemove: true }
-];
+import { getDateToString, getStringToDate, isEmptyString } from '../shared/util';
 
 export default class SearchFormContainer extends React.Component {
   state = {
     selectedRadio: 'round-trip',
     totalTravellers: 1,
-    showTravellerDialog: false,
-    lastChosenTravellers: defaultTravellers,
-    draftTravellers: defaultTravellers,
-    showMaxWarning: false,
-    showInfantWarning: false,
     fromLocation: '',
     toLocation: '',
     fromDate: new Date(),
@@ -54,54 +33,6 @@ export default class SearchFormContainer extends React.Component {
     this.setState({ toDate: getStringToDate(date) }, this.onChangeSearchCriteria);
   };
 
-  onClickTraveller = () => {
-    this.setState({ showTravellerDialog: true });
-  };
-
-  onAddTraveller = (count, travellerType) => {
-    let draftTravellers = increaseAndUpdateTravellers(
-      this.state.draftTravellers,
-      travellerType,
-      count,
-      maxTravellersAllowed
-    );
-    let totalTravellers = getTotalTravellers(draftTravellers);
-    if (totalTravellers > maxTravellersAllowed) this.setState({ showMaxWarning: true, draftTravellers });
-    else if (isInfantAlone(draftTravellers[2], draftTravellers[0]))
-      this.setState({ showInfantWarning: true, draftTravellers });
-    else this.setState({ draftTravellers });
-  };
-
-  onRemoveTraveller = (count, travellerType) => {
-    let draftTravellers = reduceAndUpdateTravellers(this.state.draftTravellers, travellerType, count);
-    let totalTravellers = getTotalTravellers(draftTravellers);
-    if (totalTravellers <= maxTravellersAllowed && this.state.showMaxWarning)
-      this.setState({ showMaxWarning: false, draftTravellers });
-    else if (!isInfantAlone(draftTravellers[2], draftTravellers[0]) && this.state.showInfantWarning)
-      this.setState({ showInfantWarning: false, draftTravellers });
-    else this.setState({ draftTravellers });
-  };
-
-  onCancelTravellerDialog = () => {
-    this.setState(state => ({
-      showTravellerDialog: false,
-      draftTravellers: state.lastChosenTravellers,
-      showMaxWarning: false,
-      showInfantWarning: false
-    }));
-  };
-
-  onDoneTravellerDialog = () => {
-    this.setState(
-      state => ({
-        showTravellerDialog: false,
-        lastChosenTravellers: state.draftTravellers,
-        totalTravellers: getTotalTravellers(state.draftTravellers)
-      }),
-      this.onChangeSearchCriteria
-    );
-  };
-
   onChangeSearchCriteria = () => {
     const { fromDate, toDate, fromLocation, toLocation, selectedRadio, totalTravellers } = this.state;
     const isRoundTrip = selectedRadio === 'round-trip';
@@ -118,7 +49,6 @@ export default class SearchFormContainer extends React.Component {
         <SearchForm
           selectedRadio={this.state.selectedRadio}
           onChangeRadio={this.onChangeRadio}
-          onClickTraveller={this.onClickTraveller}
           totalTravellers={this.state.totalTravellers}
           onChangeFromLocation={this.onChangeFromLocation}
           onChangeToLocation={this.onChangeToLocation}
@@ -129,18 +59,6 @@ export default class SearchFormContainer extends React.Component {
           onFromDateChange={this.onFromDateChange}
           onToDateChange={this.onToDateChange}
         />
-        {this.state.showTravellerDialog && (
-          <TravellerDialog
-            open={this.state.showTravellerDialog}
-            onClose={this.onCancelTravellerDialog}
-            onDone={this.onDoneTravellerDialog}
-            personAgeCount={this.state.draftTravellers}
-            onAdd={this.onAddTraveller}
-            onRemove={this.onRemoveTraveller}
-            showMaxWarning={this.state.showMaxWarning}
-            showInfantWarning={this.state.showInfantWarning}
-          />
-        )}
       </>
     );
   }

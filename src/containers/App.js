@@ -7,9 +7,10 @@ import SearchFormContainer from './SearchFormContainer';
 import { isArrayEmpty, isObjectEmpty } from '../shared/util';
 import { filterEconomyFlights } from '../shared/flightSearch';
 import { updateFlightsWithPrices } from '../shared/flightSearch';
-import { trip } from '../shared/app-constants';
 import { Empty } from '../components/Empty';
 import { Desktop } from '../components/Desktop';
+import { TravellerDialog } from '../components/SearchForm/TravellerDialog';
+import { defaultTravellers } from '../shared/app-constants';
 
 const defaultState = {
   from: '',
@@ -35,17 +36,10 @@ class App extends Component {
     this.setState({ from, to, isRoundTrip, totalTravellers, departFlights, returnFlights });
   };
 
-  //TODO: Refactor this later
-  onSelectDepartFlight = flight => {
-    if (this.state.isRoundTrip)
-      this.setState({ selectedDepartFlight: flight, controlFlow: makeActive('showReturnFlights') });
-    else this.setState({ selectedDepartFlight: flight, controlFlow: makeActive('showReview') });
-  };
 
   render() {
     if (window.screen.width >= 1024 && window.screen.height >= 768) return <Desktop />;
     const { departFlights } = this.state;
-
     const showEmpty = isObjectEmpty(departFlights);
 
     return (
@@ -53,8 +47,18 @@ class App extends Component {
         <>
           <AppHeader />
           <SearchFormContainer onSearch={this.onSearch} />
+          <TravellerDialog
+            open={false}
+            onClose={() => console.log('closingDialog')}
+            onDone={() => console.log('Done')}
+            personAgeCount={defaultTravellers}
+            onAdd={() => console.log('Add travellers')}
+            onRemove={() => console.log('Remove travellers')}
+            showMaxWarning={false}
+            showInfantWarning={false}
+          />
           {showEmpty && <Empty />}
-          {!showEmpty && <SearchResults flights={departFlights} onSelect={this.onSelectDepartFlight} />}
+          {!showEmpty && <SearchResults flights={departFlights} onSelect={() => console.log('flight-selected')} />}
         </>
       </MuiThemeProvider>
     );
