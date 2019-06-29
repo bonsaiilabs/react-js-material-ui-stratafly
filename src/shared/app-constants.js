@@ -30,13 +30,37 @@ export const AirlineToIcon = {
   'Southwest Airlines': SouthWest
 };
 
-export const airlineClassToLabel = { economy: 'Economy' };
-
-export const codeToCityName = { 'YVR': 'Vancouver', 'SFO': 'San Francisco'};
-
-export const flightInfo = {
-  legRoom: 'Above average legroom',
-  wifi: 'Wifi onBoard',
-  usb: 'In-seat power and USB outlets',
- delayMessage:  'This flight is often delayed by 30+ minutes'
+export const testFlights = {
+  from: 'YVR',
+  to: 'SFO',
+  date: new Date(),
+  flightsWithFares: [
+    {
+      airline: 'Air Canada',
+      airlineCode: 'AC8840',
+      arrive: '11:13',
+      class: 'economy',
+      depart: '08:40',
+      price: 300,
+      stops: 'Nonstop',
+      totalTime: '2h 33m'
+    },
+    {
+      airline: 'American Airlines',
+      airlineCode: 'AA6072',
+      arrive: '13:15',
+      class: 'economy',
+      depart: '06:44',
+      price: 400,
+      stops: '1 stop',
+      totalTime: '6h',
+      viaAirlineCode: 'LAX'
+    }
+  ]
 };
+
+export const defaultTravellers = [
+  { type: 'Adult', age: '(12 + yr)', count: 1, disableAdd: false, disableRemove: true },
+  { type: 'Child', age: '(2 - 11yr)', count: 0, disableAdd: false, disableRemove: true },
+  { type: 'Infant', age: '(0 - 2yr)', count: 0, disableAdd: false, disableRemove: true }
+];
