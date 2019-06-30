@@ -38,18 +38,15 @@ class App extends Component {
     if (window.screen.width >= 1024 && window.screen.height >= 768) return <Desktop />;
     const { departFlights } = this.state;
 
-    const { showConfirm } = this.state.controlFlow;
     const showEmpty = isObjectEmpty(departFlights);
     return (
       <MuiThemeProvider theme={Theme}>
-        {!showConfirm && (
-          <>
-            <AppHeader />
-            <SearchFormContainer onSearch={this.onSearch} />
-            {showEmpty && <Empty />}
-            {!showEmpty && <SearchResults flights={departFlights} onSelect={() => console.log('flight-selected')} />}
-          </>
-        )}
+        <>
+          <AppHeader />
+          <SearchFormContainer onSearch={this.onSearch} />
+          {showEmpty && <Empty />}
+          {!showEmpty && <SearchResults flights={departFlights} onSelect={() => console.log('flight-selected')} />}
+        </>
       </MuiThemeProvider>
     );
   }
