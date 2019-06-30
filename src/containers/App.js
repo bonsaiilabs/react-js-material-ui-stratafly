@@ -34,12 +34,6 @@ class App extends Component {
     this.setState({ from, to, isRoundTrip, totalTravellers, departFlights, returnFlights });
   };
 
-  onSelectDepartFlight = flight => {
-    if (this.state.isRoundTrip)
-      this.setState({ selectedDepartFlight: flight, controlFlow: makeActive('showReturnFlights') });
-    else this.setState({ selectedDepartFlight: flight, controlFlow: makeActive('showReview') });
-  };
-
   render() {
     if (window.screen.width >= 1024 && window.screen.height >= 768) return <Desktop />;
     const { departFlights } = this.state;
@@ -53,7 +47,7 @@ class App extends Component {
             <AppHeader />
             <SearchFormContainer onSearch={this.onSearch} />
             {showEmpty && <Empty />}
-            {!showEmpty && <SearchResults flights={departFlights} onSelect={this.onSelectDepartFlight} />}
+            {!showEmpty && <SearchResults flights={departFlights} onSelect={() => console.log('flight-selected')} />}
           </>
         )}
       </MuiThemeProvider>
