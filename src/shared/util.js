@@ -14,30 +14,6 @@ export const getStringToDate = date => {
   return new Date(year, month - 1, day);
 };
 
-export const increaseAndUpdateTravellers = (travellers, type, count, maxAllowed) => {
-  let updated = { count: count + 1, disableRemove: false };
-  if (updated.count === maxAllowed) updated.disableAdd = true;
-  return travellers.map(entry => (entry.type === type ? Object.assign({}, entry, updated) : entry));
-};
-
-export const reduceAndUpdateTravellers = (travellers, type, count) => {
-  let updated = { count: count - 1, disableAdd: false };
-  let isZeroChildOrInfant = (type === 'Child' || type === 'Infant') && updated.count === 0;
-  let isOneAdult = type === 'Adult' && updated.count === 1;
-
-  if (isZeroChildOrInfant) updated.disableRemove = true;
-  if (isOneAdult) updated.disableRemove = true;
-  return travellers.map(entry => (entry.type === type ? Object.assign({}, entry, updated) : entry));
-};
-
-export const getTotalTravellers = travellers => {
-  return travellers.reduce((accumulator, entry) => accumulator + entry.count, 0);
-};
-
-export const isInfantAlone = (infant, adult) => {
-  return infant['count'] > adult['count'];
-};
-
 export const isObjectEmpty = obj => Object.entries(obj).length === 0 || typeof obj === 'undefined';
 
 export const isArrayEmpty = arr => arr.length === 0 || typeof arr === 'undefined';
