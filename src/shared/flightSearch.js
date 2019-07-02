@@ -1,5 +1,4 @@
 import { flights_schedules } from '../data/flightSchedules';
-import { isArrayEmpty, isObjectEmpty, isUndefined } from './util';
 
 const destinations = new Set(['YVR', 'SFO']);
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -32,21 +31,4 @@ export const roundTripSearch = (from, to, departureDate, returnDate) => {
   const departing = oneWaySearch(from, to, departureDate);
   const returning = oneWaySearch(to, from, returnDate);
   return [].concat(departing, returning);
-};
-
-export const filterEconomyFlights = flightResults => {
-  let flightsWithFares = flightResults['flightsWithFares'] || [];
-  const economyFlights = flightsWithFares.filter(flight => flight.class === 'economy');
-  return Object.assign({}, flightResults, { flightsWithFares: economyFlights });
-};
-
-export const updateFlightsWithPrices = (results, totalTravellers) => {
-  if (isObjectEmpty(results)) return {};
-  let updatedFlightsWithFares = addPriceForTravellers(results.flightsWithFares, totalTravellers);
-  return Object.assign({}, results, { flightsWithFares: updatedFlightsWithFares });
-};
-
-const addPriceForTravellers = (flights, totalTravellers) => {
-  if (totalTravellers === 1 || isUndefined(totalTravellers) || isArrayEmpty(flights)) return flights;
-  return flights.map(flight => Object.assign({}, flight, { price: flight.price * totalTravellers }));
 };
