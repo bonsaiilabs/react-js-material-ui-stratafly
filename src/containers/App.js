@@ -6,7 +6,6 @@ import { SearchResults } from '../components/SearchResults';
 import SearchFormContainer from './SearchFormContainer';
 import { isArrayEmpty, isObjectEmpty } from '../shared/util';
 import { filterEconomyFlights } from '../shared/flightSearch';
-import { updateFlightsWithPrices } from '../shared/flightSearch';
 import { Empty } from '../components/Empty';
 import { Desktop } from '../components/Desktop';
 import { TravellerDialog } from '../components/SearchForm/TravellerDialog';
@@ -29,10 +28,8 @@ class App extends Component {
   onSearch = (results, isRoundTrip, totalTravellers) => {
     const from = !isArrayEmpty(results) ? results[0].from : '';
     const to = !isArrayEmpty(results) ? results[0].to : '';
-    const economyDepartFlights = filterEconomyFlights(results[0] || {});
-    const economyReturnFlights = filterEconomyFlights(results[1] || {});
-    const departFlights = updateFlightsWithPrices(economyDepartFlights || {}, totalTravellers);
-    const returnFlights = updateFlightsWithPrices(economyReturnFlights || {}, totalTravellers);
+    const departFlights = filterEconomyFlights(results[0] || {});
+    const returnFlights = filterEconomyFlights(results[1] || {});
     this.setState({ from, to, isRoundTrip, totalTravellers, departFlights, returnFlights });
   };
 

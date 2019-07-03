@@ -18,6 +18,4 @@ export const isObjectEmpty = obj => Object.entries(obj).length === 0 || typeof o
 
 export const isArrayEmpty = arr => arr.length === 0 || typeof arr === 'undefined';
 
-export const isUndefined = any => typeof any === 'undefined';
-
 export const isEmptyString = string => typeof string === 'undefined' || string.length === 0 || string === null;
