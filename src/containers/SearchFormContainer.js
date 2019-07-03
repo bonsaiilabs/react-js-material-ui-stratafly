@@ -1,5 +1,5 @@
 import React from 'react';
-import { maxTravellersAllowed } from '../shared/app-constants';
+import {defaultTravellers, maxTravellersAllowed} from '../shared/app-constants';
 import { SearchForm } from '../components/SearchForm';
 import { TravellerDialog } from '../components/SearchForm/TravellerDialog';
 import { oneWaySearch, roundTripSearch } from '../shared/flightSearch';
@@ -12,12 +12,6 @@ import {
   getStringToDate,
   isEmptyString
 } from '../shared/util';
-
-const defaultTravellers = [
-  { type: 'Adult', age: '(12 + yr)', count: 1, disableAdd: false, disableRemove: true },
-  { type: 'Child', age: '(2 - 11yr)', count: 0, disableAdd: false, disableRemove: true },
-  { type: 'Infant', age: '(0 - 2yr)', count: 0, disableAdd: false, disableRemove: true }
-];
 
 export default class SearchFormContainer extends React.Component {
   state = {
