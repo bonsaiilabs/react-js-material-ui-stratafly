@@ -18,14 +18,13 @@ const defaultState = {
   returnFlights: {},
   totalTravellers: 1,
   isRoundTrip: true,
-  selectedDepartFlight: {},
-  selectedReturnFlight: {}
 };
 
 class App extends Component {
   state = defaultState;
 
   onSearch = (results, isRoundTrip, totalTravellers) => {
+    console.log(results)
     const from = !isArrayEmpty(results) ? results[0].from : '';
     const to = !isArrayEmpty(results) ? results[0].to : '';
     const departFlights = filterEconomyFlights(results[0] || {});
