@@ -13,12 +13,12 @@ export const ReviewSelection = props => {
   const classes = useStyles();
   const isRoundTrip = tripType === trip.roundTrip;
   const showReturnFlight = Object.entries(returnFlight).length > 0;
-
+  console.log(isRoundTrip)
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12} className={classes.titleContainer}>
         {isRoundTrip && <FlightTitle from={from} to={to} icon={<RoundTripIcon className={classes.icon} />} />}
-        {!isRoundTrip && <FlightTitle from={from} to={to} icon={<OneWayIcon className={classes.icon} />} />}
+        {!isRoundTrip && <FlightTitle from={from} to={to} icon={<OneWayIcon className={classes.icon} />} style={{border: '2px solid red'}}/>}
       </Grid>
 
       <Grid item xs={12} className={classes.summaryCard}>
@@ -53,7 +53,7 @@ export const ReviewSelection = props => {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: theme.spacing(1)
+    marginTop: theme.spacing(1), border: '2px solid red'
   },
   summaryCard: {
     margin: theme.spacing(1)
