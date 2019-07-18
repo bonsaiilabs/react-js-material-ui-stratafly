@@ -16,7 +16,6 @@ import { Desktop } from '../components/Desktop';
 const appScreens = {
   showSearch: false,
   showReview: false,
-  showReturnFlights: false,
   showBooking: false
 };
 const makeActive = screen => Object.assign({}, appScreens, { [screen]: true });
@@ -29,7 +28,6 @@ const defaultState = {
   totalTravellers: 1,
   isRoundTrip: true,
   selectedDepartFlight: {},
-  selectedReturnFlight: {},
   controlFlow: makeActive('showSearch')
 };
 
