@@ -20,7 +20,7 @@ const appScreens = {
   showSearch: false,
   showReview: false,
   showReturnFlights: false,
-  showBooking: false
+  showPayment: false
 };
 const makeActive = screen => Object.assign({}, appScreens, { [screen]: true });
 
@@ -62,7 +62,7 @@ class App extends Component {
     this.setState({ selectedReturnFlight: flight, controlFlow: makeActive('showReview') });
   };
 
-  onBook = () => this.setState({ controlFlow: makeActive('showBooking') });
+  onBook = () => this.setState({ controlFlow: makeActive('showPayment') });
 
   backToReview = () => this.setState({ controlFlow: makeActive('showReview') });
 
@@ -83,7 +83,7 @@ class App extends Component {
       isRoundTrip
     } = this.state;
 
-    const { showReturnFlights, showReview, showBooking, showConfirm } = this.state.controlFlow;
+    const { showReturnFlights, showReview, showPayment, showConfirm } = this.state.controlFlow;
     const showEmpty = isObjectEmpty(departFlights);
     const totalPrice = isRoundTrip
       ? selectedDepartFlight.price + selectedReturnFlight.price
@@ -125,7 +125,7 @@ class App extends Component {
           />
         </StrataFullScreenDialog>
 
-        <StrataFullScreenDialog open={showBooking} onBack={this.backToReview} label={'Payment'}>
+        <StrataFullScreenDialog open={showPayment} onBack={this.backToReview} label={'Payment'}>
           <PaymentContainer onMakePayment={this.onMakePayment} />
         </StrataFullScreenDialog>
 
