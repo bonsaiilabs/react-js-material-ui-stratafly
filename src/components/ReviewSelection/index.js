@@ -59,7 +59,8 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1)
   },
   titleContainer: {
-    margin: theme.spacing(1)
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(2),
   },
   icon: {
     color: theme.palette.text.primaryMediumEmphasis
