@@ -2,7 +2,7 @@ import React from 'react';
 import { codeToCityName } from '../../shared/app-constants';
 import { Typography, Grid } from '@material-ui/core';
 
-export const FlightTitle = ({ classes, from, to, icon }) => {
+export const FlightTitle = ({ from, to, icon }) => {
   const fromCity = codeToCityName[from];
   const toCity = codeToCityName[to];
   return (
