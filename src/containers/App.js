@@ -15,8 +15,7 @@ import { Desktop } from '../components/Desktop';
 
 const appScreens = {
   showSearch: false,
-  showReview: false,
-  showBooking: false
+  showReview: false
 };
 const makeActive = screen => Object.assign({}, appScreens, { [screen]: true });
 
@@ -28,6 +27,7 @@ const defaultState = {
   totalTravellers: 1,
   isRoundTrip: true,
   selectedDepartFlight: {},
+  selectedReturnFlight: {},
   controlFlow: makeActive('showSearch')
 };
 
@@ -52,8 +52,6 @@ class App extends Component {
 
   backToSearch = () =>
     this.setState({ controlFlow: makeActive('showSearch'), selectedDepartFlight: {}, selectedReturnFlight: {} });
-
-  onBook = () => this.setState({ controlFlow: makeActive('showBooking') });
 
   render() {
     if (window.screen.width >= 1024 && window.screen.height >= 768) return <Desktop />;
@@ -94,7 +92,7 @@ class App extends Component {
             traveller={totalTravellers + ' Traveller'}
             totalPrice={totalPrice}
             onClose={this.backToSearch}
-            onBook={this.onBook}
+            onBook={() => console.log('Clicked BOOK')}
           />
         </StrataFullScreenDialog>
       </MuiThemeProvider>
