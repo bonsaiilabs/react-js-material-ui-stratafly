@@ -17,7 +17,7 @@ export const ReviewSelection = props => {
     <Grid container className={classes.root}>
       <Grid item xs={12} className={classes.titleContainer}>
         {isRoundTrip && <FlightTitle from={from} to={to} icon={<RoundTripIcon className={classes.icon} />} />}
-        {!isRoundTrip && <FlightTitle from={from} to={to} icon={<OneWayIcon className={classes.icon} />} style={{border: '2px solid red'}}/>}
+        {!isRoundTrip && <FlightTitle from={from} to={to} icon={<OneWayIcon className={classes.icon} />} />}
       </Grid>
 
       <Grid item xs={12} className={classes.summaryCard}>
@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
   },
   titleContainer: {
     paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(2),
+    paddingBottom: theme.spacing(2)
   },
   icon: {
     color: theme.palette.text.primaryMediumEmphasis
