@@ -63,22 +63,18 @@ class App extends Component {
       isRoundTrip
     } = this.state;
 
-    const { showReview, showConfirm } = this.state.controlFlow;
+    const { showReview } = this.state.controlFlow;
     const showEmpty = isObjectEmpty(departFlights);
-    const totalPrice = isRoundTrip
-      ? selectedDepartFlight.price + selectedReturnFlight.price
-      : selectedDepartFlight.price;
+    const totalPrice = selectedDepartFlight.price;
 
     return (
       <MuiThemeProvider theme={Theme}>
-        {!showConfirm && (
-          <>
-            <AppHeader />
-            <SearchFormContainer onSearch={this.onSearch} />
-            {showEmpty && <Empty />}
-            {!showEmpty && <SearchResults flights={departFlights} onSelect={this.onSelectDepartFlight} />}
-          </>
-        )}
+        <>
+          <AppHeader />
+          <SearchFormContainer onSearch={this.onSearch} />
+          {showEmpty && <Empty />}
+          {!showEmpty && <SearchResults flights={departFlights} onSelect={this.onSelectDepartFlight} />}
+        </>
 
         <StrataFullScreenDialog open={showReview} onBack={this.backToSearch} label={'Review'}>
           <ReviewSelection
