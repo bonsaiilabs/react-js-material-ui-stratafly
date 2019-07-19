@@ -45,9 +45,7 @@ class App extends Component {
   };
 
   onSelectDepartFlight = flight => {
-    if (this.state.isRoundTrip)
-      this.setState({ selectedDepartFlight: flight, controlFlow: makeActive('showReturnFlights') });
-    else this.setState({ selectedDepartFlight: flight, controlFlow: makeActive('showReview') });
+    this.setState({ selectedDepartFlight: flight, controlFlow: makeActive('showReview') });
   };
 
   backToSearch = () =>
