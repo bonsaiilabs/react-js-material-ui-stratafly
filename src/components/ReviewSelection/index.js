@@ -9,10 +9,9 @@ import { FlightSummaryCard } from './FlightSummaryCard';
 import { FlightDetailCard } from '../Common/FlightDetailCard';
 
 export const ReviewSelection = props => {
-  const { from, to, departFlight, returnFlight, tripType, traveller, totalPrice, onClose, onBook } = props;
+  const { from, to, departFlight, tripType, traveller, totalPrice, onClose, onBook } = props;
   const classes = useStyles();
   const isRoundTrip = tripType === trip.roundTrip;
-  const showReturnFlight = Object.entries(returnFlight).length > 0;
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12} className={classes.titleContainer}>
@@ -32,12 +31,6 @@ export const ReviewSelection = props => {
       <Grid item xs={12} className={classes.departCard}>
         <FlightDetailCard from={from} to={to} flight={departFlight} onClose={onClose} headerName={'Departure flight'} />
       </Grid>
-
-      {showReturnFlight && (
-        <Grid item xs={12} className={classes.returnCard}>
-          <FlightDetailCard from={to} to={from} flight={returnFlight} onClose={onClose} headerName={'Return flight'} />
-        </Grid>
-      )}
 
       <Grid item xs={12} className={classes.button}>
         <Grid container justify="center">
@@ -68,10 +61,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: '-10px',
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1)
-  },
-  returnCard: {
-    margin: theme.spacing(1),
-    marginTop: theme.spacing(2)
   },
   button: {
     marginTop: theme.spacing(3)

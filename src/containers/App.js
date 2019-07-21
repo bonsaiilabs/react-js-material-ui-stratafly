@@ -58,7 +58,6 @@ class App extends Component {
       to,
       departFlights,
       selectedDepartFlight,
-      selectedReturnFlight,
       totalTravellers,
       isRoundTrip
     } = this.state;
@@ -81,7 +80,6 @@ class App extends Component {
             from={from}
             to={to}
             departFlight={selectedDepartFlight}
-            returnFlight={selectedReturnFlight}
             tripType={isRoundTrip ? trip.roundTrip : trip.oneWay}
             traveller={totalTravellers + ' Traveller'}
             totalPrice={totalPrice}
