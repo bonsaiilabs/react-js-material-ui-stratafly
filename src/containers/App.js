@@ -16,9 +16,7 @@ const defaultState = {
   departFlights: {},
   returnFlights: {},
   totalTravellers: 1,
-  isRoundTrip: true,
-  selectedDepartFlight: {},
-  selectedReturnFlight: {}
+  isRoundTrip: true
 };
 
 class App extends Component {
