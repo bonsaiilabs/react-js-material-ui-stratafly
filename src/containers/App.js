@@ -27,7 +27,6 @@ const defaultState = {
   totalTravellers: 1,
   isRoundTrip: true,
   selectedDepartFlight: {},
-  selectedReturnFlight: {},
   controlFlow: makeActive('showSearch')
 };
 
@@ -49,7 +48,7 @@ class App extends Component {
   };
 
   backToSearch = () =>
-    this.setState({ controlFlow: makeActive('showSearch'), selectedDepartFlight: {}, selectedReturnFlight: {} });
+    this.setState({ controlFlow: makeActive('showSearch'), selectedDepartFlight: {}});
 
   render() {
     if (window.screen.width >= 1024 && window.screen.height >= 768) return <Desktop />;
