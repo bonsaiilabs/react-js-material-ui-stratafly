@@ -1,16 +1,14 @@
 import React from 'react';
-import ArrowBack from '@material-ui/icons/ArrowBack';
-import { AppBar, Collapse, Typography, IconButton, Toolbar, Dialog } from '@material-ui/core';
-import Slide from '@material-ui/core/Slide';
+import Close from '@material-ui/icons/Close';
+import { AppBar, Typography, IconButton, Toolbar, Dialog } from '@material-ui/core';
 
-export const StrataFullScreenDialog = ({ classes, label, open, onBack, children }) => {
+export const StrataFullScreenDialog = ({ label, open, onBack, children }) => {
   return (
-    <Collapse in={true}>
-      <Dialog fullScreen open={open} onClose={onBack} TransitionComponent={Transition}>
+    <Dialog fullScreen open={open}>
         <AppBar position="fixed">
           <Toolbar>
             <IconButton color="inherit" onClick={onBack} aria-label="Close">
-              <ArrowBack />
+            <Close />
             </IconButton>
             <Typography variant="h6" color="inherit">
               {label}
@@ -19,10 +17,5 @@ export const StrataFullScreenDialog = ({ classes, label, open, onBack, children 
         </AppBar>
         {children}
       </Dialog>
-    </Collapse>
   );
 };
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="left" ref={ref} {...props} />;
-});
