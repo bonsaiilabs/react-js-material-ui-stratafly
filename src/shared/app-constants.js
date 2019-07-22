@@ -30,6 +30,12 @@ export const AirlineToIcon = {
   'Southwest Airlines': SouthWest
 };
 
+export const defaultTravellers = [
+  { type: 'Adult', age: '(12 + yr)', count: 1, disableAdd: false, disableRemove: true },
+  { type: 'Child', age: '(2 - 11yr)', count: 0, disableAdd: false, disableRemove: true },
+  { type: 'Infant', age: '(0 - 2yr)', count: 0, disableAdd: false, disableRemove: true }
+];
+
 export const airlineClassToLabel = { economy: 'Economy' };
 
 export const codeToCityName = { 'YVR': 'Vancouver', 'SFO': 'San Francisco'};
