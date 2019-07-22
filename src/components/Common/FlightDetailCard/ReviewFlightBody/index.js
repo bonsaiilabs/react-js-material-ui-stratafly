@@ -6,7 +6,7 @@ import { Summary } from './Summary';
 import { Detail } from './Detail';
 
 export const ReviewFlightBody = ({ from, to, flight }) => {
-  let stop = flight.stops === stops.nonStop ? stops.nonStop : stops.oneStop + ' at ' + flight.viaAirlineCode + '. ';
+  let stop = flight.stops === stops.nonStop ? stops.nonStop : stops.oneStop + ' at ' + flight.viaAirlineCode;
   const classes = useStyles();
   return (
     <ExpansionPanel>
