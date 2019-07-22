@@ -109,7 +109,6 @@ class App extends Component {
             onSelectFlight={this.onSelectReturnFlight}
           />
         </StrataFullScreenDialog>
-        )}
       </MuiThemeProvider>
     );
   }
