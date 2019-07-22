@@ -11,16 +11,13 @@ import { StrataFullScreenDialog } from '../components/Common/StrataFullScreenDia
 import { ReviewSelection } from '../components/ReviewSelection';
 import { ReturnFlights } from '../components/ReturnFlights';
 import { trip } from '../shared/app-constants';
-import { PaymentContainer } from './PaymentContainer';
 import { Empty } from '../components/Empty';
-import { Confirmation } from '../components/Confirmation';
 import { Desktop } from '../components/Desktop';
 
 const appScreens = {
   showSearch: false,
   showReview: false,
-  showReturnFlights: false,
-  showPayment: false
+  showReturnFlights: false
 };
 const makeActive = screen => Object.assign({}, appScreens, { [screen]: true });
 
@@ -62,14 +59,6 @@ class App extends Component {
     this.setState({ selectedReturnFlight: flight, controlFlow: makeActive('showReview') });
   };
 
-  onBook = () => this.setState({ controlFlow: makeActive('showPayment') });
-
-  backToReview = () => this.setState({ controlFlow: makeActive('showReview') });
-
-  onMakePayment = () => this.setState({ controlFlow: makeActive('showConfirm') });
-
-  onBookAnotherFlight = () => this.setState(defaultState);
-
   render() {
     if (window.screen.width >= 1024 && window.screen.height >= 768) return <Desktop />;
     const {
@@ -83,7 +72,7 @@ class App extends Component {
       isRoundTrip
     } = this.state;
 
-    const { showReturnFlights, showReview, showPayment, showConfirm } = this.state.controlFlow;
+    const { showReturnFlights, showReview } = this.state.controlFlow;
     const showEmpty = isObjectEmpty(departFlights);
     const totalPrice = isRoundTrip
       ? selectedDepartFlight.price + selectedReturnFlight.price
@@ -91,15 +80,12 @@ class App extends Component {
 
     return (
       <MuiThemeProvider theme={Theme}>
-        {!showConfirm && (
-          <>
-            <AppHeader />
-            <SearchFormContainer onSearch={this.onSearch} />
-            {showEmpty && <Empty />}
-            {!showEmpty && <SearchResults flights={departFlights} onSelect={this.onSelectDepartFlight} />}
-          </>
-        )}
-
+        <>
+          <AppHeader />
+          <SearchFormContainer onSearch={this.onSearch} />
+          {showEmpty && <Empty />}
+          {!showEmpty && <SearchResults flights={departFlights} onSelect={this.onSelectDepartFlight} />}
+        </>
         <StrataFullScreenDialog open={showReview} onBack={this.backToSearch} label={'Review'}>
           <ReviewSelection
             from={from}
@@ -113,7 +99,6 @@ class App extends Component {
             onBook={this.onBook}
           />
         </StrataFullScreenDialog>
-
         <StrataFullScreenDialog open={showReturnFlights} onBack={this.backToSearch} label={'Return flights'}>
           <ReturnFlights
             from={from}
@@ -124,16 +109,6 @@ class App extends Component {
             onSelectFlight={this.onSelectReturnFlight}
           />
         </StrataFullScreenDialog>
-
-        <StrataFullScreenDialog open={showPayment} onBack={this.backToReview} label={'Payment'}>
-          <PaymentContainer onMakePayment={this.onMakePayment} />
-        </StrataFullScreenDialog>
-
-        {showConfirm && (
-          <>
-            <AppHeader />
-            <Confirmation onClick={this.onBookAnotherFlight} />
-          </>
         )}
       </MuiThemeProvider>
     );
