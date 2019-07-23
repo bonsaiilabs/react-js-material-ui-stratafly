@@ -5,7 +5,6 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { SearchResults } from '../components/SearchResults';
 import SearchFormContainer from './SearchFormContainer';
 import { isArrayEmpty, isObjectEmpty } from '../shared/util';
-import { filterEconomyFlights } from '../shared/flightSearch';
 import { Empty } from '../components/Empty';
 import { Desktop } from '../components/Desktop';
 import { TravellerDialog } from '../components/SearchForm/TravellerDialog';
@@ -27,8 +26,8 @@ class App extends Component {
     console.log(results)
     const from = !isArrayEmpty(results) ? results[0].from : '';
     const to = !isArrayEmpty(results) ? results[0].to : '';
-    const departFlights = filterEconomyFlights(results[0] || {});
-    const returnFlights = filterEconomyFlights(results[1] || {});
+    const departFlights = results[0] || {};
+    const returnFlights = results[1] || {};
     this.setState({ from, to, isRoundTrip, totalTravellers, departFlights, returnFlights });
   };
 
