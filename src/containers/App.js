@@ -96,7 +96,7 @@ class App extends Component {
             traveller={totalTravellers + ' Traveller'}
             totalPrice={totalPrice}
             onClose={this.backToSearch}
-            onBook={this.onBook}
+            onBook={() => console.log('Clicked BOOK')}
           />
         </StrataFullScreenDialog>
         <StrataFullScreenDialog open={showReturnFlights} onBack={this.backToSearch} label={'Return flights'}>
