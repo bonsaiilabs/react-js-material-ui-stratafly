@@ -5,7 +5,6 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { SearchResults } from '../components/SearchResults';
 import SearchFormContainer from './SearchFormContainer';
 import { isArrayEmpty, isObjectEmpty } from '../shared/util';
-import { filterEconomyFlights } from '../shared/flightSearch';
 import { updateFlightsWithPrices } from '../shared/flightSearch';
 import { StrataFullScreenDialog } from '../components/Common/StrataFullScreenDialog';
 import { ReviewSelection } from '../components/ReviewSelection';
@@ -42,10 +41,8 @@ class App extends Component {
   onSearch = (results, isRoundTrip, totalTravellers) => {
     const from = !isArrayEmpty(results) ? results[0].from : '';
     const to = !isArrayEmpty(results) ? results[0].to : '';
-    const economyDepartFlights = filterEconomyFlights(results[0] || {});
-    const economyReturnFlights = filterEconomyFlights(results[1] || {});
-    const departFlights = updateFlightsWithPrices(economyDepartFlights || {}, totalTravellers);
-    const returnFlights = updateFlightsWithPrices(economyReturnFlights || {}, totalTravellers);
+    const departFlights = updateFlightsWithPrices(results[0] || {}, totalTravellers);
+    const returnFlights = updateFlightsWithPrices(results[1] || {}, totalTravellers);
     this.setState({ from, to, isRoundTrip, totalTravellers, departFlights, returnFlights });
   };
 
