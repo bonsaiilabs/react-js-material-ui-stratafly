@@ -13,18 +13,18 @@ export const oneWaySearch = (from, to, when) => {
   const flightsOnRoute = flights_schedules[from][to];
   const flightsThisDay = flightsOnRoute.filter(f => f.runsOn.has(dayOfWeek));
 
-  const flightsWithFares = flightsThisDay.map(flight => {
-    const classAndFares = Object.entries(flight.priceByClass).map(entry => ({ class: entry[0], price: entry[1] }));
-    return classAndFares.map(classFare => {
+  const economyFlightsWithFares = flightsThisDay.map(flight => {
+    const classFare = {
+      class: Object.entries(flight.priceByClass)[0][0],
+      price: Object.entries(flight.priceByClass)[0][1]
+    };
       const flightWithClassFare = Object.assign({}, flight, classFare);
       delete flightWithClassFare.priceByClass;
       delete flightWithClassFare.runsOn;
       return flightWithClassFare;
     });
-  });
-  const flightWithFaresFlattened = [].concat(...flightsWithFares);
 
-  return [{ from, to, date: when, flightsWithFares: flightWithFaresFlattened }];
+  return [{ from, to, date: when, flightsWithFares: economyFlightsWithFares }];
 };
 
 export const roundTripSearch = (from, to, departureDate, returnDate) => {
