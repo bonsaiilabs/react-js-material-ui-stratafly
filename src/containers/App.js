@@ -15,7 +15,7 @@ const defaultState = {
   departFlights: {},
   returnFlights: {},
   totalTravellers: 1,
-  isRoundTrip: true
+  isRoundTrip: true,
 };
 
 class App extends Component {
@@ -29,11 +29,12 @@ class App extends Component {
     this.setState({ from, to, isRoundTrip, totalTravellers, departFlights, returnFlights });
   };
 
+
   render() {
     if (window.screen.width >= 1024 && window.screen.height >= 768) return <Desktop />;
     const { departFlights } = this.state;
-
     const showEmpty = isObjectEmpty(departFlights);
+
     return (
       <MuiThemeProvider theme={Theme}>
         <>
