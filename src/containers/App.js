@@ -28,6 +28,7 @@ class App extends Component {
     const to = !isArrayEmpty(results) ? results[0].to : '';
     const departFlights = results[0] || {};
     const returnFlights = results[1] || {};
+    console.log(results);
     this.setState({ from, to, isRoundTrip, totalTravellers, departFlights, returnFlights });
   };
 
