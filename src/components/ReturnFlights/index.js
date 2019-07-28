@@ -8,7 +8,7 @@ export const ReturnFlights = ({ from, to, flight, onClose, tripType, returnFligh
   return (
     <Grid container className={classes.root}>
       <Grid item className={classes.margin}>
-        <FlightDetailCard from={from} to={to} flight={flight} onClose={'onClose'} headerName={'Departure flight'} />
+        <FlightDetailCard from={from} to={to} flight={flight} onClose={onClose} headerName={'Departure flight'} />
       </Grid>
       <Grid item>
         <SearchResults
