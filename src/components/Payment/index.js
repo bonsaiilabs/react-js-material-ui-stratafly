@@ -55,7 +55,7 @@ export const Payment = props => {
         />
       </Grid>
 
-      <Grid item className={classes.buttonMargin}>
+      <Grid item className={classes.makePaymentButton}>
         <MakePaymentButton onMakePayment={onMakePayment} disabled={disabled} />
       </Grid>
     </Grid>
@@ -70,5 +70,5 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
     color: theme.palette.text.primaryMediumEmphasis
   },
-  buttonMargin: { marginTop: theme.spacing(3) }
+  makePaymentButton:{ marginTop: theme.spacing(3)}
 }));
