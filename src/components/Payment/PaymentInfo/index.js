@@ -1,7 +1,6 @@
 import React from 'react';
 import { ExpiryCvv } from './ExpiryCvv';
 import { CardNumberName } from './CardNumberName';
-import { MakePaymentButton } from './MakePaymentButton';
 import { makeStyles, Grid } from '@material-ui/core';
 
 export const PaymentInfo = props => {
@@ -13,17 +12,14 @@ export const PaymentInfo = props => {
     onCardNumberChange,
     onCardHolderNameChange,
     onExpiryChange,
-    onCvvChange,
-    onMakePayment,
-    disabled
+    onCvvChange
   } = props;
   const classes = useStyles();
   return (
     <Grid container>
       <Grid item xs={12} className={classes.spacing}>
         <Grid container alignItems="center" justify="center">
-          <CardNumberName
-            cardNumber={cardNumber}
+          <CardNumberName cardNumber={cardNumber}
             onCardNumberChange={onCardNumberChange}
             cardHolderName={cardHolderName}
             onCardHolderNameChange={onCardHolderNameChange}
@@ -31,10 +27,6 @@ export const PaymentInfo = props => {
 
           <Grid item xs={12}>
             <ExpiryCvv expiry={expiry} onExpiryChange={onExpiryChange} cvv={cvv} onCvvChange={onCvvChange} />
-          </Grid>
-
-          <Grid item xs={12} className={classes.buttonMargin}>
-            <MakePaymentButton onMakePayment={onMakePayment} disabled={disabled} />
           </Grid>
         </Grid>
       </Grid>
@@ -46,6 +38,5 @@ const useStyles = makeStyles(theme => ({
   spacing: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2)
-  },
-  buttonMargin: { marginTop: theme.spacing(2) }
+  }
 }));
