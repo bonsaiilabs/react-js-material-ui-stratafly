@@ -19,7 +19,8 @@ const appScreens = {
   showSearch: false,
   showReview: false,
   showReturnFlights: false,
-  showPayment: false
+  showPayment: false,
+  showConfirm: false
 };
 const makeActive = screen => Object.assign({}, appScreens, { [screen]: true });
 
