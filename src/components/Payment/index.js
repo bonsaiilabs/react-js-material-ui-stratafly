@@ -2,6 +2,7 @@ import React from 'react';
 import { TravellerInfo } from './TravellerInfo';
 import { makeStyles, Typography, Grid } from '@material-ui/core';
 import { PaymentInfo } from './PaymentInfo';
+import { MakePaymentButton } from './MakePaymentButton';
 
 export const Payment = props => {
   const {
@@ -53,6 +54,10 @@ export const Payment = props => {
           disabled={disabled}
         />
       </Grid>
+
+      <Grid item className={classes.makePaymentButton}>
+        <MakePaymentButton onMakePayment={onMakePayment} disabled={disabled} />
+      </Grid>
     </Grid>
   );
 };
@@ -64,5 +69,6 @@ const useStyles = makeStyles(theme => ({
   payment: {
     marginTop: theme.spacing(2),
     color: theme.palette.text.primaryMediumEmphasis
-  }
+  },
+  makePaymentButton:{ marginTop: theme.spacing(3)}
 }));
