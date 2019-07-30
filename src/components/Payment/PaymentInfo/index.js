@@ -19,7 +19,8 @@ export const PaymentInfo = props => {
     <Grid container>
       <Grid item xs={12} className={classes.spacing}>
         <Grid container alignItems="center" justify="center">
-          <CardNumberName cardNumber={cardNumber}
+          <CardNumberName
+            cardNumber={cardNumber}
             onCardNumberChange={onCardNumberChange}
             cardHolderName={cardHolderName}
             onCardHolderNameChange={onCardHolderNameChange}
