@@ -1,0 +1,14 @@
+.Home {
+  text-align: center;
+}
+
+.Home-Page {
+  background-color: #e7f6e7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #000000;
+}
