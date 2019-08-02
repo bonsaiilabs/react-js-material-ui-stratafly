@@ -278,3 +278,9 @@ $ git reset --hard
 $ git checkout module07_02_flight_confirm
 $ npm start
 ```
+
+# License Attribution
+The images used in Stratafly have been taken from Noun Project. Attribution provided below:  
+1. Flight by Juan Pablo Bravo from the Noun Project   
+2. Created by ProSymbols from the Noun Project   
+3. Travel by stephanie wauters from the Noun Project   
