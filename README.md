@@ -279,6 +279,12 @@ $ git checkout module07_02_flight_confirm
 $ npm start
 ```
 
+# Deploy Stratafly
+Watch this [video](https://gist.github.com/deekshasharma/ac112a8c6a7b6598d199349101647371#file-deploy-stratafly-md) for deploying Stratafly using surge.   
+
+Note: Please make sure if you deploy it and showcase it in your portfolio, you add the credit or link(visible) to all the 
+icons and illustrations. Else you might get into trouble by the creators
+
 # License Attribution
 The images used in Stratafly have been taken from Noun Project. Attribution provided below:  
 1. Flight by Juan Pablo Bravo from the Noun Project   
